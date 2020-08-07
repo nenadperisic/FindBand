@@ -5,8 +5,8 @@ Sajt preko koga muzicki bendovi i grupe mogu potraziti novog clana, ili osoba ko
 # How to run
 Clone project to your desired folder.
 Go to client directory and run:
-## 1. npm install
-## 2. npm start
+    1. npm install
+    2. npm start
 
 ## Developers
 
