@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import '../css/Login.css';
 
 class Login extends Component {
@@ -83,10 +84,19 @@ class Login extends Component {
         });
     }
 
-    handleSubmitforAccount() {
+    handleSubmitforAccount = async event => {
         const forAccount = this.state.forAccount;
         if (!this.checkFormValidity(forAccount)) {
             return;
+        }
+
+        try {
+            const response = await axios.post('/api/user/login', forAccount);
+            localStorage.setItem("token", response.data.token)
+            console.log("uspesan log in")
+        } catch (e) {
+            // console.log(e.response.data.message);
+            window.alert("Email or password incorrect!");
         }
 
         console.log(forAccount);

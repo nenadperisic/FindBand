@@ -117,7 +117,8 @@ class Register extends Component {
             await axios.post('/api/user/register', forAccount);
             console.log("Uspesna registracija")
         } catch (e) {
-            console.log(e.response.data.message)
+            window.alert("Account with this email already exists!");
+            // console.log(e.response.data.message)
         }
         
         console.log(forAccount);
