@@ -27,10 +27,13 @@ class Register extends Component {
         const validationEmailRegex = new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$");
         const validationPasswordRegex = new RegExp("^(?=.*\\d).{4,12}$");
 
-        if (entity.email === '' || !validationEmailRegex.test(entity.email)) {
+        if (entity.accountType === "" || entity.accountType === "not_selected") {
+            window.alert("Account type not selected!");
+            return false;
+        } else if (entity.email === "" || !validationEmailRegex.test(entity.email)) {
             window.alert("Please insert valid email!");
             return false;
-        } else if (entity.password === '' || !validationPasswordRegex.test(entity.password)) {
+        } else if (entity.password === "" || !validationPasswordRegex.test(entity.password)) {
             window.alert("Password must contain between 4-12 characters and at least one digit!");
             return false;
         } else if (entity.password !== entity.confirmPassword) {
@@ -131,6 +134,7 @@ class Register extends Component {
                     <div className="form-group">
                         <label htmlFor="accountFor">Account for:</label>
                         <select id="selectAccountType" className="form-control" onChange={this.onAccountTypeChange} selected="musician">
+                            <option value="not_selected">Select account type</option>
                             <option value="musician">Musician</option>
                             <option value="band">Band</option>
                             <option value="tavern">Tavern</option>

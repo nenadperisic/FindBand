@@ -24,7 +24,7 @@ class Login extends Component {
         const validationEmailRegex = new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$");
         const validationPasswordRegex = new RegExp("^(?=.*\\d).{4,12}$");
 
-        if (entity.accountType == "" || entity.accountType == "not_selected") {
+        if (entity.accountType === "" || entity.accountType === "not_selected") {
             window.alert("Account type not selected!");
             return false;
         } else if (entity.email === "" || !validationEmailRegex.test(entity.email)) {
