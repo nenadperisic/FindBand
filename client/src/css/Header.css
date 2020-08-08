@@ -1,46 +1,67 @@
 .header {
     display: flex;
     width: 100%;
-    background-color: rgb(0, 0, 0, 0.01);
+    background-color: #343a40;
     position: relative;
     margin-top: 0px;
-    padding-top: 1%;
+    padding-top: 0%;
     padding-bottom: 0%;
 }
 
 .logo_header {
-    margin-left: 5%;
-    margin-top: -5.5%;
-    width: 6%;
+    margin-left: 0%;
+    margin-top: 0%;
+    width: 0%;
+    height: 100%;
 
 }
 
 .logo_header img {
-    width: 25%;
+    width: 4.9%;
     position: absolute;
 }
 
 .NB_css {
-    width: 50%;
-    margin: 0 0% 0 60%;
+    width: 100%;
+    margin: 0 0% 0 3%;
     height: 50px;
 }
 
-.NB_css ul{
+.NB_css ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 0.5%;
+    margin-left: 5%;
 }
 
-.NB_css ul li{
-    float: right;
+.NB_css ul li {
+    float: left;
     width: 15%;
     margin-top: -5px;
+    text-size-adjust: inherit;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
 }
 
-.NB_css ul li a{
+.NB_css ul li a {
     color: white;
     font-size: 15px;
     text-decoration: none;
+}
+
+#viewProfile {
+    margin-left: 25%;
+}
+
+.NB_css ul li:visited{
+    color: white;
+}
+
+.NB_css ul li:hover{
+    background-color: #ccccca;
+    color: white;
 }
