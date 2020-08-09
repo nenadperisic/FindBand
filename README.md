@@ -2,11 +2,19 @@
 
 Sajt preko koga muzicki bendovi i grupe mogu potraziti novog clana, ili osoba koja poseduje muzicki talenat moze proveriti da li bi se uklopila u bend koji takvog clana trazi. Bendovi i potencijalni clanovi mogu pretrazivati jedni druge na osnovu muzickog zanra, oformiti bend ili muzicku grupu i nastaviti dalju saradnju u nekom od dostupnih prostora za sviranje i vezbanje.
 
-# How to run
-Clone project to your desired folder.
-Go to client directory and run:\
+# How to clone project
+Clone project to your desired folder.\
+git clone https://gitlab.com/matfpveb/projekti/2019-2020/28-nadjibend.git
+
+# Run client
+Go to client directory and type:\
     1. npm install\
     2. npm start
+
+# Run server
+Go to server directory and type:\
+    1. npm install\
+    2. npm run dev
 
 ## Developers
 
