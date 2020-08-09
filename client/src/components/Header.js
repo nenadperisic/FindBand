@@ -26,6 +26,9 @@ class Header extends React.Component {
                     <a href="/">
                         <li> Taverns </li>
                     </a>
+                    <a href="/CreateAd">
+                        <li> Create </li>
+                    </a>
                     <a href="/">
                         <li id="viewProfile"> View profile </li>
                     </a>
