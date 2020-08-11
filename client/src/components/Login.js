@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../css/Login.css';
+import Header from './Header';
 
 class Login extends Component {
     
@@ -115,7 +116,7 @@ class Login extends Component {
         return (
             
             <div className="login">
-
+                <Header />
                 <div className="container" id="loginAccount">
                     <h2>Login</h2>
                     <div className="form-group">
@@ -138,7 +139,8 @@ class Login extends Component {
                             <label htmlFor="pwd">Password:</label>
                             <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" onChange={this.onPasswordChangeforAccount} />
                         </div>
-                            <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success">Sign in</button>
+
+                        <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success">Log in</button>
                     </form>
                 </div>
             </div>

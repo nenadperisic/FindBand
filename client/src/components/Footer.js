@@ -5,9 +5,8 @@ import ReturnToTop from 'react-scroll-to-top';
 function Footer() {
     return (
         <div className="footer">
-            <div className="center">
-                <p id="cr">Copyright © 2020, All Rights Reserved</p>
-                <br />
+            <div className="copyright">
+                <p>Copyright © 2020, All Rights Reserved</p>
                 <ReturnToTop />
             </div>
         </div>

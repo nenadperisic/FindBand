@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../css/Register.css';
+import Header from './Header';
 
 class Register extends Component {
     constructor(props) {
@@ -114,21 +115,25 @@ class Register extends Component {
             return;
         }
         try {
-            await axios.post('/api/user/register', forAccount);
-            // console.log("Uspesna registracija")
+            /* await */ axios.post('/api/user/register', forAccount);
+            // console.log(forAccount);
+            // const { token } = response.data;
+            // localStorage.setItem("token", token);
+            localStorage.setItem("email", forAccount.email);
+            console.log("Registration success");
+            document.getElementById("formAccount").reset();
+            window.location.href = "/musicianProfile";
         } catch (e) {
             window.alert("Account with this email already exists!");
-        }
-        
-        console.log(forAccount);
-        // document.getElementById("formAccount").reset();
+            // console.log(e.response.data.message)
+        }        
     }
 
     render() {
 
         return (
             <div className="signin">
-
+                <Header />
                 <div className="container" id="registerAccount">
                     <h2>Register</h2>
                     <div className="form-group">
@@ -157,7 +162,7 @@ class Register extends Component {
                             <input type="password" className="form-control" id="pwdConfirm" placeholder="Enter password" name="pwd" onChange={this.onPasswordConfirmChangeforAccount}/>
                         </div>
 
-                        <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success">Sign up</button>
+                        <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success"> Register </button>
                     </form>
                 </div>
             </div>
