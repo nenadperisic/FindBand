@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import Header from './Header'
 import axios from 'axios';
 
+
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: {
                 title: '',
-                description: ''
+                description: '',
+                user: ''
             }
         };
 
@@ -20,7 +22,8 @@ class Home extends Component {
     onTitleChange(title) {
         const data = {
             title: title.target.value,
-            description: this.state.data.description
+            description: this.state.data.description,
+            user: localStorage.email
         };
         this.setState({
             data
@@ -30,7 +33,8 @@ class Home extends Component {
     onDescriptionChange(description) {
         const data = {
             title: this.state.data.title,
-            description: description.target.value
+            description: description.target.value,
+            user: localStorage.email
         };
         this.setState({
             data
@@ -40,6 +44,7 @@ class Home extends Component {
     handleOnSubmit = async event => {
         event.preventDefault();
         const data = this.state.data;
+        // console.log(localStorage.user)
         console.log(data)
         try {
             await axios.post('http://localhost:5000/api/forum/create', data);
@@ -55,14 +60,14 @@ class Home extends Component {
     
     render() {
         return (
-            <div className="home">
+            <div className="createAd">
                 <Header />
                 <div className="container" id="forumForm">
                     <form id="formAccount">
                     <div className="form-group">
                         <label htmlFor="title">Title:</label>
                             <input type="title" className="form-control" id="title" placeholder="Enter title" name="title" onChange={this.onTitleChange} />
-                            <textarea type="description" id="description" placeholder="Type description..." name="description" onChange={this.onDescriptionChange}></textarea>
+                            <textarea type="description" id="description"  placeholder="Type description..." name="description" onChange={this.onDescriptionChange}></textarea>
                         </div>
                         <button type="button" onClick={this.handleOnSubmit} className="btn btn-success">Create</button>
                     </form>

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const ForumSchema = new Schema({
     title: String,
     description: String,
+    user: String,
     createdAt: Date
 });
 

@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../css/Login.css';
 
 class Login extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -12,15 +13,18 @@ class Login extends Component {
                 password: ''
             }
         };
-
+        
         this.showFormforAccount = this.showFormforAccount.bind(this);
         this.onAccountTypeChange = this.onAccountTypeChange.bind(this);
         this.onEmailChangeforAccount = this.onEmailChangeforAccount.bind(this);
         this.onPasswordChangeforAccount = this.onPasswordChangeforAccount.bind(this);
         this.handleSubmitforAccount = this.handleSubmitforAccount.bind(this);
+        this.setUser = this.setUser.bind(this);
 
     }
-
+    setUser(user, newUser) {
+        user.setState(newUser);
+      }
     checkFormValidity(entity) {
         const validationEmailRegex = new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$");
         const validationPasswordRegex = new RegExp("^(?=.*\\d).{4,12}$");
@@ -92,20 +96,24 @@ class Login extends Component {
 
         try {
             const response = await axios.post('/api/user/login', forAccount);
-            localStorage.setItem("token", response.data.token)
-            console.log("uspesan log in")
+            const {token} = response.data;
+            console.log("uspesan log in");
+            localStorage.setItem("token", token);
+            localStorage.setItem("email", forAccount.email)
+            console.log(localStorage.email)
         } catch (e) {
             // console.log(e.response.data.message);
-            window.alert("Email or password incorrect!");
+            window.alert(e.response.data.message);
         }
 
-        console.log(forAccount);
-        document.getElementById("formAccount").reset();
+        // console.log(forAccount);
+        // document.getElementById("formAccount").reset();
     }
 
     render() {
-
+        // const { user, setUser } = this.context;
         return (
+            
             <div className="login">
 
                 <div className="container" id="loginAccount">
@@ -130,11 +138,11 @@ class Login extends Component {
                             <label htmlFor="pwd">Password:</label>
                             <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" onChange={this.onPasswordChangeforAccount} />
                         </div>
-
-                        <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success">Sign in</button>
+                            <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success">Sign in</button>
                     </form>
                 </div>
             </div>
+        
         );
     }
 }

@@ -115,14 +115,13 @@ class Register extends Component {
         }
         try {
             await axios.post('/api/user/register', forAccount);
-            console.log("Uspesna registracija")
+            // console.log("Uspesna registracija")
         } catch (e) {
             window.alert("Account with this email already exists!");
-            // console.log(e.response.data.message)
         }
         
         console.log(forAccount);
-        document.getElementById("formAccount").reset();
+        // document.getElementById("formAccount").reset();
     }
 
     render() {
