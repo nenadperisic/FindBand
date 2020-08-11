@@ -22,6 +22,11 @@ router.get('/:id', async (req, res) => {
     if (!forum) {
         console.log("forum not found")
     }
+
+    /* use this to select based on checked filters */
+    const query = await Forum.find({ }); /* .select({title: "rock"}); */
+    console.log(query);
+
     res.send(forum);
  });
 

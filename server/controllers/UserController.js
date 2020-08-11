@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const User = require("../models/UserModel");
-const bcrypt = require("bcryptjs")
 
 // Init func 
 router.get('/init', async (req, res) => {
@@ -45,6 +45,8 @@ router.post('/register', async (req, res) => {
     });
 
     await newUser.save();
+    const token = jwt.sign({ userId: user._id }, 'app');
+    res.send(newUser);
 
     return res.status(201);    
 });
@@ -53,7 +55,7 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     // da li user  postoji sa datim mail-om
     const user = await User.findOne({email: req.body.email});
-    console.log(user)
+    console.log(user);
     if(!user){
         return res.status(400).send({
             message: "Email does not exist"
@@ -69,11 +71,25 @@ router.post('/login', async (req, res) => {
     }
 
     const token = jwt.sign({userId: user._id}, 'app');
-
+    console.log("token iz log in");
+    console.log(token);
     res.send({
         user,
         token
     });
+});
+
+// update profile info
+router.post('/musicianProfile', async (req, res) => {
+    console.log("User:");
+    console.log(req.body);
+
+    await User.updateOne (
+        { email: req.body.email },
+        { age: req.body.age }
+    );
+
+    return res.status(201);
 });
  
 module.exports = router;

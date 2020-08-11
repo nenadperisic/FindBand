@@ -7,7 +7,8 @@ const UserSchema = new Schema({
     accountType: String,
     email: String,
     password: String,
-    createdAt: Date
+    createdAt: Date,
+    age: String
 });
 
 // Password hashing
