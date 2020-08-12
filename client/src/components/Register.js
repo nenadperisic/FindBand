@@ -122,7 +122,10 @@ class Register extends Component {
             localStorage.setItem("email", forAccount.email);
             console.log("Registration success");
             document.getElementById("formAccount").reset();
-            window.location.href = "/musicianProfile";
+            // window.location.href = "/musicianProfile";
+            const accountType = "/configure/" + forAccount.accountType;
+            console.log(accountType);
+            window.location.href = accountType;
         } catch (e) {
             window.alert("Account with this email already exists!");
             // console.log(e.response.data.message)

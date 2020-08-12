@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../css/MusicianProfile.css';
+import '../css/ViewProfileMusician.css';
 import Header from './Header';
 
-class MusicianProfile extends Component {
+class BandProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -57,22 +57,8 @@ class MusicianProfile extends Component {
 
     handleSubmitforAccount = async event => {
         const forAccount = this.state.forAccount;
-        // event.preventDefault();
-
-        try {
-            // const response = /* await */ axios.post('http://localhost:5000/api/user/musicianProfile', { email: localStorage.email });
-            const response = /* await */ axios.post('http://localhost:5000/api/user/musicianProfile', { email: localStorage.email, age: forAccount.age });
-            console.log("musicianProfile response:");
-            console.log(localStorage.email);
-            console.log(response.forAccount);
-            localStorage.setItem("age", forAccount);
-        } catch (e) {
-            // console.log(e.response.data.message);
-            window.alert("Something is wrong!");
-        }
-
-        // console.log(forAccount);
-        // document.getElementById("musicianAccountForm").reset();
+        // document.getElementById("").reset();
+        // window.location.href = "/musicianProfile";
     }
 
     render() {
@@ -81,20 +67,12 @@ class MusicianProfile extends Component {
             <div className="profile">
                 <Header />
                 <div className="container" id="musicianAccount">
-                    <form id="musicanAccountForm">
-                        <h2> Configure your profile </h2>
-
-                        <div className="form-group">
-                            <label htmlFor="age"> Age: </label>
-                            <input type="textarea" className="form-control" id="age" placeholder="Enter age" name="age" onChange={this.onAgeChange} />
-                        </div>
-
-                        <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success"> Done </button>
-                    </form>
+                    <h2> Your profile: Band </h2>
+                    <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success"> Configure profile </button>
                 </div>
             </div>
         );
     }
 }
 
-export default MusicianProfile;
+export default BandProfile;

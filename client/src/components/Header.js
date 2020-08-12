@@ -14,22 +14,27 @@ class Header extends React.Component {
 
             <div className="NB_css">
                 <ul>
-                    <a href="/">
+                    <a href="/ShowForum">
                         <li> Home </li>
                     </a>
+
                     <a href="/Musicians">
                         <li> Musicians </li>
                     </a>
-                    <a href="/Bands">
+
+                    <a href="/">
                         <li> Bands </li>
                     </a>
-                    <a href="/Taverns">
+
+                    <a href="/">
                         <li> Taverns </li>
                     </a>
+
                     <a href="/CreateAd">
                         <li> Create </li>
                     </a>
-                    <a href="/">
+                    
+                    <a href="/profile/musician">
                         <li id="viewProfile"> View profile </li>
                     </a>
                 </ul>
