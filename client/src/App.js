@@ -8,6 +8,7 @@ import CreateAd from './components/CreateAd';
 import ShowForum from './components/ShowForum';
 import MusicianProfile from './components/ConfigureMusicianProfile';
 import Musicians from './components/Musicians';
+import Bands from './components/Bands';
 import ViewProfileMusician from './components/ViewProfileMusician';
 import BandProfile from './components/BandProfile';
 
@@ -23,7 +24,8 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />   
           <Route path="/CreateAd" exact component={CreateAd} />
-          <Route path="/Musicians" exact component={Musicians} />  
+          <Route path="/Musicians" exact component={Musicians} />
+          <Route path="/Bands" exact component={Bands} />  
           <Route path="/profile/musician" exact component={ViewProfileMusician} />  
           <Route path="/profile/band" exact component={BandProfile} />
           {/* <Route path="/profile/tavern" exact component={TavernProfile} /> */}

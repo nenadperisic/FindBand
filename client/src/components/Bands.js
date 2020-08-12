@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import CheckInstruments from './CheckInstruments';
+import CheckAge from './CheckAge';
 import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
-import ListMusicians from './ListMusicians';
+import ListBands from './ListBands';
 import '../css/FindMBT.css';
 
-class Musicians extends Component {
+class Bands extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-            instruments: []
-        };
+
         this.applyFilter = this.applyFilter.bind(this);
     }
 
@@ -30,9 +28,9 @@ class Musicians extends Component {
                  <div id="boxes"> 
                     <img src="/wood.jpg" alt="image_background"/>
                     <div className="container" id="left">
-                        <CheckInstruments />
-                        <hr style={{height:"1px", backgroundColor:"black"}}/>
                         <CheckGenres /> 
+                        <hr style={{height:"1px", backgroundColor:"black"}}/>
+                        <CheckAge />
                         <hr style={{height:"1px", backgroundColor:"black"}}/>
                         <CheckLocation /> 
                         <hr style={{height:"1px", backgroundColor:"black"}}/>
@@ -40,7 +38,7 @@ class Musicians extends Component {
 
                     </div>
                     <div className="container" id="containerList">
-                        <ListMusicians/>
+                        <ListBands/>
                     </div>
                 </div>
                  <Footer />
@@ -51,4 +49,4 @@ class Musicians extends Component {
 }
 
 
-export default Musicians;
+export default Bands;

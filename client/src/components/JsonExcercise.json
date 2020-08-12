@@ -1,29 +1,29 @@
 [{
     "id": 1,
-    "name": "Band 1",
+    "name": "Result 1",
     "genre": "Pop",
     "instruments": ["piano", "vocal", "guitar"],
     "location": "Beograd",
-    "description": "Cool band :)",
-    "email" : "bend1@gmail.com"
+    "description": "Cool guy :)",
+    "email" : "result1@gmail.com"
 
 },
 {
     "id": 2,
-    "name": "Band 2",
+    "name": "Result 2",
     "genre": "Rock",
     "instruments": ["piano", "drums", "guitar"],
     "location": "Pancevo",
-    "description": "Very Cool band :)",
-    "email" : "bend2@gmail.com"
+    "description": "Very Cool guy :)",
+    "email" : "result2@gmail.com"
 },
 {
     "id": 3,
-    "name": "Band 3",
+    "name": "Result 3",
     "genre": "Metal",
     "instruments": ["Bass guitar", "vocal", "guitar"],
     "location": "Smederevo",
-    "description": "Cool band wooooooowwww \\m/:)",
-    "email" : "bend3@gmail.com"
+    "description": "Cool guy wooooooowwww \\m/:)",
+    "email" : "result3@gmail.com"
 }
 ]
