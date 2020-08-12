@@ -1,0 +1,30 @@
+#containerList {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    background-color: transparent;
+    width: 50%;
+    height: 70%;
+    overflow: overlay;
+}
+
+.container {
+    margin-top: 5%;
+
+}
+#boxes img{
+    width: 100%;
+    background-repeat: repeat;
+}
+
+#left{
+    font-weight: bold;
+    position: absolute;
+    background-color:transparent;
+    left: 5%;
+    width: 30%;
+    top: 10%;
+    border-right-color: darkred;
+    border-right: 6px solid;
+    height: 100%;
+}

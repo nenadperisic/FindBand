@@ -7,6 +7,8 @@ import Login from './components/Login';
 import CreateAd from './components/CreateAd';
 import ShowForum from './components/ShowForum';
 import MusicianProfile from './components/MusicianProfile';
+import Musicians from './components/Musicians';
+
 
 function App() {
   
@@ -20,6 +22,7 @@ function App() {
           <Route path="/login" exact component={Login} />   
           <Route path="/CreateAd" exact component={CreateAd} />
           <Route path="/musicianProfile" exact component={MusicianProfile} />
+          <Route path="/Musicians" exact component={Musicians} />  
       </Switch>
     </BrowserRouter>
     
