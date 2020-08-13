@@ -26,7 +26,7 @@ class ChekInstruments extends Component {
 
     render(){
         return(
-            <div>
+            <div style={{color: "white"}}>
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Instruments:</p>
                 <label>
                     <input 

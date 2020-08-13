@@ -24,7 +24,7 @@ class ChekLocation extends Component {
 
     render(){
         return(
-            <div>
+            <div style={{color: "white"}}>
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Location:</p>
                 
                     <select id="selectAccountType" className="form-control" onChange={this.onAccountTypeChange} selected="musician">

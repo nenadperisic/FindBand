@@ -2,10 +2,11 @@
   width: 100%;
   background-color: #343a40;
   border-top: 1px solid rgb(70, 171, 230);
-  padding: 40px 0;
-  position: relative;
   color:white;
   font-family: 'Montserrat';
+  height: 6%;
+  position: fixed;
+  bottom: 0;
 }
 .center {
   max-width: 1220px;
@@ -21,5 +22,4 @@
 .footer .copyright {
   text-align: center;
   font-size: 11px;
-  margin: 100px 0 0 0;
 }

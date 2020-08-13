@@ -28,15 +28,17 @@ class Musicians extends Component {
             <div>
                  <Header />
                  <div id="boxes"> 
-                    <img src="/wood.jpg" alt="image_background"/>
+                    <img src="/dark.png" alt="image_background"/>
                     <div className="container" id="left">
                         <CheckInstruments />
-                        <hr style={{height:"1px", backgroundColor:"black"}}/>
+                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckGenres /> 
-                        <hr style={{height:"1px", backgroundColor:"black"}}/>
+                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckLocation /> 
-                        <hr style={{height:"1px", backgroundColor:"black"}}/>
-                        <button onClick={this.applyFilter}>Apply</button>
+                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
+                        <button  class="button" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
+                            <span>Apply</span>
+                        </button>
 
                     </div>
                     <div className="container" id="containerList">

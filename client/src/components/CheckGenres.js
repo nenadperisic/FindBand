@@ -7,7 +7,6 @@ class ChekGenres extends Component {
         this.state={
             isPop: false,
             isRock: false,
-            isCountry: false,
             isJazz: false,
             isMetal: false,
             isFolk: false
@@ -24,7 +23,7 @@ class ChekGenres extends Component {
 
     render(){
         return(
-            <div>
+            <div style={{color: "white"}}>
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Genres:</p>
                 <label>
                     <input 
@@ -42,15 +41,6 @@ class ChekGenres extends Component {
                         checked={this.state.isRock}
                         onChange={this.handleChange}
                     /> Rock
-                </label>
-                <br/>
-                <label>
-                    <input 
-                        type="checkbox"
-                        name="isCountry"
-                        checked={this.state.isCountry}
-                        onChange={this.handleChange}
-                    /> Country 
                 </label>
                 <br/>
                 <label>
