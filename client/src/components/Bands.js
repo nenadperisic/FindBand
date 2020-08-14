@@ -5,7 +5,7 @@ import CheckAge from './CheckAge';
 import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
 import ListBands from './ListBands';
-import '../css/FindMBT.css';
+import '../css/FindMBV.css';
 
 class Bands extends Component {
 
@@ -26,15 +26,17 @@ class Bands extends Component {
             <div>
                  <Header />
                  <div id="boxes"> 
-                    <img src="/wood.jpg" alt="image_background"/>
+                    <img src="/backgrounds/guitarBlur.jpg" alt="image_background"/>
                     <div className="container" id="left">
                         <CheckGenres /> 
-                        <hr style={{height:"1px", backgroundColor:"black"}}/>
+                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckAge />
-                        <hr style={{height:"1px", backgroundColor:"black"}}/>
+                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckLocation /> 
-                        <hr style={{height:"1px", backgroundColor:"black"}}/>
-                        <button onClick={this.applyFilter}>Apply</button>
+                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
+                        <button className="button" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
+                            <span>Apply</span>
+                        </button>
 
                     </div>
                     <div className="container" id="containerList">

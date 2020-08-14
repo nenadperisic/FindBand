@@ -6,8 +6,8 @@ class ListMusicians extends Component {
 
     constructor(props){
         super(props);
-        
     }
+
 
     render(){
         const listResult = jsex.map(
@@ -23,7 +23,7 @@ class ListMusicians extends Component {
             />);
         return(
             <div>
-                 {listResult} 
+                {listResult} 
             </div>
         );
     }

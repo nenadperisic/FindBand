@@ -8,7 +8,7 @@ class Header extends React.Component {
       <div className="header">
             <div className="logo_header">
                 <a href="/">
-                    <img src="/logo.jpg" alt="logo" className="logo_header" />
+                    <img src="/logoVeb.jpeg" alt="logo" className="logo_header" />
                 </a>
             </div>
 
@@ -27,7 +27,7 @@ class Header extends React.Component {
                     </a>
 
                     <a href="/">
-                        <li> Taverns </li>
+                        <li> Venue </li>
                     </a>
 
                     <a href="/CreateAd">

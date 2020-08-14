@@ -8,7 +8,7 @@ class ImgOnHomepage extends Component {
 
     return (
         <div className="ImgOnHomepage">
-            <img src="/background.jpeg" alt="image_header"/>
+            <img src="/backgrounds/background.jpeg" alt="image_header"/>
             <button className="btnLogIn"><a href="/login"> <span className="textBtn">Log in</span> </a></button>
             <button className="btnSignIn"> <a href="/register"> Register </a></button>
         </div>

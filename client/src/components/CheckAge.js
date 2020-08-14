@@ -23,7 +23,7 @@ class ChekGenres extends Component {
 
     render(){
         return(
-            <div>
+            <div style={{color: "white"}}>
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Average age:</p>
                 <label>
                     <input 

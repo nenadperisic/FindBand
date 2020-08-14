@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ListResult extends Component{
+class CommentResult extends Component{
 
     constructor(props){
         super(props)
@@ -25,25 +25,13 @@ class ListResult extends Component{
                 color: "white"
             };
 
-            const styleButton={
-                colorborder: "1px solid rgb(70, 171, 230)",
-                marginLeft: "75%", 
-                borderRadius: "50%", 
-                backgroundColor: "#343a40",
-                textAlign: "center"
-            };
-
         return(
             <div style = {style}>
                 <div style={{marginTop: "20px"}}>
                     <h2 style={styleItems}>{this.props.name}</h2>
-                    <h6 style={styleItems}>Genre: {this.props.genre}</h6>
-                    <h5 style={styleItems}>Description: {this.props.description}</h5>
-                    <h6 style={styleItems}>Email: {this.props.email}</h6>
-                   <button className="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
-                       <span>View Ad</span>
-                    </button>
-                </div>
+                    <h6 style={styleItems}>GRADE: {this.props.genre}</h6>
+                    <h5 style={styleItems}>COMMENT: {this.props.description}</h5>
+                </div>                
 
             </div>
         );
@@ -51,4 +39,4 @@ class ListResult extends Component{
 
 }
 
-export default ListResult;
+export default CommentResult;
