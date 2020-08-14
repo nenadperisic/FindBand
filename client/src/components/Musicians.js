@@ -6,7 +6,6 @@ import Footer from './Footer';
 import CheckInstruments from './CheckInstruments';
 import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
-import ListMusicians from './ListMusicians';
 import '../css/FindMBV.css';
 
 class Musicians extends Component {

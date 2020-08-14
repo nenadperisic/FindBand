@@ -24,7 +24,7 @@ router.post('/create', async (req, res) => {
 router.get('/getMusicians', async (req, res) => {
     console.log(req.query.accountType);
     /* use this to select based on checked filters */
-    const query = await Forum.find({ accountType : req.query.accountType}); /* .select({title: "rock"}); */
+    const query = await Forum.find({ accountType : "musician"}); /* .select({title: "rock"}); */
     // console.log(query);
 
     res.send(query);
@@ -36,19 +36,19 @@ router.get('/getMusicians', async (req, res) => {
     /* use this to select based on checked filters */
     if (req.query.genres === undefined && req.query.instruments === undefined ) {
         console.log("nista nije stiklirano");
-        const query = await Forum.find({ accountType : req.query.accountType});
+        const query = await Forum.find({ accountType : "musician"});
         res.send(query);
-    }else if(req.query.genres === undefined){
+    } else if(req.query.genres === undefined) {
         console.log("samo instrumenti");
-        const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments});
+        const query = await Forum.find({ accountType : "musician", instruments: req.query.instruments});
         res.send(query);
-    }else if(req.query.instruments === undefined){
+    } else if(req.query.instruments === undefined) {
         console.log("samo zanrovi");
-        const query = await Forum.find({ accountType : req.query.accountType, genres: req.query.genres});
+        const query = await Forum.find({ accountType : "musician", genres: req.query.genres});
         res.send(query);
-    }else  {
+    } else  {
         console.log("stiklirani instrumenti i zanrovi");
-        const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments, genres: req.query.genres});
+        const query = await Forum.find({ accountType : "musician", instruments: req.query.instruments, genres: req.query.genres});
         res.send(query);
     }
 

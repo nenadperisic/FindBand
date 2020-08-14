@@ -69,19 +69,17 @@ class MusicianProfile extends Component {
                 <div className="container" id="musicianAccount">
                     <h2> Your profile: Musician </h2>
 
-                    <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success"> Configure profile </button>
+                    <button type="button" onClick={this.configureProfile} className="btn btn-success"> Configure profile </button>
+                    <br />
+                    <br />
+                    <button type="button" onClick={this.logout} className="btn btn-success"> Logout </button>
+                    <br />
+                    <br />
+                    <button type="button" onClick={this.deleteAccount} className="btn btn-success"> Delete account </button>
                     {/* {musicianData} */}
                 </div>
                 <div className="container" id="commentSection">
                     {this.state.areThereComments ? commentResult: <h1>There are no comments for this user.</h1>}
-
-                    <button type="button" onClick={this.configureProfile} className="btn btn-success"> Configure profile </button>
-                    <br/>
-                    <br/>
-                    <button type="button" onClick={this.logout} className="btn btn-success"> Logout </button>
-                    <br/>
-                    <br/>
-                    <button type="button" onClick={this.deleteAccount} className="btn btn-success"> Delete account </button>
                 </div>
                 <Footer />
             </div>
