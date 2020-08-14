@@ -27,8 +27,10 @@ class ChekGenres extends Component {
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Genres:</p>
                 <label>
                     <input 
+                        class="genres"
                         type="checkbox"
                         name="isPop"
+                        value="Pop"
                         checked={this.state.isPop}
                         onChange={this.handleChange}
                     /> Pop 
@@ -36,8 +38,10 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="genres"
                         type="checkbox"
                         name="isRock"
+                        value="Rock"
                         checked={this.state.isRock}
                         onChange={this.handleChange}
                     /> Rock
@@ -45,8 +49,10 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="genres"
                         type="checkbox"
                         name="isJazz"
+                        value="Jazz"
                         checked={this.state.isJazz}
                         onChange={this.handleChange}
                     /> Jazz 
@@ -54,8 +60,10 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="genres"
                         type="checkbox"
                         name="isMetal"
+                        value="Metal"
                         checked={this.state.isMetal}
                         onChange={this.handleChange}
                     /> Metal
@@ -63,8 +71,10 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="genres"
                         type="checkbox"
                         name="isFolk"
+                        value="Folk"
                         checked={this.state.isFolk}
                         onChange={this.handleChange}
                     /> Folk

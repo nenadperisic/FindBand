@@ -22,6 +22,7 @@ class ChekInstruments extends Component {
         this.setState({
             [name]: checked
         })
+        // console.log(this.state)
     }
 
     render(){
@@ -30,8 +31,10 @@ class ChekInstruments extends Component {
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Instruments:</p>
                 <label>
                     <input 
+                        class="instruments"
                         type="checkbox"
                         name="isGuitar"
+                        value="Guitar"
                         checked={this.state.isGuitar}
                         onChange={this.handleChange}
                     /> Guitar 
@@ -39,8 +42,10 @@ class ChekInstruments extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="instruments"
                         type="checkbox"
                         name="isBassGuitar"
+                        value="Bass guitar"
                         checked={this.state.isBassGuitar}
                         onChange={this.handleChange}
                     />  Bass Guitar 
@@ -48,8 +53,10 @@ class ChekInstruments extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="instruments"
                         type="checkbox"
                         name="isPiano"
+                        value="Piano"
                         checked={this.state.isPiano}
                         onChange={this.handleChange}
                     /> Piano 
@@ -57,8 +64,10 @@ class ChekInstruments extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="instruments"
                         type="checkbox"
                         name="isViolin"
+                        value="Violin"
                         checked={this.state.isViolin}
                         onChange={this.handleChange}
                     /> Violin 
@@ -66,8 +75,10 @@ class ChekInstruments extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="instruments"
                         type="checkbox"
                         name="isAccordion"
+                        value="Accordion"
                         checked={this.state.isAccordion}
                         onChange={this.handleChange}
                     /> Accordion 
@@ -75,8 +86,10 @@ class ChekInstruments extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="instruments"
                         type="checkbox"
                         name="isVoice"
+                        value="Voice"
                         checked={this.state.isVoice}
                         onChange={this.handleChange}
                     /> Voice 
@@ -84,8 +97,10 @@ class ChekInstruments extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="instruments"
                         type="checkbox"
                         name="isDrums"
+                        value="Drums"
                         checked={this.state.isDrums}
                         onChange={this.handleChange}
                     /> Drums 
@@ -93,8 +108,10 @@ class ChekInstruments extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="instruments"
                         type="checkbox"
                         name="isTrumpet"
+                        value="Trumpet"
                         checked={this.state.isTrumpet}
                         onChange={this.handleChange}
                     /> Trumpet 

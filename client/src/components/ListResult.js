@@ -18,6 +18,7 @@ class ListResult extends Component{
                 <div style={{marginTop: "20px"}}>
                     <h2 style={{marginLeft: "20px", color: "white"}}>{this.props.name}</h2>
                     <h6 style={{marginLeft: "40px",color: "#9facc2"}}>Genre: {this.props.genre}</h6>
+                    <h6 style={{marginLeft: "40px",color: "#9facc2"}}>Instruments: {this.props.instruments}</h6>
                     <h5 style={{marginLeft: "40px",color: "#9facc2"}}>Description: {this.props.description}</h5>
                     <h6 style={{marginLeft: "40px",color: "#9facc2"}}>Email: {this.props.email}</h6>
                 </div>

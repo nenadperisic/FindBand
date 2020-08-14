@@ -101,6 +101,7 @@ class Login extends Component {
             console.log("uspesan log in");
             localStorage.setItem("token", token);
             localStorage.setItem("email", forAccount.email)
+            localStorage.setItem("accountType", forAccount.accountType)
             console.log(localStorage.email)
         } catch (e) {
             // console.log(e.response.data.message);

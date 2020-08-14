@@ -120,6 +120,7 @@ class Register extends Component {
             // const { token } = response.data;
             // localStorage.setItem("token", token);
             localStorage.setItem("email", forAccount.email);
+            localStorage.setItem("accountType", forAccount.accountType);
             console.log("Registration success");
             document.getElementById("formAccount").reset();
             // window.location.href = "/musicianProfile";

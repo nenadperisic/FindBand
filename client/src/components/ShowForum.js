@@ -9,7 +9,7 @@ export class ShowForum extends Component {
         // console.log(localStorage.user)
         
         try {
-            const response = await axios.get('http://localhost:5000/api/forum/*');
+            const response = await axios.get('http://localhost:5000/api/forum/:id');
             console.log(response.data);
         } catch (e) {
             console.log("Nije uspelo!");

@@ -10,24 +10,52 @@ router.post('/create', async (req, res) => {
         title: req.body.title,
         description: req.body.description,
         user: req.body.user,
-        createdAt: Date.now(),
+        accountType: req.body.accountType,
+        instruments: req.body.instruments,
+        genres: req.body.genres,
+        createdAt: Date.now()
    });
-
+   console.log("Account type:")
+   console.log(req.body.accountType);
    await newForum.save();
    res.send(newForum);
 });
 
-router.get('/:id', async (req, res) => {
-    const forum = await Forum.findById("5f3251e1acb00a0d20a5d88b");
-    if (!forum) {
-        console.log("forum not found")
+router.get('/getMusicians', async (req, res) => {
+    console.log(req.query.accountType);
+    /* use this to select based on checked filters */
+    const query = await Forum.find({ accountType : req.query.accountType}); /* .select({title: "rock"}); */
+    // console.log(query);
+
+    res.send(query);
+ });
+
+ router.get('/getMusiciansFilter', async (req, res) => {
+    console.log(req.query.genres);
+    console.log(req.query.instruments);
+    /* use this to select based on checked filters */
+    if (req.query.genres === undefined && req.query.instruments === undefined ) {
+        console.log("nista nije stiklirano");
+        const query = await Forum.find({ accountType : req.query.accountType});
+        res.send(query);
+    }else if(req.query.genres === undefined){
+        console.log("samo instrumenti");
+        const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments});
+        res.send(query);
+    }else if(req.query.instruments === undefined){
+        console.log("samo zanrovi");
+        const query = await Forum.find({ accountType : req.query.accountType, genres: req.query.genres});
+        res.send(query);
+    }else  {
+        console.log("stiklirani instrumenti i zanrovi");
+        const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments, genres: req.query.genres});
+        res.send(query);
     }
 
-    /* use this to select based on checked filters */
-    const query = await Forum.find({ }); /* .select({title: "rock"}); */
-    console.log(query);
+    // const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments, genres: req.query.genres});
+    
 
-    res.send(forum);
+    // res.send(query);
  });
 
 

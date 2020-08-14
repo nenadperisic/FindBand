@@ -1,78 +1,21 @@
 import React, { Component } from 'react';
-import Header from './Header'
-import axios from 'axios';
+import Header from './Header';
+import Footer from './Footer';
+import CreateAdMusician from './CreateAdMusician';
 
-
-class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: {
-                title: '',
-                description: '',
-                user: ''
-            }
-        };
-
-        this.onTitleChange = this.onTitleChange.bind(this);
-        this.onDescriptionChange = this.onDescriptionChange.bind(this);
-    }
-        
-
-    onTitleChange(title) {
-        const data = {
-            title: title.target.value,
-            description: this.state.data.description,
-            user: localStorage.email
-        };
-        this.setState({
-            data
-        });
-    }
-
-    onDescriptionChange(description) {
-        const data = {
-            title: this.state.data.title,
-            description: description.target.value,
-            user: localStorage.email
-        };
-        this.setState({
-            data
-        });
-    }
-
-    handleOnSubmit = async event => {
-        event.preventDefault();
-        const data = this.state.data;
-        // console.log(localStorage.user)
-        console.log(data)
-        try {
-            await axios.post('http://localhost:5000/api/forum/create', data);
-        } catch (e) {
-            console.log("Nije uspelo!");
-        }
-        
-        
-        
-    };
-
+class CreateAd extends Component {
     
     
     render() {
         return (
             <div className="createAd">
                 <Header />
-                <div className="container" id="forumForm">
-                    <form id="formAccount">
-                    <div className="form-group">
-                        <label htmlFor="title">Title:</label>
-                            <input type="title" className="form-control" id="title" placeholder="Enter title" name="title" onChange={this.onTitleChange} />
-                            <textarea type="description" id="description"  placeholder="Type description..." name="description" onChange={this.onDescriptionChange}></textarea>
-                        </div>
-                        <button type="button" onClick={this.handleOnSubmit} className="btn btn-success">Create</button>
-                    </form>
-                </div>
-
+                {console.log(localStorage.accountType)}
+                {localStorage.accountType === undefined ?    window.alert("You must be logged in!") : console.log("You have access!")}
+                {localStorage.accountType === "musician" ? <CreateAdMusician />: null}
+                
+                
+                <Footer />
             </div>
             
         );
@@ -80,4 +23,4 @@ class Home extends Component {
 
 }
 
-export default Home;
+export default CreateAd;
