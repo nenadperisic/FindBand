@@ -3,7 +3,7 @@ import axios from 'axios';
 import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
 import CheckInstruments from './CheckInstruments';
-import '../css/FindMBT.css';
+import '../css/FindMBV.css';
 
 
 class CreateAdMusician extends Component {

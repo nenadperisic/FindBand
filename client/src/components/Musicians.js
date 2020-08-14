@@ -7,7 +7,7 @@ import CheckInstruments from './CheckInstruments';
 import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
 import ListMusicians from './ListMusicians';
-import '../css/FindMBT.css';
+import '../css/FindMBV.css';
 
 class Musicians extends Component {
 
@@ -103,7 +103,7 @@ class Musicians extends Component {
             <div>
                  <Header />
                  <div id="boxes"> 
-                    <img src="/dark.png" alt="image_background"/>
+                    <img src="/backgrounds/speakerBlur.jpg" alt="image_background"/>
                     <div className="container" id="left">
                         <CheckInstruments />
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
@@ -111,7 +111,7 @@ class Musicians extends Component {
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckLocation /> 
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
-                        <button  class="button" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
+                        <button  className="button" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
                             <span>Apply</span>
                         </button>
 
