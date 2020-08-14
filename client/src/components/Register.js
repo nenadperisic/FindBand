@@ -115,10 +115,11 @@ class Register extends Component {
             return;
         }
         try {
-            /* await */ axios.post('/api/user/register', forAccount);
+            const response = /* await */ axios.post('/api/user/register', forAccount);
             // console.log(forAccount);
             // const { token } = response.data;
             // localStorage.setItem("token", token);
+            // console.log(token);
             localStorage.setItem("email", forAccount.email);
             localStorage.setItem("accountType", forAccount.accountType);
             console.log("Registration success");
@@ -130,7 +131,8 @@ class Register extends Component {
         } catch (e) {
             window.alert("Account with this email already exists!");
             // console.log(e.response.data.message)
-        }        
+        }
+        // this.forceUpdate();
     }
 
     render() {

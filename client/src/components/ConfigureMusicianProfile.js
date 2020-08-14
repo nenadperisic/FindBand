@@ -30,7 +30,7 @@ class ConfigureMusicianProfile extends Component {
         // event.preventDefault();
 
         try {
-            const response = /* await */ axios.post('http://localhost:5000/api/user/musicianProfile', { email: localStorage.email, age: forAccount.age });
+            const response = /* await */ axios.post('http://localhost:5000/api/user/configure/musician', { email: localStorage.email, age: forAccount.age });
             console.log("musicianProfile response:");
             console.log(localStorage.email);
             console.log(response.forAccount);

@@ -36,7 +36,6 @@ router.post('/register', async (req, res) => {
             message: "Email already exists"
         });
     }
-    console.log("ne postoji taj user");
     const newUser = User({
         accountType: req.body.accountType,
         email: req.body.email,
@@ -45,10 +44,9 @@ router.post('/register', async (req, res) => {
     });
 
     await newUser.save();
-    const token = jwt.sign({ userId: user._id }, 'app');
     res.send(newUser);
 
-    return res.status(201);    
+    return res.status(201);
 });
 
 //Login func
@@ -79,10 +77,21 @@ router.post('/login', async (req, res) => {
     });
 });
 
+// delete account
+router.post('/profile/deleteAccount', async (req, res) => {
+    console.log(req.body.email);
+    try {
+        await User.findOneAndDelete( { email: req.body.email });
+        console.log("deleted account");
+    } catch (e) {
+        console.log("delete account failed");
+    }
+});
+
 // update profile info
-router.post('/musicianProfile', async (req, res) => {
-    console.log("User:");
-    console.log(req.body);
+router.post('/configure/musician', async (req, res) => {
+    // console.log("User:");
+    // console.log(req.body);
 
     await User.updateOne (
         { email: req.body.email },

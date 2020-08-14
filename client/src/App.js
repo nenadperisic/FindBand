@@ -13,6 +13,7 @@ import MusicianProfile from './components/MusicianProfile';
 import ConfigureMusicianProfile from './components/ConfigureMusicianProfile';
 import BandProfile from './components/BandProfile';
 import ConfigureBandProfile from './components/ConfigureBandProfile';
+// import Logout from './components/Logout';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/ShowForum" exact component={ShowForum} /> 
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
+          {/* <Route path="/logout" exact component={Logout} /> */}
           <Route path="/CreateAd" exact component={CreateAd} />
           <Route path="/CreateAdMusician" exact component={CreateAdMusician} />
           <Route path="/Musicians" exact component={Musicians} />
