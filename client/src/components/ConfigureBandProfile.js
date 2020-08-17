@@ -95,29 +95,25 @@ class ConfigureBandProfile extends Component {
 
 
         try {
-            // TODO: write band data into dabase
-            console.log("Writing data into database...");
-            console.log(forBand);
+            /* await */ axios.post(
+                'http://localhost:5000/api/user/configure/band',
+                {
+                    email: localStorage.email,
+                    name: forBand.name,
+                    genre: forBand.genre,
+                    location: forBand.location,
+                    description: forBand.description,
+                    accountType: forBand.accountType
+                });
 
-            // const response = /* await */ axios.post(
-            //     'http://localhost:5000/api/user/configure/band',
-            //     {
-            //         email: localStorage.email,
-            //         name: forBand.name,
-            //         genre: forBand.genre,
-            //         location: forBand.location,
-            //         description: forBand.description,
-            //         accountType: forBand.accountType
-            //     });
-
-            // console.log("bandProfile response:");
-            // console.log(localStorage.email);
+            console.log("bandProfile response:");
+            console.log(localStorage.email);
             // console.log(response.forBand);
-            // localStorage.setItem("name", forBand);
-            // localStorage.setItem("genre", forBand);
+            localStorage.setItem("name", forBand);
+            localStorage.setItem("genre", forBand);
         } catch (e) {
-            // console.log(e.response.data.message);
-            window.alert("Something is wrong!");
+            console.log(e.response.data.message);
+            // window.alert("Something is wrong!");
         }
 
         document.getElementById("bandAccountForm").reset();

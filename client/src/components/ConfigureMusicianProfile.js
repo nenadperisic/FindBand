@@ -117,7 +117,7 @@ class ConfigureMusicianProfile extends Component {
         console.log(forAccount);
 
         try {
-            const response = /* await */ axios.post(
+            /*await*/ axios.post(
                 'http://localhost:5000/api/user/configure/musician', 
                 { 
                     email: localStorage.email, 
@@ -127,17 +127,18 @@ class ConfigureMusicianProfile extends Component {
                     location: forAccount.location,
                     description: forAccount.description,
                     accountType: forAccount.accountType
-                });
+            });
+
             console.log("musicianProfile response:");
             console.log(localStorage.email);
-            console.log(response.forAccount);
+            // console.log(response.forAccount);
             localStorage.setItem("age", forAccount);
         } catch (e) {
             console.log(e.response.data.message);
             // window.alert("Something is wrong!");
         }
 
-        document.getElementById("musicanAccountForm").reset();
+        document.getElementById("musicianAccountForm").reset();
     }
 
     render() {
@@ -145,7 +146,7 @@ class ConfigureMusicianProfile extends Component {
             <div className="profile">
                 <Header />
                 <div className="container" id="musicianAccount">
-                    <form id="musicanAccountForm">
+                    <form id="musicianAccountForm">
                         <h2> Configure your profile </h2>
 
                         <div className="form-group">

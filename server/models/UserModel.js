@@ -8,7 +8,14 @@ const UserSchema = new Schema({
     email: String,
     password: String,
     createdAt: Date,
-    age: String
+    dateOfBirth: Date,
+    genre: String,
+    instruments: String,
+    location: String,
+    description: String,
+    ProfessionalAccount: String,
+    name: String,
+    tavernType: String
 });
 
 // Password hashing

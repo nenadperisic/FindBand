@@ -95,10 +95,46 @@ router.post('/configure/musician', async (req, res) => {
 
     await User.updateOne (
         { email: req.body.email },
-        { age: req.body.age }
+        {  
+            dateOfBirth: req.body.dateOfBirth,
+            genre: req.body.genre,
+            instruments: req.body.instruments,
+            location: req.body.location,
+            description: req.body.description,
+            accountType: req.body.accountType 
+        }
+    );
+
+    return res.status(201);
+});
+
+router.post('/configure/band', async (req, res) => {
+    await User.updateOne (
+        { email: req.body.email },
+        {  
+            name: req.body.name,
+            genre: req.body.genre,
+            location: req.body.location,
+            description: req.body.description,
+            accountType: req.body.accountType
+        }
     );
 
     return res.status(201);
 });
  
+router.post('/configure/tavern', async (req, res) => {
+    await User.updateOne (
+        { email: req.body.email },
+        {
+            name: req.body.name,
+            tavernType: req.body.type,
+            location: req.body.location,
+            description: req.body.description,  
+        }
+    );
+
+    return res.status(201);
+});
+
 module.exports = router;

@@ -80,23 +80,21 @@ class ConfigureTavernProfile extends Component {
         // event.preventDefault();
 
         try {
-            // TODO: write tavern data into dabase
-            console.log("Writing data into database...");
-            console.log(forTavern);
+            /* await */ axios.post(
+                'http://localhost:5000/api/user/configure/tavern',
+                {
+                    email: localStorage.email,
+                    name: forTavern.name,
+                    type: forTavern.type,
+                    location: forTavern.location,
+                    description: forTavern.description,
+                });
 
-            // const response = /* await */ axios.post(
-            //     'http://localhost:5000/api/user/configure/tavern',
-            //     {
-            //         email: localStorage.email,
-            //         name: forTavern.name,
-            //         type: forTavern.type,
-            //         location: forTavern.location,
-            //         description: forTavern.description,
-            //     });
-
+                localStorage.setItem("name", forTavern);
+                localStorage.setItem("genre", forTavern);
         } catch (e) {
-            // console.log(e.response.data.message);
-            window.alert("Something is wrong!");
+            console.log(e.response.data.message);
+            // window.alert("Something is wrong!");
         }
 
         document.getElementById("tavernAccountForm").reset();
