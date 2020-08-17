@@ -13,6 +13,8 @@ import MusicianProfile from './components/MusicianProfile';
 import ConfigureMusicianProfile from './components/ConfigureMusicianProfile';
 import BandProfile from './components/BandProfile';
 import ConfigureBandProfile from './components/ConfigureBandProfile';
+import TavernProfile from './components/TavernProfile';
+import ConfigureTavernProfile from './components/ConfigureTavernProfile';
 // import Logout from './components/Logout';
 
 
@@ -32,9 +34,11 @@ function App() {
           <Route path="/Bands" exact component={Bands} />  
           <Route path="/profile/musician" exact component={MusicianProfile} />
           <Route path="/profile/band" exact component={BandProfile} />
+          <Route path="/profile/tavern" exact component={TavernProfile} />
           {/* <Route path="/profile/venue" exact component={VenueProfile} /> */}
           <Route path="/configure/musician" exact component={ConfigureMusicianProfile} />
           <Route path="/configure/band" exact component={ConfigureBandProfile} />
+          <Route path="/configure/tavern" exact component={ConfigureTavernProfile} />
       </Switch>
     </BrowserRouter>
     
