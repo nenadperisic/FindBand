@@ -26,7 +26,7 @@ class Header extends React.Component {
                         <li> Bands </li>
                     </a>
 
-                    <a href="/">
+                    <a href="/Taverns">
                         <li> Tavern </li>
                     </a>
 
