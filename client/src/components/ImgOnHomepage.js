@@ -8,7 +8,7 @@ import Footer from './Footer';
 import CheckInstruments from './CheckInstruments';
 import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
-import '../css/FindMBV.css';
+
 
 
 class ImgOnHomepage extends Component {
@@ -58,19 +58,20 @@ class ImgOnHomepage extends Component {
 
 		return (
 			<div className="ImgOnHomepage">
-				<div id="homePage" display="block">
+				<div id="homePage">
 					<img src="/backgrounds/background.jpeg" alt="image_header"/>
-					<button className="btnLogIn"><a href="/login"><span>Log in</span></a></button>
-					<button className="btnSignIn"> <a href="/register"> <span>Register</span> </a></button>
-					<button className="btnShowAds" onClick={this.getAdsFromDatabase}> <span>Show ads</span> </button>
+						<button className="btnLogIn"><a href="/login"><span>Log in</span></a></button>
+						<button className="btnSignIn"><a href="/register"> <span>Register</span></a></button>
+						<button className="btnShowAds" onClick={this.getAdsFromDatabase}><span>Show ads</span></button>
 					{/* <button className="btnShowAds"> <a href="/ShowForum"> Show ads </a></button> */}
 				</div>
 
-				<div className="container" id="allAds" display="none">
+				{/*<div className="container" id="allAds" display="none">
 					<div>
 						{this.state.listResult}
 					</div>
 				</div>
+				*/}
 			</div>
 		);
 	}

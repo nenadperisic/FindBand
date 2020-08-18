@@ -41,7 +41,7 @@ class ListResult extends Component{
                     <h6 style={styleItems}>Instruments: {this.props.instruments}</h6>
                     <h5 style={styleItems}>Description: {this.props.description}</h5>
                     <h6 style={styleItems}>Email: {this.props.email}</h6>
-                   <button className="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
+                   <button className="button" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
                        <span>View Ad</span>
                     </button>
                 </div>

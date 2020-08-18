@@ -31,7 +31,7 @@ class Taverns extends Component {
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckLocation /> 
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
-                        <button className="button" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
+                        <button className="button" id="button2" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
                             <span>Apply</span>
                         </button>
 
