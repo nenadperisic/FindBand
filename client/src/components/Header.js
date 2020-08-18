@@ -14,7 +14,7 @@ class Header extends React.Component {
 
             <div className="NB_css">
                 <ul>
-                    <a href="/ShowForum">
+                    <a href="/">
                         <li> Home </li>
                     </a>
 
@@ -27,11 +27,11 @@ class Header extends React.Component {
                     </a>
 
                     <a href="/">
-                        <li> Venue </li>
+                        <li> Tavern </li>
                     </a>
 
-                    <a href="/CreateAd">
-                        <li> Create </li>
+                    <a href={localStorage.accountType === undefined ? "/" : "/CreateAd"}>
+                        <li> Create ad </li>
                     </a>
                     
                     <a href="/profile/musician">

@@ -28,24 +28,31 @@ class MusicianProfile extends Component {
 
     deleteAccount = async event => {
         // const forAccount = this.state.forAccount;
-        var confirm = window.confirm("Delete your account? If you choose yes, all data from your account will be lost.");
-        if (confirm) {
-            try {
-                /* await */ axios.post('http://localhost:5000/api/user/profile/deleteAccount', { email: localStorage.email });
-            } catch (e) {
-                // console.log(e.response.data.message);
-                window.alert("Something is wrong!");
+        if (!localStorage.email) {
+            window.alert("You must be logged in if you want to delete account.");
+        } else {
+            var confirm = window.confirm("Delete your account? If you choose yes, all data from your account will be lost.");
+            if (confirm) {
+                try {
+                    /* await */ axios.post('http://localhost:5000/api/user/profile/deleteAccount', { email: localStorage.email });
+                } catch (e) {
+                    // console.log(e.response.data.message);
+                    window.alert("Error while sending request for delete account!");
+                }
+                localStorage.clear();
             }
-            localStorage.setItem("token", null);
-            localStorage.setItem("email", null);
         }
     }
 
     logout = async event => {
         // const forAccount = this.state.forAccount;
-        var confirm = window.confirm("Logout from your account?");
-        if (confirm) {
-            localStorage.clear();
+        if (!localStorage.email) {
+            window.alert("You are not logged in");
+        } else {
+            var confirm = window.confirm("Logout from your account?");
+            if (confirm) {
+                localStorage.clear();
+            }
         }
     }
 

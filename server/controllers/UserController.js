@@ -88,7 +88,7 @@ router.post('/profile/deleteAccount', async (req, res) => {
     }
 });
 
-// update profile info
+// update profile info for musician
 router.post('/configure/musician', async (req, res) => {
     // console.log("User:");
     // console.log(req.body);
@@ -108,6 +108,7 @@ router.post('/configure/musician', async (req, res) => {
     return res.status(201);
 });
 
+// update profile info for band
 router.post('/configure/band', async (req, res) => {
     await User.updateOne (
         { email: req.body.email },
@@ -123,6 +124,7 @@ router.post('/configure/band', async (req, res) => {
     return res.status(201);
 });
 
+// update profile info for tavern
 router.post('/configure/tavern', async (req, res) => {
     await User.updateOne (
         { email: req.body.email },

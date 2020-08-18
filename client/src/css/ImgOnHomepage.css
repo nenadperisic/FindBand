@@ -58,3 +58,13 @@ a:link {
     background-color: transparent;
     font-size: 25px;
 }
+
+.btnShowAds {
+    position: absolute;
+    margin: 40% 0 0 -55.5%;
+    padding: 5px 35px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    font-size: 25px;
+}

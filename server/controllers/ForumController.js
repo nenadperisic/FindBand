@@ -28,9 +28,9 @@ router.get('/getMusicians', async (req, res) => {
     // console.log(query);
 
     res.send(query);
- });
+});
 
- router.get('/getMusiciansFilter', async (req, res) => {
+router.get('/getMusiciansFilter', async (req, res) => {
     console.log(req.query.genres);
     console.log(req.query.instruments);
     /* use this to select based on checked filters */
@@ -53,11 +53,17 @@ router.get('/getMusicians', async (req, res) => {
     }
 
     // const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments, genres: req.query.genres});
-    
 
     // res.send(query);
- });
+});
 
 
+router.get('/getAllAds', async (req, res) => {
+    console.log(req.query.accountType);
+    const query = await Forum.find(); /* .select({title: "rock"}); */
+    // console.log(query);
+
+    res.send(query);
+});
 
 module.exports = router;
