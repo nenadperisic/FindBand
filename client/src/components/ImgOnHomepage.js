@@ -59,11 +59,15 @@ class ImgOnHomepage extends Component {
 		return (
 			<div className="ImgOnHomepage">
 				<div id="homePage">
-					<img src="/backgrounds/background.jpeg" alt="image_header"/>
-						<button className="btnLogIn"><a href="/login"><span>Log in</span></a></button>
-						<button className="btnSignIn"><a href="/register"> <span>Register</span></a></button>
-						<button className="btnShowAds" onClick={this.getAdsFromDatabase}><span>Show ads</span></button>
+					<div className="btnBox">
+						<button className="button"><a href="/login"><span>Log in</span></a></button>
+						<br/>
+						<button className="button"><a href="/register"> <span>Register</span></a></button>
+						<br/>
+						<button className="button" onClick={this.getAdsFromDatabase}><span>Show ads</span></button>
 					{/* <button className="btnShowAds"> <a href="/ShowForum"> Show ads </a></button> */}
+					</div>
+					<img src="/backgrounds/background.jpeg" alt="image_header"/>
 				</div>
 
 				{/*<div className="container" id="allAds" display="none">
