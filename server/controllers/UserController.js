@@ -97,11 +97,11 @@ router.post('/configure/musician', async (req, res) => {
         { email: req.body.email },
         {  
             dateOfBirth: req.body.dateOfBirth,
-            genre: req.body.genre,
+            genres: req.body.genres,
             instruments: req.body.instruments,
             location: req.body.location,
             description: req.body.description,
-            accountType: req.body.accountType 
+            professionalAccount: req.body.professionalAccount 
         }
     );
 
@@ -113,16 +113,16 @@ router.post('/configure/band', async (req, res) => {
         { email: req.body.email },
         {  
             name: req.body.name,
-            genre: req.body.genre,
+            genres: req.body.genres,
             location: req.body.location,
             description: req.body.description,
-            accountType: req.body.accountType
+            professionalAccount: req.body.professionalAccount
         }
     );
 
     return res.status(201);
 });
- 
+
 router.post('/configure/tavern', async (req, res) => {
     await User.updateOne (
         { email: req.body.email },

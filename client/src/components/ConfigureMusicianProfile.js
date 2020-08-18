@@ -9,17 +9,20 @@ class ConfigureMusicianProfile extends Component {
         this.state = {
             forAccount: {
                 dateOfBirth: '',
-                genre: '',
-                instruments: '',
+                genres: [],
+                instruments: [],
                 location: '',
                 description: '',
-                accountType: '' // doing this for money or for fun
+                professionalAccount: '' // doing this for money or for fun
             }
         };
 
+        this.genres = [];
+        this.instruments = [];
+
         this.onDateChange = this.onDateChange.bind(this);
-        this.onGenreChange = this.onGenreChange.bind(this);
-        this.onInstrumentsChange = this.onInstrumentsChange.bind(this);
+        this.onSelectGenreChange = this.onSelectGenreChange.bind(this);
+        this.onSelectInstrumentChange = this.onSelectInstrumentChange.bind(this);
         this.onLocationChange = this.onLocationChange.bind(this);
         this.onDescriptionChange = this.onDescriptionChange.bind(this);
         this.onTypeChange = this.onTypeChange.bind(this);
@@ -30,39 +33,53 @@ class ConfigureMusicianProfile extends Component {
         console.log(dateOfBirth.target.value)
         const forAccount = {
             dateOfBirth: dateOfBirth.target.value,
-            genre: this.state.forAccount.genre,
+            genres: this.state.forAccount.genres,
             instruments: this.state.forAccount.instruments,
             location: this.state.forAccount.location,
             description: this.state.forAccount.description,
-            accountType: this.state.forAccount.accountType,
+            professionalAccount: this.state.forAccount.professionalAccount,
         }
         this.setState({
             forAccount
         });
     }
 
-    onGenreChange(genre) {
+    onSelectGenreChange(selectedGenre) {
+        if (selectedGenre.target.checked)
+            this.genres.push(selectedGenre.target.value);
+        else
+            this.genres = this.genres.filter(e => e != selectedGenre.target.value);
+
+        console.log(this.genres);
+
         const forAccount = {
             dateOfBirth: this.state.forAccount.dateOfBirth,
-            genre: genre.target.value,
+            genres: this.genres,
             instruments: this.state.forAccount.instruments,
             location: this.state.forAccount.location,
             description: this.state.forAccount.description,
-            accountType: this.state.forAccount.accountType,
+            professionalAccount: this.state.forAccount.professionalAccount,
         }
         this.setState({
             forAccount
         });
     }
 
-    onInstrumentsChange(instruments) {
+    onSelectInstrumentChange(selectedInstrument) {
+        if (selectedInstrument.target.checked)
+            this.instruments.push(selectedInstrument.target.value);
+        else
+            this.instruments = this.instruments.filter(e => e != selectedInstrument.target.value);
+
+        console.log(this.instruments);
+
         const forAccount = {
             dateOfBirth: this.state.forAccount.dateOfBirth,
-            genre: this.state.forAccount.genre,
-            instruments: instruments.target.value,
+            genres: this.state.forAccount.genres,
+            instruments: this.instruments,
             location: this.state.forAccount.location,
             description: this.state.forAccount.description,
-            accountType: this.state.forAccount.accountType,
+            professionalAccount: this.state.forAccount.professionalAccount,
         }
         this.setState({
             forAccount
@@ -72,11 +89,11 @@ class ConfigureMusicianProfile extends Component {
     onLocationChange(location) {
         const forAccount = {
             dateOfBirth: this.state.forAccount.dateOfBirth,
-            genre: this.state.forAccount.genre,
+            genres: this.state.forAccount.genres,
             instruments: this.state.forAccount.instruments,
             location: location.target.value,
             description: this.state.forAccount.description,
-            accountType: this.state.forAccount.accountType,
+            professionalAccount: this.state.forAccount.professionalAccount,
         }
         this.setState({
             forAccount
@@ -86,11 +103,11 @@ class ConfigureMusicianProfile extends Component {
     onDescriptionChange(description) {
         const forAccount = {
             dateOfBirth: this.state.forAccount.dateOfBirth,
-            genre: this.state.forAccount.genre,
+            genres: this.state.forAccount.genres,
             instruments: this.state.forAccount.instruments,
             location: this.state.forAccount.location,
             description: description.target.value,
-            accountType: this.state.forAccount.accountType,
+            professionalAccount: this.state.forAccount.professionalAccount,
         }
         this.setState({
             forAccount
@@ -100,11 +117,11 @@ class ConfigureMusicianProfile extends Component {
     onTypeChange(type) {
         const forAccount = {
             dateOfBirth: this.state.forAccount.dateOfBirth,
-            genre: this.state.forAccount.genre,
+            genres: this.state.forAccount.genres,
             instruments: this.state.forAccount.instruments,
             location: this.state.forAccount.location,
             description: this.state.forAccount.description,
-            accountType: type.target.value,
+            professionalAccount: type.target.value,
         }
         this.setState({
             forAccount
@@ -122,12 +139,15 @@ class ConfigureMusicianProfile extends Component {
                 { 
                     email: localStorage.email, 
                     dateOfBirth: forAccount.dateOfBirth,
-                    genre: forAccount.genre,
+                    genres: forAccount.genres,
                     instruments: forAccount.instruments,
                     location: forAccount.location,
                     description: forAccount.description,
-                    accountType: forAccount.accountType
+                    professionalAccount: forAccount.professionalAccount
             });
+
+            this.genres = [];
+            this.instruments = [];
 
             console.log("musicianProfile response:");
             console.log(localStorage.email);
@@ -139,6 +159,19 @@ class ConfigureMusicianProfile extends Component {
         }
 
         document.getElementById("musicianAccountForm").reset();
+
+        // every checkbox needs to be separately
+        document.getElementById("pop").checked = false;
+        document.getElementById("rock").checked = false;
+        document.getElementById("jazz").checked = false;
+        document.getElementById("metal").checked = false;
+        document.getElementById("folk").checked = false;
+        document.getElementById("guitar").checked = false;
+        document.getElementById("bassGuitar").checked = false;
+        document.getElementById("piano").checked = false;
+        document.getElementById("violin").checked = false;
+        document.getElementById("drums").checked = false;
+        document.getElementById("trumpet").checked = false;
     }
 
     render() {
@@ -159,22 +192,71 @@ class ConfigureMusicianProfile extends Component {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="genre"> Genre: </label>
-                            <select id="genre" className="form-control" onChange={this.onGenreChange} >
-                                <option value="not_selected">Select genre</option>
-                                <option value="pop"> Pop </option>
-                                <option value="rock"> Rock </option>
-                                <option value="Jazz"> Jazz </option>
-                                <option value="metal"> Metal </option>
-                                <option value="folk"> Folk </option>
-                            </select>
+                            <label> Select genre: </label> <br/>
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="pop" id="pop" onChange={this.onSelectGenreChange}/>
+                                <label className="custom-control-label" htmlFor="pop"> Pop </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="rock" id="rock" onChange={this.onSelectGenreChange}/>
+                                <label className="custom-control-label" htmlFor="rock"> Rock </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="jazz" id="jazz" onChange={this.onSelectGenreChange}/>
+                                <label className="custom-control-label" htmlFor="jazz"> Jazz </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="metal" id="metal" onChange={this.onSelectGenreChange}/>
+                                <label className="custom-control-label" htmlFor="metal"> Metal </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="folk" id="folk" onChange={this.onSelectGenreChange}/>
+                                <label className="custom-control-label" htmlFor="folk"> Folk </label>
+                            </div>
                         </div>
 
                         <div className="form-group">
+                            <label> Select instruments: </label> <br/>
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="guitar" id="guitar" onChange={this.onSelectInstrumentChange}/>
+                                <label className="custom-control-label" htmlFor="guitar"> Guitar </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="bassGuitar" id="bassGuitar" onChange={this.onSelectInstrumentChange}/>
+                                <label className="custom-control-label" htmlFor="bassGuitar"> Bass Guitar </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="piano" id="piano" onChange={this.onSelectInstrumentChange}/>
+                                <label className="custom-control-label" htmlFor="piano"> Piano </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="violin" id="violin" onChange={this.onSelectInstrumentChange}/>
+                                <label className="custom-control-label" htmlFor="violin"> Violin </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="drums" id="drums" onChange={this.onSelectInstrumentChange}/>
+                                <label className="custom-control-label" htmlFor="drums"> Drums </label>
+                            </div>
+
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="trumpet" id="trumpet" onChange={this.onSelectInstrumentChange}/>
+                                <label className="custom-control-label" htmlFor="trumpet"> Trumpet </label>
+                            </div>
+                        </div>
+
+                        {/* <div className="form-group">
                             <label htmlFor="instruments"> Instruments: </label>
-                            <select id="instruments" className="form-control" onChange={this.onInstrumentsChange} >
+                            <select id="instruments" className="form-control" onChange={this.onSelectedInstrumentChange} >
                                 <option value="not_selected">Select Instrument</option>
-                                <option value="guitar"> Pop </option>
+                                <option value="guitar"> Guitar </option>
                                 <option value="bassGuitar"> Bass Guitar </option>
                                 <option value="piano"> Piano </option>
                                 <option value="violin"> Violin </option>
@@ -182,7 +264,7 @@ class ConfigureMusicianProfile extends Component {
                                 <option value="drums"> Drums </option>
                                 <option value="trumpet"> Trumpet </option>
                             </select>
-                        </div>
+                        </div> */}
 
                         <div className="form-group">
                             <label htmlFor="location"> Location: </label>
@@ -198,7 +280,7 @@ class ConfigureMusicianProfile extends Component {
 
                         <div className="form-group">
                             <label htmlFor="description"> Profile description: </label>
-                            <textarea class="form-control"
+                            <textarea className="form-control"
                                 id="description"
                                 rows="5"
                                 onChange={this.onDescriptionChange}></textarea>
