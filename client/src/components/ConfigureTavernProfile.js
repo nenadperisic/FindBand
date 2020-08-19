@@ -104,7 +104,7 @@ class ConfigureTavernProfile extends Component {
         return (
             <div className="profile">
                 <Header />
-                <div className="container" id="tavernAccount">
+                <div className="container">
                     <form id="tavernAccountForm">
                         <h2> Configure your profile </h2>
 

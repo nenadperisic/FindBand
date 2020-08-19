@@ -43,7 +43,7 @@ class ConfigureBandProfile extends Component {
         if (selectedGenre.target.checked)
             this.genres.push(selectedGenre.target.value);
         else
-            this.genres = this.genres.filter(e => e != selectedGenre.target.value);
+            this.genres = this.genres.filter(e => e !== selectedGenre.target.value);
 
         console.log(this.genres);
 
@@ -141,7 +141,7 @@ class ConfigureBandProfile extends Component {
         return (
             <div className="profile">
                 <Header />
-                <div className="container" id="bandAccount">
+                <div className="container">
                     <form id="bandAccountForm">
                         <h2> Configure your profile </h2>
 

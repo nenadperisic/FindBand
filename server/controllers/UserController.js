@@ -96,6 +96,7 @@ router.post('/configure/musician', async (req, res) => {
     await User.updateOne (
         { email: req.body.email },
         {  
+            name: req.body.name,
             dateOfBirth: req.body.dateOfBirth,
             genres: req.body.genres,
             instruments: req.body.instruments,

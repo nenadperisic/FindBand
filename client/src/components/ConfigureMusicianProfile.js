@@ -8,6 +8,7 @@ class ConfigureMusicianProfile extends Component {
         super(props);
         this.state = {
             forAccount: {
+                name: '',
                 dateOfBirth: '',
                 genres: [],
                 instruments: [],
@@ -20,6 +21,7 @@ class ConfigureMusicianProfile extends Component {
         this.genres = [];
         this.instruments = [];
 
+        this.onNameChange = this.onNameChange.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
         this.onSelectGenreChange = this.onSelectGenreChange.bind(this);
         this.onSelectInstrumentChange = this.onSelectInstrumentChange.bind(this);
@@ -29,9 +31,24 @@ class ConfigureMusicianProfile extends Component {
         this.handleConfigureMusician = this.handleConfigureMusician.bind(this);
     }
 
-    onDateChange(dateOfBirth) {
-        console.log(dateOfBirth.target.value)
+    onNameChange(name) {
         const forAccount = {
+            name: name.target.value,
+            dateOfBirth: this.state.forAccount.dateOfBirth,
+            genres: this.state.forAccount.genres,
+            instruments: this.state.forAccount.instruments,
+            location: this.state.forAccount.location,
+            description: this.state.forAccount.description,
+            professionalAccount: this.state.forAccount.professionalAccount,
+        }
+        this.setState({
+            forAccount
+        });
+    }
+
+    onDateChange(dateOfBirth) {
+        const forAccount = {
+            name: this.state.forAccount.name,
             dateOfBirth: dateOfBirth.target.value,
             genres: this.state.forAccount.genres,
             instruments: this.state.forAccount.instruments,
@@ -48,11 +65,12 @@ class ConfigureMusicianProfile extends Component {
         if (selectedGenre.target.checked)
             this.genres.push(selectedGenre.target.value);
         else
-            this.genres = this.genres.filter(e => e != selectedGenre.target.value);
+            this.genres = this.genres.filter(e => e !== selectedGenre.target.value);
 
         console.log(this.genres);
 
         const forAccount = {
+            name: this.state.forAccount.name,
             dateOfBirth: this.state.forAccount.dateOfBirth,
             genres: this.genres,
             instruments: this.state.forAccount.instruments,
@@ -69,11 +87,12 @@ class ConfigureMusicianProfile extends Component {
         if (selectedInstrument.target.checked)
             this.instruments.push(selectedInstrument.target.value);
         else
-            this.instruments = this.instruments.filter(e => e != selectedInstrument.target.value);
+            this.instruments = this.instruments.filter(e => e !== selectedInstrument.target.value);
 
         console.log(this.instruments);
 
         const forAccount = {
+            name: this.state.forAccount.name,
             dateOfBirth: this.state.forAccount.dateOfBirth,
             genres: this.state.forAccount.genres,
             instruments: this.instruments,
@@ -88,6 +107,7 @@ class ConfigureMusicianProfile extends Component {
 
     onLocationChange(location) {
         const forAccount = {
+            name: this.state.forAccount.name,
             dateOfBirth: this.state.forAccount.dateOfBirth,
             genres: this.state.forAccount.genres,
             instruments: this.state.forAccount.instruments,
@@ -102,6 +122,7 @@ class ConfigureMusicianProfile extends Component {
 
     onDescriptionChange(description) {
         const forAccount = {
+            name: this.state.forAccount.name,
             dateOfBirth: this.state.forAccount.dateOfBirth,
             genres: this.state.forAccount.genres,
             instruments: this.state.forAccount.instruments,
@@ -116,6 +137,7 @@ class ConfigureMusicianProfile extends Component {
 
     onTypeChange(type) {
         const forAccount = {
+            name: this.state.forAccount.name,
             dateOfBirth: this.state.forAccount.dateOfBirth,
             genres: this.state.forAccount.genres,
             instruments: this.state.forAccount.instruments,
@@ -137,7 +159,8 @@ class ConfigureMusicianProfile extends Component {
             /*await*/ axios.post(
                 'http://localhost:5000/api/user/configure/musician', 
                 { 
-                    email: localStorage.email, 
+                    email: localStorage.email,
+                    name: forAccount.name,
                     dateOfBirth: forAccount.dateOfBirth,
                     genres: forAccount.genres,
                     instruments: forAccount.instruments,
@@ -166,6 +189,7 @@ class ConfigureMusicianProfile extends Component {
         document.getElementById("jazz").checked = false;
         document.getElementById("metal").checked = false;
         document.getElementById("folk").checked = false;
+        document.getElementById("voice").checked = false;
         document.getElementById("guitar").checked = false;
         document.getElementById("bassGuitar").checked = false;
         document.getElementById("piano").checked = false;
@@ -178,9 +202,14 @@ class ConfigureMusicianProfile extends Component {
         return (
             <div className="profile">
                 <Header />
-                <div className="container" id="musicianAccount">
+                <div className="container">
                     <form id="musicianAccountForm">
                         <h2> Configure your profile </h2>
+
+                        <div className="form-group">
+                            <label htmlFor="name"> Full name: </label>
+                            <input type="textarea" className="form-control" id="name" placeholder="Enter full name" name="name" onChange={this.onNameChange} />
+                        </div>
 
                         <div className="form-group">
                             <label htmlFor="dateOfBirth"> Date of birth: </label>
@@ -221,6 +250,11 @@ class ConfigureMusicianProfile extends Component {
 
                         <div className="form-group">
                             <label> Select instruments: </label> <br/>
+                            <div className="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" className="custom-control-input" value="voice" id="voice" onChange={this.onSelectInstrumentChange}/>
+                                <label className="custom-control-label" htmlFor="voice"> Voice </label>
+                            </div>
+
                             <div className="custom-control custom-checkbox custom-control-inline">
                                 <input type="checkbox" className="custom-control-input" value="guitar" id="guitar" onChange={this.onSelectInstrumentChange}/>
                                 <label className="custom-control-label" htmlFor="guitar"> Guitar </label>
