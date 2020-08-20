@@ -6,6 +6,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import CreateAd from './components/CreateAd';
 import CreateAdMusician from './components/CreateAdMusician';
+import CreateAdTavern from './components/CreateAdTavern'
+import CreateAdBand from './components/CreateAdBand'
 import ShowForum from './components/ShowForum';
 import Musicians from './components/Musicians';
 import Bands from './components/Bands';
@@ -30,6 +32,8 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/CreateAd" exact component={CreateAd} />
           <Route path="/CreateAdMusician" exact component={CreateAdMusician} />
+          <Route path="/CreateAdTavern" exact component={CreateAdTavern} />
+          <Route path="/CreateAdBand" exact component={CreateAdBand} />
           <Route path="/Musicians" exact component={Musicians} />
           <Route path="/Bands" exact component={Bands} />  
           <Route path="/Taverns" exact component={Taverns} />  

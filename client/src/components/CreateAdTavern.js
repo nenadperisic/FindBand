@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import CheckGenres from './CheckGenres';
+import CheckTypes from './CheckTypes';
 import CheckLocation from './CheckLocation';
-import CheckInstruments from './CheckInstruments';
 import '../css/FindMBV.css';
+import Header from './Header';
 
 
-class CreateAdMusician extends Component {
+class CreateAdTavern extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,8 +15,7 @@ class CreateAdMusician extends Component {
                 description: '',
                 user: '',
                 accountType: '',
-                instruments: [],
-                genres: []
+                types: []
             }
         };
 
@@ -32,8 +31,7 @@ class CreateAdMusician extends Component {
             description: this.state.data.description,
             user: localStorage.email,
             accountType: localStorage.accountType,
-            instruments: this.state.data.instruments,
-            genres: this.state.data.genres
+            types: this.state.data.types
         };
         this.setState({
             data
@@ -46,41 +44,32 @@ class CreateAdMusician extends Component {
             description: description.target.value,
             user: localStorage.email,
             accountType: localStorage.accountType,
-            instruments: this.state.data.instruments,
-            genres: this.state.data.genres
+            types: this.state.data.types
         };
         this.setState({
             data
         });
     }
     applyFilter(event){
-        var checkedInstruments = []; 
-        var checkedGenres = [];
-        var instruments = document.getElementsByClassName('instruments');
-        var genres = document.getElementsByClassName('genres');
-        for(var i=0; instruments[i]; ++i){
+        var checkedTypes = [];
+        var types = document.getElementsByClassName('types');
+        
+        for(var i=0; types[i]; ++i){
             // console.log(inputElements)
-            if(instruments[i].checked){
-                checkedInstruments.push(instruments[i].value);
+            if(types[i].checked){
+                checkedTypes.push(types[i].value);
                 
              }
         }
-        for(var i=0; genres[i]; ++i){
-            // console.log(inputElements)
-            if(genres[i].checked){
-                checkedGenres.push(genres[i].value);
-                
-             }
-        }
-        console.log(checkedInstruments)
-        console.log(checkedGenres)
+        
+        console.log(checkedTypes)
+        
         const data = {
             title: this.state.data.title,
             description: this.state.data.description,
             user: localStorage.email,
             accountType: localStorage.accountType,
-            instruments: checkedInstruments,
-            genres: checkedGenres
+            types: checkedTypes,
         };
         this.setState({
             data
@@ -91,8 +80,9 @@ class CreateAdMusician extends Component {
     handleOnSubmit = async event => {
         event.preventDefault();
         const data = this.state.data;
+        console.log(data)
         try {
-            await axios.post('http://localhost:5000/api/forum/createAdMusican', data);
+            await axios.post('http://localhost:5000/api/forum/createAdTavern', data);
         } catch (e) {
             console.log("Nije uspelo!");
         }
@@ -105,18 +95,16 @@ class CreateAdMusician extends Component {
             <div>
                 
                  <div id="boxes"> 
-                 <img src="/dark.png" alt="image_background"/>
+                    <img src="/backgrounds/tavernBlur.jpg" alt="image_background"/>
                     <div className="container" id="left">
-                        <CheckInstruments  />
-                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
-                        <CheckGenres /> 
+                        <CheckTypes /> 
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckLocation /> 
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
-                        <button  class="button" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
+                        <button className="button" id="button2" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
                             <span>Apply</span>
                         </button>
-                        <div className="container" id="containerList">
+                        <div >
                             <form id="formAccount">
                                 <div className="form-group">
                                     <label htmlFor="title">Title:</label>
@@ -136,4 +124,4 @@ class CreateAdMusician extends Component {
 
 }
 
-export default CreateAdMusician;
+export default CreateAdTavern;
