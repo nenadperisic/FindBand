@@ -6,18 +6,95 @@ import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
 import ListBands from './ListBands';
 import '../css/FindMBV.css';
+import ListResult from './ListResult';
+import axios from 'axios';
 
 class Bands extends Component {
 
     constructor(props){
         super(props);
-
+        this.state = {
+            result: [],
+            listResult: null
+        }
         this.applyFilter = this.applyFilter.bind(this);
     }
 
+    async componentDidMount() {
+        {
+            await axios.get('http://localhost:5000/api/forum/getBands', {
+                params: {
+                    accountType: localStorage.accountType
+                }
+            }).then(res => {
+                console.log(localStorage.accountType)
+                this.state.result = res.data;
+                console.log(this.state.result);
+                this.state.listResult = this.state.result.map(
+                    result => <ListResult
+                        // id={result.id}
+                        // key={result.id}
+                        name={result.title}
+                        description={result.description}
+                        email={result.user}
+                        genre={result.genres}
+                        averageAge={result.averageAge}
+                        // location={result.location}
+                    />);
+            })
+        }
+        this.forceUpdate();
+    }
 
-    applyFilter(event){
-        console.log("WORKING!");
+
+    async applyFilter(event) {
+        var checkedAverageAge = [];
+        var checkedGenres = [];
+        var averageAges = document.getElementsByClassName('averageAge');
+        var genres = document.getElementsByClassName('genres');
+        for (let i = 0; averageAges[i]; ++i) {
+            if (averageAges[i].checked) {
+                console.log(averageAges[i].value)
+                checkedAverageAge.push(averageAges[i].value);
+
+            }
+        }
+
+        for (let i = 0; genres[i]; ++i) {
+            // console.log(inputElements)
+            if (genres[i].checked) {
+                checkedGenres.push(genres[i].value);
+
+            }
+        }
+        console.log(checkedAverageAge);
+        console.log(checkedGenres);
+        {
+            await axios.get('http://localhost:5000/api/forum/getBandsFilter', {
+                params: {
+                    accountType: localStorage.accountType,
+                    averageAge: checkedAverageAge,
+                    genres: checkedGenres
+                }
+            }).then(res => {
+                console.log(localStorage.accountType)
+                this.state.result = res.data;
+                console.log(this.state.result);
+                this.state.listResult = this.state.result.map(
+                    result => <ListResult
+                        // id={result.id}
+                        // key={result.id}
+                        name={result.title}
+                        description={result.description}
+                        email={result.user}
+                        genre={result.genres}
+                        averageAge={result.instruments}
+                    // location={result.location}
+                    />);
+            })
+        }
+
+        this.forceUpdate();
     }
 
 
@@ -40,7 +117,10 @@ class Bands extends Component {
 
                     </div>
                     <div className="container" id="containerList">
-                        <ListBands/>
+                        <div>
+                            {this.state.listResult}
+                        </div>
+                        {/* <ListBands/> */}
                     </div>
                 </div>
                  <Footer />
