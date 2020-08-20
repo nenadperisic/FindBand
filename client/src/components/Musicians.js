@@ -32,7 +32,7 @@ class Musicians extends Component {
                 this.state.listResult = this.state.result.map(
                     result => <ListResult
                     // id={result.id}
-                    // key={result.id}
+                    // key={result.user}
                     name={result.title}
                     description={result.description}
                     email={result.user}

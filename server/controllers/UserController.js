@@ -140,4 +140,12 @@ router.post('/configure/tavern', async (req, res) => {
     return res.status(201);
 });
 
+router.post('/profile/musician', async(req, res) =>{
+    console.log("PROFIL:");
+    console.log(req.body.email);
+
+    const query = await User.find({email: req.body.email});
+    res.send(query);
+});
+
 module.exports = router;

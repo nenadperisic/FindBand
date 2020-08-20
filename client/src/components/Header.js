@@ -34,7 +34,7 @@ class Header extends React.Component {
                         <li> Create ad </li>
                     </a>
                     
-                    <a href="/profile/band">
+                    <a href="/profile/musician">
                         <li id="viewProfile"> View profile </li>
                     </a>
                 </ul>

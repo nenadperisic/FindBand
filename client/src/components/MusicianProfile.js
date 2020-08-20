@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import '../css/MusicianProfile.css';
 import Header from './Header';
 import Footer from './Footer';
+import MusicianProfileResults from './MusicianProfileResults';
 // import CommentResult from './CommentResult';
-// import MusicianData from './MusicianData';
-import jsex from './JsonExcercise.json';
 
 import axios from 'axios';
 
@@ -13,12 +12,15 @@ class MusicianProfile extends Component {
         super(props);
         this.state = {
             areThereComments : false,
+            name: '',
             dateOfBirth: '',
             genres: [],
             instruments: [],
             location: '',
             description: '',
-            professionalAccount: ''
+            professionalAccount: '',
+            listResult: null,
+            result: []
         };
 
         this.configureProfile = this.configureProfile.bind(this);
@@ -63,57 +65,51 @@ class MusicianProfile extends Component {
         }
     }
 
-    render() {
+    async componentDidMount(){
+        {
+            await axios.post('http://localhost:5000/api/user/profile/musician', {
+                // params: {
+                //     email: localStorage.email
+                // }
+                email: localStorage.email
+            }).then(res => {
+                console.log(localStorage.email)
+                this.state.result = res.data;
+                console.log(this.state.result);
+                this.state.listResult = this.state.result.map(
+                    result => <MusicianProfileResults
+                        // id={result.id}
+                        // key={result.id}
+                        name={result.name}
+                        dateOfBirth={result.dateOfBirth}
+                        genres={result.genres}
+                        instruments={result.instruments}
+                        location={result.location}
+                        description={result.description}
+                        professionalAccount={result.professionalAccount}
+                    />);
+            });
 
-        // const commentResult = jsex.map(
-        //     result => <CommentResult
-        //     id={result.id}
-        //     key={result.id}
-        //     name={result.name}
-        //     description={result.description}
-        //     genre={result.genre}
-        //     location={result.location}
-        //     />);
-        
-        // commentResult.length > 0 ? this.state.areThereComments = true : this.state.areThereComments = false;    
-
-        const musician = {
-            "id": 1,
-            "name": "Ime Prezime",
-            "dateOfBirth": "25.5.1990.",
-            "instruments": ["vocal"],
-            "location": "Pancevo",
-            "description": "Umetnicka dusa trazi kolege za sviranje. Neozboljni stop.",
-            "professionalAccount" : "yes"
         }
+        this.forceUpdate();
+    }
 
+
+    render() {
         return (
             <div className="profile">
                 <Header />
-                <div className="container" id="musicianAccount">
-                    <p>Polje za ime i prezime osobe</p>
+                <div id= "buttonDiv">
+                    <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
+                    <div class="dropdown" id = "twoButtons">
+                        <button class="dropbtn" style={{backgroundImage: "url(/dropDown.png)"}}></button>
+                            <div class="dropdown-content">
+                                <button type="button" id="dropOption" onClick={this.logout}> Logout </button>
+                                <button type="button" id="dropOption" onClick={this.deleteAccount}> Delete account </button>
+                            </div>
+                    </div>
                 </div>
-
-                <div id = "buttonConfigure">
-                    <button className = "button" type="button" onClick={this.configureProfile} className="btn btn-success"> Configure profile </button>
-                </div>
-
-                <div class="dropdown" id = "twoButtons">
-                    <button class="dropbtn">Dropdown</button>
-                        <div class="dropdown-content">
-                            <button type="button" onClick={this.logout} className="btn btn-success"> Logout </button>
-                            <button type="button" onClick={this.deleteAccount} className="btn btn-success"> Delete account </button>
-                        </div>
-                </div>
-
-                <div id = "description">
-                    <p>{musician.description}</p>
-                    <p>Our location: {musician.location}</p>
-                    <p>Instruments: {musician.instruments}</p>
-                </div>
-                {/* <div className="container" id="commentSection">
-                    {this.state.areThereComments ? commentResult: <h1>There are no comments for this user yet.</h1>}
-                </div> */}
+                {this.state.listResult}
                 <Footer />
             </div>
         );
