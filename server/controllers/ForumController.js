@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Forum = require('../models/ForumModel');
 
-router.post('/create', async (req, res) => {
+router.post('/createAdMusician', async (req, res) => {
 
     const token = req.query.token;
     console.log(token);
@@ -17,6 +17,43 @@ router.post('/create', async (req, res) => {
    });
    console.log("Account type:")
    console.log(req.body.accountType);
+   await newForum.save();
+   res.send(newForum);
+});
+
+router.post('/createAdTavern', async (req, res) => {
+
+    const token = req.query.token;
+    console.log(token);
+    const newForum = Forum({
+        title: req.body.title,
+        description: req.body.description,
+        user: req.body.user,
+        accountType: req.body.accountType,
+        types: req.body.types,
+        createdAt: Date.now()
+   });
+   console.log("Account type:")
+   console.log(req.body.types);
+   await newForum.save();
+   res.send(newForum);
+});
+
+router.post('/createAdBand', async (req, res) => {
+
+    const token = req.query.token;
+    console.log(token);
+    const newForum = Forum({
+        title: req.body.title,
+        description: req.body.description,
+        user: req.body.user,
+        accountType: req.body.accountType,
+        genres: req.body.genres,
+        averageAge: req.body.averageAge,
+        createdAt: Date.now()
+   });
+   console.log("Account type:")
+   console.log(req.body.types);
    await newForum.save();
    res.send(newForum);
 });

@@ -27,6 +27,8 @@ class ChekGenres extends Component {
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Average age:</p>
                 <label>
                     <input 
+                        class="averageAge"
+                        value="15 - 20"
                         type="checkbox"
                         name="isTeen"
                         checked={this.state.isTeen}
@@ -36,6 +38,8 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="averageAge"
+                        value="21 - 30"
                         type="checkbox"
                         name="isYoung"
                         checked={this.state.isYoung}
@@ -45,6 +49,8 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="averageAge"
+                        value="31 - 40"
                         type="checkbox"
                         name="isAdult"
                         checked={this.state.isAdult}
@@ -54,6 +60,8 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="averageAge"
+                        value="41 - 50"
                         type="checkbox"
                         name="isMiddleAged"
                         checked={this.state.isMiddleAged}
@@ -63,6 +71,8 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
+                        class="averageAge"
+                        value="50+"
                         type="checkbox"
                         name="isMature"
                         checked={this.state.isMature}

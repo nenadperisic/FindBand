@@ -70,12 +70,12 @@ class ImgOnHomepage extends Component {
 					<img src="/backgrounds/background.jpeg" alt="image_header"/>
 				</div>
 
-				{/*<div className="container" id="allAds" display="none">
+				<div className="container" id="allAds" display="none">
 					<div>
 						{this.state.listResult}
 					</div>
 				</div>
-				*/}
+				
 			</div>
 		);
 	}

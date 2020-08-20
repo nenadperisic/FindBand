@@ -8,6 +8,8 @@ const ForumSchema = new Schema({
     accountType: String,
     instruments: Array,
     genres: Array,
+    types: Array,
+    averageAge: Array,
     createdAt: Date
 });
 

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
-import CheckInstruments from './CheckInstruments';
+import CheckAge from './CheckAge';
 import '../css/FindMBV.css';
 
 
-class CreateAdMusician extends Component {
+class CreateAdBand extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,8 +15,8 @@ class CreateAdMusician extends Component {
                 description: '',
                 user: '',
                 accountType: '',
-                instruments: [],
-                genres: []
+                genres: [],
+                averageAge: ''
             }
         };
 
@@ -32,8 +32,8 @@ class CreateAdMusician extends Component {
             description: this.state.data.description,
             user: localStorage.email,
             accountType: localStorage.accountType,
-            instruments: this.state.data.instruments,
-            genres: this.state.data.genres
+            genres: this.state.data.genres,
+            averageAge: this.state.data.averageAge
         };
         this.setState({
             data
@@ -46,22 +46,22 @@ class CreateAdMusician extends Component {
             description: description.target.value,
             user: localStorage.email,
             accountType: localStorage.accountType,
-            instruments: this.state.data.instruments,
-            genres: this.state.data.genres
+            genres: this.state.data.genres,
+            averageAge: this.state.data.averageAge
         };
         this.setState({
             data
         });
     }
     applyFilter(event){
-        var checkedInstruments = []; 
+        var checkedAverageAge = []; 
         var checkedGenres = [];
-        var instruments = document.getElementsByClassName('instruments');
+        var averageAge = document.getElementsByClassName('averageAge');
         var genres = document.getElementsByClassName('genres');
-        for(var i=0; instruments[i]; ++i){
+        for(var i=0; averageAge[i]; ++i){
             // console.log(inputElements)
-            if(instruments[i].checked){
-                checkedInstruments.push(instruments[i].value);
+            if(averageAge[i].checked){
+                checkedAverageAge.push(averageAge[i].value);
                 
              }
         }
@@ -72,15 +72,15 @@ class CreateAdMusician extends Component {
                 
              }
         }
-        console.log(checkedInstruments)
+        console.log(checkedAverageAge)
         console.log(checkedGenres)
         const data = {
             title: this.state.data.title,
             description: this.state.data.description,
             user: localStorage.email,
             accountType: localStorage.accountType,
-            instruments: checkedInstruments,
-            genres: checkedGenres
+            genres: checkedGenres,
+            averageAge: checkedAverageAge
         };
         this.setState({
             data
@@ -92,7 +92,7 @@ class CreateAdMusician extends Component {
         event.preventDefault();
         const data = this.state.data;
         try {
-            await axios.post('http://localhost:5000/api/forum/createAdMusican', data);
+            await axios.post('http://localhost:5000/api/forum/createAdBand', data);
         } catch (e) {
             console.log("Nije uspelo!");
         }
@@ -107,9 +107,9 @@ class CreateAdMusician extends Component {
                  <div id="boxes"> 
                  <img src="/dark.png" alt="image_background"/>
                     <div className="container" id="left">
-                        <CheckInstruments  />
-                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckGenres /> 
+                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
+                        <CheckAge />
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckLocation /> 
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
@@ -136,4 +136,4 @@ class CreateAdMusician extends Component {
 
 }
 
-export default CreateAdMusician;
+export default CreateAdBand;
