@@ -22,13 +22,13 @@
     width: 7%;
 }
 
-#description{
+/* #description{
     position: absolute;
     left:30%;
     margin-top: 20%;
     color: rgb(26, 8, 8);
     font-size: 150%;
-}
+} */
 
 .dropbtn {
     background-color: pink;

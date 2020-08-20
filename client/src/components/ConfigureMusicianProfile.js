@@ -6,154 +6,19 @@ import Header from './Header';
 class ConfigureMusicianProfile extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            forAccount: {
-                name: '',
-                dateOfBirth: '',
-                genres: [],
-                instruments: [],
-                location: '',
-                description: '',
-                professionalAccount: '' // doing this for money or for fun
-            }
-        };
 
-        this.genres = [];
-        this.instruments = [];
-
-        this.onNameChange = this.onNameChange.bind(this);
-        this.onDateChange = this.onDateChange.bind(this);
-        this.onSelectGenreChange = this.onSelectGenreChange.bind(this);
-        this.onSelectInstrumentChange = this.onSelectInstrumentChange.bind(this);
-        this.onLocationChange = this.onLocationChange.bind(this);
-        this.onDescriptionChange = this.onDescriptionChange.bind(this);
-        this.onTypeChange = this.onTypeChange.bind(this);
         this.handleConfigureMusician = this.handleConfigureMusician.bind(this);
     }
 
-    onNameChange(name) {
-        const forAccount = {
-            name: name.target.value,
-            dateOfBirth: this.state.forAccount.dateOfBirth,
-            genres: this.state.forAccount.genres,
-            instruments: this.state.forAccount.instruments,
-            location: this.state.forAccount.location,
-            description: this.state.forAccount.description,
-            professionalAccount: this.state.forAccount.professionalAccount,
-        }
-        this.setState({
-            forAccount
-        });
-    }
-
-    onDateChange(dateOfBirth) {
-        const forAccount = {
-            name: this.state.forAccount.name,
-            dateOfBirth: dateOfBirth.target.value,
-            genres: this.state.forAccount.genres,
-            instruments: this.state.forAccount.instruments,
-            location: this.state.forAccount.location,
-            description: this.state.forAccount.description,
-            professionalAccount: this.state.forAccount.professionalAccount,
-        }
-        this.setState({
-            forAccount
-        });
-    }
-
-    onSelectGenreChange(selectedGenre) {
-        if (selectedGenre.target.checked)
-            this.genres.push(selectedGenre.target.value);
-        else
-            this.genres = this.genres.filter(e => e !== selectedGenre.target.value);
-
-        console.log(this.genres);
-
-        const forAccount = {
-            name: this.state.forAccount.name,
-            dateOfBirth: this.state.forAccount.dateOfBirth,
-            genres: this.genres,
-            instruments: this.state.forAccount.instruments,
-            location: this.state.forAccount.location,
-            description: this.state.forAccount.description,
-            professionalAccount: this.state.forAccount.professionalAccount,
-        }
-        this.setState({
-            forAccount
-        });
-    }
-
-    onSelectInstrumentChange(selectedInstrument) {
-        if (selectedInstrument.target.checked)
-            this.instruments.push(selectedInstrument.target.value);
-        else
-            this.instruments = this.instruments.filter(e => e !== selectedInstrument.target.value);
-
-        console.log(this.instruments);
-
-        const forAccount = {
-            name: this.state.forAccount.name,
-            dateOfBirth: this.state.forAccount.dateOfBirth,
-            genres: this.state.forAccount.genres,
-            instruments: this.instruments,
-            location: this.state.forAccount.location,
-            description: this.state.forAccount.description,
-            professionalAccount: this.state.forAccount.professionalAccount,
-        }
-        this.setState({
-            forAccount
-        });
-    }
-
-    onLocationChange(location) {
-        const forAccount = {
-            name: this.state.forAccount.name,
-            dateOfBirth: this.state.forAccount.dateOfBirth,
-            genres: this.state.forAccount.genres,
-            instruments: this.state.forAccount.instruments,
-            location: location.target.value,
-            description: this.state.forAccount.description,
-            professionalAccount: this.state.forAccount.professionalAccount,
-        }
-        this.setState({
-            forAccount
-        });
-    }
-
-    onDescriptionChange(description) {
-        const forAccount = {
-            name: this.state.forAccount.name,
-            dateOfBirth: this.state.forAccount.dateOfBirth,
-            genres: this.state.forAccount.genres,
-            instruments: this.state.forAccount.instruments,
-            location: this.state.forAccount.location,
-            description: description.target.value,
-            professionalAccount: this.state.forAccount.professionalAccount,
-        }
-        this.setState({
-            forAccount
-        });
-    }
-
-    onTypeChange(type) {
-        const forAccount = {
-            name: this.state.forAccount.name,
-            dateOfBirth: this.state.forAccount.dateOfBirth,
-            genres: this.state.forAccount.genres,
-            instruments: this.state.forAccount.instruments,
-            location: this.state.forAccount.location,
-            description: this.state.forAccount.description,
-            professionalAccount: type.target.value,
-        }
-        this.setState({
-            forAccount
-        });
-    }
-
     handleConfigureMusician = async event => {
-        const forAccount = this.state.forAccount;
-        // event.preventDefault();
+        let forAccount = this.getValues();
+
         console.log(forAccount);
+
+        let isValid = this.checkValidity(forAccount);
+        if (!isValid) {
+            return ;
+        }
 
         try {
             /*await*/ axios.post(
@@ -169,21 +34,17 @@ class ConfigureMusicianProfile extends Component {
                     professionalAccount: forAccount.professionalAccount
             });
 
-            this.genres = [];
-            this.instruments = [];
-
-            console.log("musicianProfile response:");
             console.log(localStorage.email);
-            // console.log(response.forAccount);
-            localStorage.setItem("age", forAccount);
+
+            window.alert("Account updated successfully!");
+            window.location.href = "/profile/musician";
         } catch (e) {
             console.log(e.response.data.message);
-            // window.alert("Something is wrong!");
         }
 
         document.getElementById("musicianAccountForm").reset();
 
-        // every checkbox needs to be separately
+        // every checkbox needs to be separately unchecked
         document.getElementById("pop").checked = false;
         document.getElementById("rock").checked = false;
         document.getElementById("jazz").checked = false;
@@ -198,6 +59,84 @@ class ConfigureMusicianProfile extends Component {
         document.getElementById("trumpet").checked = false;
     }
 
+    checkValidity(account) {
+        // TODO: check validity of name and date of birth
+
+        if (account.name === "") {
+            window.alert("Please insert username!");
+            return false;
+        } else if (account.dateOfBirth === "" || !account.dateOfBirth) {
+            window.alert("Please insert your date of birth!");
+            return false;
+        } else if (account.location === "not_selected") {
+            window.alert("Please select location!");
+            return false;
+        } else if (account.professionalAccount === "not_selected") {
+            window.alert("Please select account usage!");
+            return false;
+        }
+
+        return true;
+    }
+
+    getValues() {
+        let values = {};
+        values.name = document.getElementById('name').value;
+        values.dateOfBirth = document.getElementById('dateOfBirth').value;
+        values.location = document.getElementById('location').value;
+        values.professionalAccount = document.getElementById('type').value;
+        values.description = document.getElementById('description').value;
+        values.genres = [];
+        values.instruments = [];
+
+        let genres = Array.from(document.getElementsByClassName("genre-select")).map(tag => tag.id);
+        for (let genre of genres) {
+            if (document.getElementById(genre).checked) {
+                values.genres.push(genre);
+            }
+        }
+
+        let instruments = Array.from(document.getElementsByClassName("instrument-select")).map(tag => tag.id);
+        for (let instrument of instruments) {
+            if (document.getElementById(instrument).checked) {
+                values.instruments.push(instrument);
+            }
+        }
+
+        return values;
+    }
+
+    setValues = async event => {
+        try {
+            const response = await axios.post(
+                'http://localhost:5000/api/user/get/user/data',
+                { email: localStorage.email }
+            );
+
+            const {user} = response.data;
+
+            document.getElementById('name').value = !user.name ? "" : user.name;
+            document.getElementById('dateOfBirth').value = !user.dateOfBirth ? "" : user.dateOfBirth.slice(0, 10);
+            document.getElementById('description').value = !user.description ? "" : user.description;
+            document.getElementById('location').value = !user.location ? "not_selected" : user.location;
+            document.getElementById('type').value = !user.professionalAccount ? "not_selected" : user.professionalAccount;
+
+            for (let genre of user.genres) {
+                document.getElementById(genre).checked = true;
+            }
+
+            for (let instrument of user.instruments) {
+                document.getElementById(instrument).checked = true;
+            }
+        } catch (e) {
+            console.log(e.response.data.message);
+        }
+    }
+
+    componentDidMount() {
+        this.setValues();
+    }
+
     render() {
         return (
             <div className="profile">
@@ -207,8 +146,8 @@ class ConfigureMusicianProfile extends Component {
                         <h2> Configure your profile </h2>
 
                         <div className="form-group">
-                            <label htmlFor="name"> Full name: </label>
-                            <input type="textarea" className="form-control" id="name" placeholder="Enter full name" name="name" onChange={this.onNameChange} />
+                            <label htmlFor="name"> Username: </label>
+                            <input type="textarea" className="form-control" id="name" placeholder="Enter full name" name="name" />
                         </div>
 
                         <div className="form-group">
@@ -216,34 +155,33 @@ class ConfigureMusicianProfile extends Component {
                             <input type="date" 
                                 className="form-control" 
                                 id="dateOfBirth" 
-                                name="dateOfBirth" 
-                                onChange={this.onDateChange} />
+                                name="dateOfBirth" />
                         </div>
 
                         <div className="form-group">
                             <label> Select genre: </label> <br/>
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="pop" id="pop" onChange={this.onSelectGenreChange}/>
+                                <input type="checkbox" className="custom-control-input genre-select" value="pop" id="pop" />
                                 <label className="custom-control-label" htmlFor="pop"> Pop </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="rock" id="rock" onChange={this.onSelectGenreChange}/>
+                                <input type="checkbox" className="custom-control-input genre-select" value="rock" id="rock" />
                                 <label className="custom-control-label" htmlFor="rock"> Rock </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="jazz" id="jazz" onChange={this.onSelectGenreChange}/>
+                                <input type="checkbox" className="custom-control-input genre-select" value="jazz" id="jazz" />
                                 <label className="custom-control-label" htmlFor="jazz"> Jazz </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="metal" id="metal" onChange={this.onSelectGenreChange}/>
+                                <input type="checkbox" className="custom-control-input genre-select" value="metal" id="metal" />
                                 <label className="custom-control-label" htmlFor="metal"> Metal </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="folk" id="folk" onChange={this.onSelectGenreChange}/>
+                                <input type="checkbox" className="custom-control-input genre-select" value="folk" id="folk" />
                                 <label className="custom-control-label" htmlFor="folk"> Folk </label>
                             </div>
                         </div>
@@ -251,58 +189,44 @@ class ConfigureMusicianProfile extends Component {
                         <div className="form-group">
                             <label> Select instruments: </label> <br/>
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="voice" id="voice" onChange={this.onSelectInstrumentChange}/>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="voice" id="voice" />
                                 <label className="custom-control-label" htmlFor="voice"> Voice </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="guitar" id="guitar" onChange={this.onSelectInstrumentChange}/>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="guitar" id="guitar" />
                                 <label className="custom-control-label" htmlFor="guitar"> Guitar </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="bassGuitar" id="bassGuitar" onChange={this.onSelectInstrumentChange}/>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="bassGuitar" id="bassGuitar" />
                                 <label className="custom-control-label" htmlFor="bassGuitar"> Bass Guitar </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="piano" id="piano" onChange={this.onSelectInstrumentChange}/>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="piano" id="piano" />
                                 <label className="custom-control-label" htmlFor="piano"> Piano </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="violin" id="violin" onChange={this.onSelectInstrumentChange}/>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="violin" id="violin" />
                                 <label className="custom-control-label" htmlFor="violin"> Violin </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="drums" id="drums" onChange={this.onSelectInstrumentChange}/>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="drums" id="drums" />
                                 <label className="custom-control-label" htmlFor="drums"> Drums </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input" value="trumpet" id="trumpet" onChange={this.onSelectInstrumentChange}/>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="trumpet" id="trumpet" />
                                 <label className="custom-control-label" htmlFor="trumpet"> Trumpet </label>
                             </div>
                         </div>
 
-                        {/* <div className="form-group">
-                            <label htmlFor="instruments"> Instruments: </label>
-                            <select id="instruments" className="form-control" onChange={this.onSelectedInstrumentChange} >
-                                <option value="not_selected">Select Instrument</option>
-                                <option value="guitar"> Guitar </option>
-                                <option value="bassGuitar"> Bass Guitar </option>
-                                <option value="piano"> Piano </option>
-                                <option value="violin"> Violin </option>
-                                <option value="voice"> Voice </option>
-                                <option value="drums"> Drums </option>
-                                <option value="trumpet"> Trumpet </option>
-                            </select>
-                        </div> */}
-
                         <div className="form-group">
                             <label htmlFor="location"> Location: </label>
-                            <select id="location" className="form-control" onChange={this.onLocationChange} >
+                            <select id="location" className="form-control"  >
                                 <option value="not_selected">Select Location</option>
                                 <option value="belgrade"> Belgrade </option>
                                 <option value="noviSad"> Novi Sad </option>
@@ -316,16 +240,15 @@ class ConfigureMusicianProfile extends Component {
                             <label htmlFor="description"> Profile description: </label>
                             <textarea className="form-control"
                                 id="description"
-                                rows="5"
-                                onChange={this.onDescriptionChange}></textarea>
+                                rows="5"></textarea>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="type"> Account type: </label>
-                            <select id="type" className="form-control" onChange={this.onTypeChange} >
-                                <option value="not_selected"> Select account type </option>
-                                <option value="proffesional"> I am planning on making money out of this </option>
-                                <option value="hobby"> Doing this just for fun! </option>
+                            <label htmlFor="type"> I will use this account for: </label>
+                            <select id="type" className="form-control" >
+                                <option value="not_selected"> Select type </option>
+                                <option value="proffesional"> Earning money! </option>
+                                <option value="hobby"> Fun! </option>
                             </select>
                         </div>
 

@@ -13,7 +13,7 @@ const UserSchema = new Schema({
     instruments: [String],
     location: String,
     description: String,
-    ProfessionalAccount: String,
+    professionalAccount: String,
     name: String,
     tavernType: String
 });

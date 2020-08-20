@@ -101,9 +101,9 @@ class MusicianProfile extends Component {
                 <Header />
                 <div id= "buttonDiv">
                     <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
-                    <div class="dropdown" id = "twoButtons">
-                        <button class="dropbtn" style={{backgroundImage: "url(/dropDown.png)"}}></button>
-                            <div class="dropdown-content">
+                    <div className="dropdown" id = "twoButtons">
+                        <button className="dropbtn" style={{backgroundImage: "url(/dropDown.png)"}}></button>
+                            <div className="dropdown-content">
                                 <button type="button" id="dropOption" onClick={this.logout}> Logout </button>
                                 <button type="button" id="dropOption" onClick={this.deleteAccount}> Delete account </button>
                             </div>

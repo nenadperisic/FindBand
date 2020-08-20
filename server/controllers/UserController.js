@@ -131,7 +131,7 @@ router.post('/configure/tavern', async (req, res) => {
         { email: req.body.email },
         {
             name: req.body.name,
-            tavernType: req.body.type,
+            tavernType: req.body.tavernType,
             location: req.body.location,
             description: req.body.description,  
         }
@@ -140,12 +140,26 @@ router.post('/configure/tavern', async (req, res) => {
     return res.status(201);
 });
 
-router.post('/profile/musician', async(req, res) =>{
+router.post('/profile/musician', async(req, res) => {
     console.log("PROFIL:");
     console.log(req.body.email);
 
     const query = await User.find({email: req.body.email});
     res.send(query);
+});
+
+router.post('/get/user/data', async (req, res) => {
+    const user = await User.findOne({email: req.body.email});
+    // console.log(user);
+    // console.log("---------------------")
+    
+    if (!user) {
+        return res.status(400).send({
+            message: "Email does not exist"
+        });
+    }
+
+    res.send({user});
 });
 
 module.exports = router;
