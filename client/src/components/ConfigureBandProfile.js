@@ -28,7 +28,7 @@ class ConfigureBandProfile extends Component {
                     genres: forBand.genres,
                     location: forBand.location,
                     description: forBand.description,
-                    professionalAccount: forBand.accountType
+                    professionalAccount: forBand.professionalAccount
                 });
 
             console.log("bandProfile response:");

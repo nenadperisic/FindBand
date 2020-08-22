@@ -56,11 +56,11 @@
     margin-left: 10%;
 }
 
-.NB_css ul li:visited{
+.NB_css ul li:visited {
     color: white;
 }
 
-.NB_css ul li:hover{
+.NB_css ul li:hover {
     background-color: #ccccca;
     color: white;
 }
