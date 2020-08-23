@@ -233,6 +233,30 @@ class ConfigureMusicianProfile extends Component {
                                 <option value="nis"> Niš </option>
                                 <option value="kragujevac"> Kragujevac </option>
                                 <option value="subotica"> Subotica </option>
+                                <option value="pristina"> Priština </option>
+                                <option value="pancevo"> Pančevo </option>
+                                <option value="loznica"> Loznica </option>
+                                <option value="zrenjanin"> Zrenjanin </option>
+                                <option value="cacak"> Čačak </option>
+                                <option value="krusevac"> Kruševac </option>
+                                <option value="kraljevo"> Kraljevo </option>
+                                <option value="noviPazar"> Novi Pazar </option>
+                                <option value="smederevo"> Smederevo </option>
+                                <option value="leskovac"> Leskovac </option>
+                                <option value="uzice"> Užice </option>
+                                <option value="vranje"> Vranje </option>
+                                <option value="valjevo"> Valjevo </option>
+                                <option value="sabac"> Šabac </option>
+                                <option value="sombor"> Sombor </option>
+                                <option value="pozarevac"> Požarevac </option>
+                                <option value="pirot"> Pirot </option>
+                                <option value="zajecar"> Zaječar </option>
+                                <option value="kikinda"> Kikinda </option>
+                                <option value="sremskaMitrovica"> Sremska Mitrovica </option>
+                                <option value="jagodina"> Jagodina </option>
+                                <option value="vrsac"> Vršac </option>
+                                <option value="bor"> Bor </option>
+                                <option value="prokuplje"> Prokuplje </option>
                             </select>
                         </div>
 
