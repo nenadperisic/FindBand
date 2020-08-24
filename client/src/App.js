@@ -18,6 +18,7 @@ import BandProfile from './components/BandProfile';
 import ConfigureBandProfile from './components/ConfigureBandProfile';
 import TavernProfile from './components/TavernProfile';
 import ConfigureTavernProfile from './components/ConfigureTavernProfile';
+import Verify from './components/Verify';
 // import Logout from './components/Logout';
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/ShowForum" exact component={ShowForum} /> 
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
+          <Route path="/verify" exact component={Verify} />
           <Route path="/CreateAd" exact component={CreateAd} />
           <Route path="/CreateAdMusician" exact component={CreateAdMusician} />
           <Route path="/CreateAdTavern" exact component={CreateAdTavern} />

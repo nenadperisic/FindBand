@@ -7,6 +7,8 @@ const UserSchema = new Schema({
     accountType: String,
     email: String,
     password: String,
+    secretToken: String,
+    active: Boolean,
     createdAt: Date,
     dateOfBirth: Date,
     genres: [String],

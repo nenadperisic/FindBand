@@ -13,6 +13,7 @@ router.post('/createAdMusician', async (req, res) => {
         accountType: req.body.accountType,
         instruments: req.body.instruments,
         genres: req.body.genres,
+        location: req.body.location,
         createdAt: Date.now()
    });
    console.log("Account type:")
@@ -31,6 +32,7 @@ router.post('/createAdTavern', async (req, res) => {
         user: req.body.user,
         accountType: req.body.accountType,
         types: req.body.types,
+        location: req.body.location,
         createdAt: Date.now()
    });
    console.log("Account type:")
@@ -50,6 +52,7 @@ router.post('/createAdBand', async (req, res) => {
         accountType: req.body.accountType,
         genres: req.body.genres,
         averageAge: req.body.averageAge,
+        location: req.body.location,
         createdAt: Date.now()
    });
    console.log("Account type:")

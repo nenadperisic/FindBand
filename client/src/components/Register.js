@@ -130,8 +130,10 @@ class Register extends Component {
             console.log("Registration success");
             
             document.getElementById("formAccount").reset();
-            const accountType = "/configure/" + forAccount.accountType;
-            window.location.href = accountType;
+            window.location.href = "/verify";
+            // const accountType = "/configure/" + forAccount.accountType;
+            // console.log(accountType);
+            // window.location.href = accountType;
         } catch (e) {
             window.alert("Account with this email already exists!");
             // console.log(e.response.data.message)

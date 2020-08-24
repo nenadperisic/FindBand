@@ -16,7 +16,8 @@ class CreateAdMusician extends Component {
                 user: '',
                 accountType: '',
                 instruments: [],
-                genres: []
+                genres: [],
+                location: ''
             }
         };
 
@@ -33,7 +34,8 @@ class CreateAdMusician extends Component {
             user: localStorage.email,
             accountType: localStorage.accountType,
             instruments: this.state.data.instruments,
-            genres: this.state.data.genres
+            genres: this.state.data.genres,
+            location: this.state.data.location
         };
         this.setState({
             data
@@ -47,7 +49,8 @@ class CreateAdMusician extends Component {
             user: localStorage.email,
             accountType: localStorage.accountType,
             instruments: this.state.data.instruments,
-            genres: this.state.data.genres
+            genres: this.state.data.genres,
+            location: this.state.data.location
         };
         this.setState({
             data
@@ -56,6 +59,10 @@ class CreateAdMusician extends Component {
     applyFilter(event){
         var checkedInstruments = []; 
         var checkedGenres = [];
+        var location = document.getElementById("selectAccountType");
+        var strLocation = location.options[location.selectedIndex].text;
+        console.log("lokacija je: ")
+        console.log(strLocation)
         var instruments = document.getElementsByClassName('instruments');
         var genres = document.getElementsByClassName('genres');
         for(var i=0; instruments[i]; ++i){
@@ -80,7 +87,8 @@ class CreateAdMusician extends Component {
             user: localStorage.email,
             accountType: localStorage.accountType,
             instruments: checkedInstruments,
-            genres: checkedGenres
+            genres: checkedGenres,
+            location: strLocation
         };
         this.setState({
             data
@@ -92,7 +100,7 @@ class CreateAdMusician extends Component {
         event.preventDefault();
         const data = this.state.data;
         try {
-            await axios.post('http://localhost:5000/api/forum/createAdMusican', data);
+            await axios.post('http://localhost:5000/api/forum/createAdMusician', data);
         } catch (e) {
             console.log("Nije uspelo!");
         }

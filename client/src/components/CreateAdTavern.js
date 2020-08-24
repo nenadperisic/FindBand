@@ -15,7 +15,8 @@ class CreateAdTavern extends Component {
                 description: '',
                 user: '',
                 accountType: '',
-                types: []
+                types: [],
+                location: ''
             }
         };
 
@@ -31,7 +32,8 @@ class CreateAdTavern extends Component {
             description: this.state.data.description,
             user: localStorage.email,
             accountType: localStorage.accountType,
-            types: this.state.data.types
+            types: this.state.data.types,
+            location: this.state.data.location
         };
         this.setState({
             data
@@ -44,13 +46,19 @@ class CreateAdTavern extends Component {
             description: description.target.value,
             user: localStorage.email,
             accountType: localStorage.accountType,
-            types: this.state.data.types
+            types: this.state.data.types,
+            location: this.state.data.location
         };
         this.setState({
             data
         });
     }
     applyFilter(event){
+        var location = document.getElementById("selectAccountType");
+        var strLocation = location.options[location.selectedIndex].text;
+        console.log("lokacija je: ")
+        console.log(strLocation)
+
         var checkedTypes = [];
         var types = document.getElementsByClassName('types');
         
@@ -70,6 +78,7 @@ class CreateAdTavern extends Component {
             user: localStorage.email,
             accountType: localStorage.accountType,
             types: checkedTypes,
+            location: strLocation
         };
         this.setState({
             data

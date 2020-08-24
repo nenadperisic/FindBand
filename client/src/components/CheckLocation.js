@@ -4,23 +4,9 @@ class ChekLocation extends Component {
 
     constructor(props){
         super(props);
-        this.state={
-            isPop: false,
-            isRock: false,
-            isCountry: false,
-            isJazz: false,
-            isMetal: false,
-            isFolk: false
-        }
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event){
-        const {name, checked} = event.target;
-        this.setState({
-            [name]: checked
-        })
-    }
+  
 
     render(){
         const styleSelect={
@@ -36,7 +22,7 @@ class ChekLocation extends Component {
             <div style={{color: "white"}}>
                 <p style={styleSelect}>Location:</p>
                 
-                    <select id="selectAccountType" className="form-control" onChange={this.onAccountTypeChange} selected="musician">
+                    <select id="selectAccountType"  className="form-control" onChange={this.onAccountTypeChange} selected="musician">
                         <option style={styleOption} value="not_selected">Select a location</option>
                         <option style={styleOption} value="Beograd">Beograd</option>
                         <option style={styleOption} value="Novi Sad">Novi Sad</option>

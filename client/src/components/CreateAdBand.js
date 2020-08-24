@@ -16,7 +16,8 @@ class CreateAdBand extends Component {
                 user: '',
                 accountType: '',
                 genres: [],
-                averageAge: ''
+                averageAge: '',
+                location: ''
             }
         };
 
@@ -33,7 +34,8 @@ class CreateAdBand extends Component {
             user: localStorage.email,
             accountType: localStorage.accountType,
             genres: this.state.data.genres,
-            averageAge: this.state.data.averageAge
+            averageAge: this.state.data.averageAge,
+            location: this.state.data.location
         };
         this.setState({
             data
@@ -47,7 +49,8 @@ class CreateAdBand extends Component {
             user: localStorage.email,
             accountType: localStorage.accountType,
             genres: this.state.data.genres,
-            averageAge: this.state.data.averageAge
+            averageAge: this.state.data.averageAge,
+            location: this.state.data.location
         };
         this.setState({
             data
@@ -56,6 +59,10 @@ class CreateAdBand extends Component {
     applyFilter(event){
         var checkedAverageAge = []; 
         var checkedGenres = [];
+        var location = document.getElementById("selectAccountType");
+        var strLocation = location.options[location.selectedIndex].text;
+        console.log("lokacija je: ")
+        console.log(strLocation)
         var averageAge = document.getElementsByClassName('averageAge');
         var genres = document.getElementsByClassName('genres');
         for(var i=0; averageAge[i]; ++i){
@@ -80,7 +87,8 @@ class CreateAdBand extends Component {
             user: localStorage.email,
             accountType: localStorage.accountType,
             genres: checkedGenres,
-            averageAge: checkedAverageAge
+            averageAge: checkedAverageAge,
+            location: strLocation
         };
         this.setState({
             data

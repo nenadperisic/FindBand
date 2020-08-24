@@ -4,6 +4,9 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/UserModel");
+const randomstring = require("randomstring");
+
+var secretToken;
 
 // Init func 
 router.get('/init', async (req, res) => {
@@ -31,6 +34,7 @@ router.post('/register', async (req, res) => {
     console.log("registracija...")
     // da li user vec postoji sa datim mail-om
     const user = await User.findOne({email: req.body.email});
+    console.log(user)
     if(user){
         return res.status(400).send({
             message: "Email already exists"
@@ -40,13 +44,65 @@ router.post('/register', async (req, res) => {
         accountType: req.body.accountType,
         email: req.body.email,
         password: req.body.password,
+        secretToken: '',
+        active: false,
         role: 'user'
     });
 
+    newUser.secretToken = secretToken;
+    console.log(newUser)
     await newUser.save();
     res.send(newUser);
 
+    
+
     return res.status(201);
+});
+//verify func
+router.post('/verify', async (req, res) => {
+    // da li user  postoji sa datim mail-om
+    const user = await User.findOne({email: req.body.email});
+    console.log(user);
+    if(!user){
+        return res.status(400).send({
+            message: "Email does not exist"
+        });
+    }
+    console.log(req.body.email)
+    if(user.secretToken === req.body.code){
+        console.log("Verification completed");
+        
+        await User.updateOne (
+            { email: req.body.email },
+            {  
+                $set: { active: true }
+            });
+        
+        const path = "/profile/" + user.accountType;
+        console.log(path)
+        return res.send({
+            message: path
+        });    
+    }else{
+        console.log("Bad verification code!");
+        return res.status(401).send({
+            message: "Bad verification code!"
+        });
+    }
+
+
+    
+});
+
+// delete account
+router.post('/profile/deleteAccount', async (req, res) => {
+    console.log(req.body.email);
+    try {
+        await User.findOneAndDelete( { email: req.body.email });
+        console.log("deleted account");
+    } catch (e) {
+        console.log("delete account failed");
+    }
 });
 
 //Login func
@@ -90,6 +146,9 @@ router.post('/profile/deleteAccount', async (req, res) => {
 
 // update profile info for musician
 router.post('/configure/musician', async (req, res) => {
+    // console.log("User:");
+    // console.log(req.body);
+
     await User.updateOne (
         { email: req.body.email },
         {  
@@ -138,12 +197,17 @@ router.post('/configure/tavern', async (req, res) => {
 });
 
 router.post('/profile/musician', async(req, res) => {
+    console.log("PROFIL:");
+    console.log(req.body.email);
+
     const query = await User.find({email: req.body.email});
     res.send(query);
 });
 
 router.post('/get/user/data', async (req, res) => {
     const user = await User.findOne({email: req.body.email});
+    // console.log(user);
+    // console.log("---------------------")
     
     if (!user) {
         return res.status(400).send({
@@ -153,7 +217,6 @@ router.post('/get/user/data', async (req, res) => {
 
     res.send({user});
 });
-
 var smtpTransport = nodemailer.createTransport({    
     service: "Gmail",
     auth: {
@@ -161,22 +224,18 @@ var smtpTransport = nodemailer.createTransport({
         pass: "xdznmesueucetady"
     }
 });
-var rand, mailOptions, host, link;
+
+var mailOptions, link;
 /*------------------SMTP Over-----------------------------*/
 
 /*------------------Routing Started ------------------------*/
 
 router.post('/send', function (req, res) {
-    rand = Math.floor((Math.random() * 100) + 54);
-    host = req.get('host');
-    // host = "localhost";
-    // link = "http://" + req.get('host') + "/verify?id=" + rand;
-    // console.log(link);
-    link = "http://localhost:3000/verify?id" + rand;
+    secretToken = randomstring.generate();
     mailOptions = {
         to: req.body.email,
         subject: "Please confirm your Email account",
-        html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>"
+        html: "Hello,<br> Please enter following verification code to finish registration.<br><p>" + secretToken + "</p>"
     }
     console.log("Salje mail")
     smtpTransport.sendMail(mailOptions, function (error, response) {
@@ -189,5 +248,4 @@ router.post('/send', function (req, res) {
         }
     });
 });
-
 module.exports = router;

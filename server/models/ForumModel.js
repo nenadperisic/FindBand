@@ -6,6 +6,7 @@ const ForumSchema = new Schema({
     description: String,
     user: String,
     accountType: String,
+    location: String,
     instruments: Array,
     genres: Array,
     types: Array,
