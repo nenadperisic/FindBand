@@ -8,6 +8,27 @@ class ConfigureMusicianProfile extends Component {
         super(props);
 
         this.handleConfigureMusician = this.handleConfigureMusician.bind(this);
+        this.deleteAccount = this.deleteAccount.bind(this);
+    }
+
+    deleteAccount = async event => {
+        if (!localStorage.email) {
+            window.alert("You must be logged in in order to delete your account!");
+        } else {
+            const confirm = window.confirm("Do you want to delete your accout? If you do, your account data will be permanently lost!")
+            if (confirm) {
+                try {
+                    /* await */ axios.post('http://localhost:5000/api/user/profile/deleteAccount', { email: localStorage.email });
+
+                    window.alert("account deleted successfully!");
+
+                    localStorage.clear();
+                    window.location.href = "/";
+                } catch (e) {
+                    console.log(e.response.data.message);
+                }
+            }
+        }
     }
 
     handleConfigureMusician = async event => {
@@ -277,6 +298,8 @@ class ConfigureMusicianProfile extends Component {
                         </div>
 
                         <button type="button" onClick={this.handleConfigureMusician} className="btn btn-success"> Save changes </button>
+                        <span> </span>
+                        <button type="button" onClick={this.deleteAccount} className="btn btn-danger"> Delete account </button>
                     </form>
                 </div>
             </div>
