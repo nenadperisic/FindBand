@@ -114,19 +114,23 @@ class Register extends Component {
         if (!this.checkFormValidity(forAccount)) {
             return;
         }
+
+        try {
+            const verify = await axios.post('/api/user/send', {email: forAccount.email});
+        } catch (e) {
+            window.alert("cannot send email!");
+        }
+
         try {
             const response = /* await */ axios.post('/api/user/register', forAccount);
-            // console.log(forAccount);
-            // const { token } = response.data;
-            // localStorage.setItem("token", token);
-            // console.log(token);
+
             localStorage.setItem("email", forAccount.email);
             localStorage.setItem("accountType", forAccount.accountType);
+            
             console.log("Registration success");
+            
             document.getElementById("formAccount").reset();
-            // window.location.href = "/musicianProfile";
             const accountType = "/configure/" + forAccount.accountType;
-            console.log(accountType);
             window.location.href = accountType;
         } catch (e) {
             window.alert("Account with this email already exists!");

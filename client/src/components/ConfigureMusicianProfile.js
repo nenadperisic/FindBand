@@ -150,7 +150,7 @@ class ConfigureMusicianProfile extends Component {
                 document.getElementById(instrument).checked = true;
             }
         } catch (e) {
-            console.log(e.response.data.message);
+            // console.log(e.response.data.message);
         }
     }
 
