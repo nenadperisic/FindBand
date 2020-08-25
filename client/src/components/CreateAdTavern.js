@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import CheckTypes from './CheckTypes';
-import CheckLocation from './CheckLocation';
 import '../css/FindMBV.css';
-import Header from './Header';
 
 
 class CreateAdTavern extends Component {
@@ -102,35 +99,19 @@ class CreateAdTavern extends Component {
     render() {
         return (
             <div>
-                
-                 <div id="boxes"> 
-                    <img src="/backgrounds/tavernBlur.jpg" alt="image_background"/>
-                    <div className="container" id="left">
-                        <CheckTypes /> 
-                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
-                        <CheckLocation /> 
-                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
-                        <button className="button" id="button2" style={{borderRadius: "50%", backgroundColor: "#343a40"}} onClick={this.applyFilter}>
-                            <span>Apply</span>
-                        </button>
-                        <div >
-                            <form id="formAccount">
-                                <div className="form-group">
-                                    <label htmlFor="title">Title:</label>
-                                    <input type="title" className="form-control" id="title" placeholder="Enter title" name="title" onChange={this.onTitleChange} />
-                                    <textarea type="description" id="description"  placeholder="Type description..." name="description" onChange={this.onDescriptionChange}></textarea>
-                                </div>
-                                <button type="button" onClick={this.handleOnSubmit} className="btn btn-success">Create</button>
-                            </form>
+                <div className="container" id="containerList">
+                    <form id="formAccount">
+                        <div className="form-group">
+                            <label htmlFor="title">Title:</label>
+                            <input type="title" className="form-control" id="title" placeholder="Enter title" name="title" onChange={this.onTitleChange} />
+                            <textarea type="description" id="description"  placeholder="Type description..." name="description" onChange={this.onDescriptionChange}></textarea>
                         </div>
-                    </div>
+                        <button type="button" onClick={this.handleOnSubmit} className="btn btn-success">Create</button>
+                    </form>
                 </div>
             </div>
-                   
-            
         );
     }
-
 }
 
 export default CreateAdTavern;

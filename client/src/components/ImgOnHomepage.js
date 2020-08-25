@@ -5,9 +5,7 @@ import axios from 'axios';
 import ListResult from './ListResult';
 import Header from './Header';
 import Footer from './Footer';
-import CheckInstruments from './CheckInstruments';
-import CheckGenres from './CheckGenres';
-import CheckLocation from './CheckLocation';
+import SliderComponent from './SliderComponent';
 
 
 
@@ -69,6 +67,7 @@ class ImgOnHomepage extends Component {
 		return (
 			<div className="ImgOnHomepage">
 				<div id="homePage">
+					<SliderComponent />
 					<div className="btnBox">
 						<button className="button" id="loginButton"><a href="/login"><span>Log in</span></a></button>
 						<br/>
@@ -77,7 +76,7 @@ class ImgOnHomepage extends Component {
 						<button className="button" onClick={this.getAdsFromDatabase}><span>Show ads</span></button>
 					{/* <button className="btnShowAds"> <a href="/ShowForum"> Show ads </a></button> */}
 					</div>
-					<img src="/backgrounds/background.jpeg" alt="image_header"/>
+					{/* <img src="/backgrounds/background.jpg" alt="image_header"/> */}
 				</div>
 
 				<div className="container" id="allAds" display="none">

@@ -1,13 +1,14 @@
 .btnBox{
   position: absolute;
   left: 40%;
-  top: 65%;
+  bottom: 10%;
   display: block;
 }
 
 .ImgOnHomepage{
     width: 100%;
     margin: -50px 0 95px 0;
+    height: 100%;
 }
 
 .ImgOnHomepage img{
