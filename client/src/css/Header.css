@@ -3,6 +3,12 @@
     color: white;
 }
 
+.active-nav-link {
+    font-weight: bold;
+    color: white;
+    background-color: rgb(50, 150, 200);
+}
+
 .header {
     display: flex;
     width: 100%;

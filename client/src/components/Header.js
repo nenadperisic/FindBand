@@ -53,11 +53,11 @@ class Header extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link className="nav-link-header" href="/"> Home </Nav.Link>
-                    <Nav.Link className="nav-link-header" href="/Musicians"> Musicians </Nav.Link>
-                    <Nav.Link className="nav-link-header" href="/Bands"> Bands </Nav.Link>
-                    <Nav.Link className="nav-link-header" href="/Taverns"> Taverns </Nav.Link>
-                    <Nav.Link className="nav-link-header" href="/CreateAd"> CreateAd </Nav.Link>
+                    <Nav.Link id="home-nav" className="nav-link-header" href="/"> Home </Nav.Link>
+                    <Nav.Link id="musicians-nav" className="nav-link-header" href="/Musicians"> Musicians </Nav.Link>
+                    <Nav.Link id="bands-nav" className="nav-link-header" href="/Bands"> Bands </Nav.Link>
+                    <Nav.Link id="taverns-nav" className="nav-link-header" href="/Taverns"> Taverns </Nav.Link>
+                    <Nav.Link id="createAd-nav" className="nav-link-header" href="/CreateAd"> CreateAd </Nav.Link>
                 </Nav>
                 <Nav>
                     <Nav.Link id="login-nav" className="nav-link-header" href="#" onClick={this.loginPage}> Login </Nav.Link>
@@ -87,6 +87,36 @@ class Header extends React.Component {
             viewProfileNav.style.display = "block";
             logoutNav.style.display = "block";
         }
+
+        let tagId = "";
+        if (window.location.href.includes("login")) {
+            tagId = "login-nav";
+        }
+        else if (window.location.href.includes("register")) {
+            tagId = "register-nav";
+        }
+        else if (window.location.href.includes("profile")) {
+            tagId = "view-profile-nav";
+        }
+        else if (window.location.href.includes("Musicians")) {
+            tagId = "musicians-nav";
+        }
+        else if (window.location.href.includes("Bands")) {
+            tagId = "bands-nav";
+        }
+        else if (window.location.href.includes("Taverns")) {
+            tagId = "taverns-nav";
+        }
+        else if (window.location.href.includes("CreateAd")) {
+            tagId = "createAd-nav";
+        }
+        else {
+            tagId = "home-nav";
+        }
+
+        // color in CSS class is not working, so we need to do it separately TODO
+        document.getElementById(tagId).style.color = "white";
+        document.getElementById(tagId).className += " active-nav-link";
     }
 
 }
