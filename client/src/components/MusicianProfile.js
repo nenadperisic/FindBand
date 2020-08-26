@@ -96,17 +96,23 @@ class MusicianProfile extends Component {
 
 
     render() {
+        const style={
+            backgroundImage: "url('/backgrounds/grayBlur.jpg')",
+            height: "100vh",
+            width: "100%",
+            backgroundRepeat: "repeat"
+        }
         return (
-            <div className="profile">
+            <div className="profile" style={style}>
                 <Header />
                 <div id= "buttonDiv">
                     <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
                     <div className="dropdown" id = "twoButtons">
-                        <button className="dropbtn" style={{backgroundImage: "url(/dropDown.png)"}}></button>
-                            <div className="dropdown-content">
+                        {/* <button className="dropbtn" style={{backgroundImage: "url(/dropDown.png)"}}></button> */}
+                            {/* <div className="dropdown-content">
                                 <button type="button" id="dropOption" onClick={this.logout}> Logout </button>
                                 <button type="button" id="dropOption" onClick={this.deleteAccount}> Delete account </button>
-                            </div>
+                            </div> */}
                     </div>
                 </div>
                 {this.state.listResult}

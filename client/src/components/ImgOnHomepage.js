@@ -69,10 +69,10 @@ class ImgOnHomepage extends Component {
 				<div id="homePage">
 					<SliderComponent />
 					<div className="btnBox">
-						{/* <button className="button" id="loginButton"><a href="/login"><span>Log in</span></a></button>
+						<button className="button" id="loginButton"><a href="/login"><span>Log in</span></a></button>
 						<br/>
 						<button className="button" id="registerButton"><a href="/register"> <span>Register</span></a></button>
-						<br/> */}
+						<br/>
 						<button className="button" onClick={this.getAdsFromDatabase}><span>Show ads</span></button>
 					{/* <button className="btnShowAds"> <a href="/ShowForum"> Show ads </a></button> */}
 					</div>
