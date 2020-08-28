@@ -81,13 +81,21 @@ class ConfigureMusicianProfile extends Component {
     }
 
     checkValidity(account) {
-        // TODO: check validity of name and date of birth
+        let dateOfBirth = new Date(account.dateOfBirth);
+        let currentDate = new Date();
+        let currentYear = Number.parseInt(currentDate.getFullYear());
+
+        let thresholdYear = currentYear - 16;
+        let thresholdDate = new Date(thresholdYear + currentDate.toISOString().slice(4, 10));
 
         if (account.name === "") {
             window.alert("Please insert username!");
             return false;
         } else if (account.dateOfBirth === "" || !account.dateOfBirth) {
             window.alert("Please insert your date of birth!");
+            return false;
+        } else if (dateOfBirth.getTime() > thresholdDate.getTime()) {
+            window.alert("You must be older than 16 years old!");
             return false;
         } else if (account.location === "not_selected") {
             window.alert("Please select location!");

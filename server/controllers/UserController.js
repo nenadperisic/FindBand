@@ -44,6 +44,7 @@ router.post('/register', async (req, res) => {
         accountType: req.body.accountType,
         email: req.body.email,
         password: req.body.password,
+        dateOfBirth: req.body.dateOfBirth,
         secretToken: '',
         active: false,
         role: 'user'
