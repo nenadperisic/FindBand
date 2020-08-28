@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/Header.css';
-import {Nav, NavDropdown, Navbar} from 'react-bootstrap';
+import {Nav, Navbar} from 'react-bootstrap';
 
 class Header extends React.Component {
     constructor(props) {
@@ -110,13 +110,15 @@ class Header extends React.Component {
         else if (window.location.href.includes("CreateAd")) {
             tagId = "createAd-nav";
         }
-        else {
+        else if (window.location.href.endsWith("/")) {
             tagId = "home-nav";
         }
 
-        // color in CSS class is not working, so we need to do it separately TODO
-        document.getElementById(tagId).style.color = "white";
-        document.getElementById(tagId).className += " active-nav-link";
+        // color in CSS class is not working, so we need to do it separately (not in a class)
+        if (tagId !== "") {
+            document.getElementById(tagId).style.color = "white";
+            document.getElementById(tagId).className += " active-nav-link";
+        }
     }
 
 }
