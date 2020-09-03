@@ -18,8 +18,6 @@ class ImgOnHomepage extends Component {
 			result: [],
 			listResult: null
 		};
-
-		this.getAdsFromDatabase = this.getAdsFromDatabase.bind(this);
 	}
 
 	componentDidMount() {
@@ -32,36 +30,6 @@ class ImgOnHomepage extends Component {
 		}
 	}
 
-	async getAdsFromDatabase(event) {
-		{
-			await axios.get('http://localhost:5000/api/forum/getAllAds', {
-				params: {
-					accountType: localStorage.accountType
-				}
-			}).then(res => {
-				console.log(localStorage.accountType)
-				this.state.result = res.data;
-				console.log(this.state.result);
-				this.state.listResult = this.state.result.map(
-					result => <ListResult
-						// id={result.id}
-						// key={result.id}
-						name={result.title}
-						description={result.description}
-						email={result.user}
-						genre={result.genres}
-						instruments={result.instruments}
-					// location={result.location}
-					/>);
-			})
-		}
-
-		document.getElementById("homePage").style.display = "none";
-		document.getElementById("allAds").style.display = "block";
-		this.forceUpdate();
-	}
-
-
 	render(){
 
 		return (
@@ -73,7 +41,7 @@ class ImgOnHomepage extends Component {
 						<br/><br/>
 						<button className="button" id="registerButton"><a href="/register"> <span>Register</span></a></button>
 						<br/><br/>
-						<button className="button" onClick={this.getAdsFromDatabase}><span>Show ads</span></button>
+						<button className="button"><a href="/showAds"><span>Show ads</span></a></button>
 					{/* <button className="btnShowAds"> <a href="/ShowForum"> Show ads </a></button> */}
 					</div>
 					{/* <img src="/backgrounds/background.jpg" alt="image_header"/> */}

@@ -13,7 +13,8 @@ class ListResult extends Component{
     }
 
     render(){
-        const style={borderRadius: "25px", 
+        const style={
+                borderRadius: "25px", 
                 borderStyle: "solid", 
                 borderColor: "#343a40", 
                 height: "40%", 
@@ -28,7 +29,6 @@ class ListResult extends Component{
             const styleButton={
                 colorborder: "1px solid rgb(70, 171, 230)",
                 marginLeft: "75%", 
-                borderRadius: "50%", 
                 backgroundColor: "#343a40",
                 textAlign: "center"
             };
@@ -41,7 +41,7 @@ class ListResult extends Component{
                     <h6 style={styleItems}>Instruments: {this.props.instruments}</h6>
                     <h5 style={styleItems}>Description: {this.props.description}</h5>
                     <h6 style={styleItems}>Email: {this.props.email}</h6>
-                   <button className="button" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
+                   <button className ="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
                        <span>View Ad</span>
                     </button>
                 </div>
