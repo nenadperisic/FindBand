@@ -40,6 +40,11 @@ class ConfigureTavernProfile extends Component {
             return ;
         }
 
+        let confirm = window.confirm("Are you sure you want to edit your account?");
+        if (!confirm) {
+            return ;
+        }
+
         try {
             /* await */ axios.post(
                 'http://localhost:5000/api/user/configure/tavern',
@@ -58,7 +63,7 @@ class ConfigureTavernProfile extends Component {
             window.location.href = "/profile/tavern";
         } catch (e) {
             console.log(e.response.data.message);
-            // window.alert("Something is wrong!");
+            window.alert("Something is wrong!");
         }
 
         document.getElementById("tavernAccountForm").reset();

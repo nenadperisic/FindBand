@@ -36,8 +36,7 @@ class MusicianProfile extends Component {
     }
 
     configureProfile = async event => {
-        // document.getElementById("").reset();
-        window.location.href = "/configure/band";
+        window.location.href = "/configure";
     }
 
     deleteAccount = async event => {

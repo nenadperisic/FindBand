@@ -11,7 +11,7 @@ class TavernProfile extends Component {
     }
 
     handleConfigureProfile = async event => {
-        window.location.href = "/configure/tavern";
+        window.location.href = "/configure";
     }
 
     render() {

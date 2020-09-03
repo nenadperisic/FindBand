@@ -40,6 +40,11 @@ class ConfigureBandProfile extends Component {
             return ;
         }
 
+        let confirm = window.confirm("Are you sure you want to edit your account?");
+        if (!confirm) {
+            return ;
+        }
+
         try {
             /* await */ axios.post(
                 'http://localhost:5000/api/user/configure/band',
@@ -62,7 +67,6 @@ class ConfigureBandProfile extends Component {
             window.location.href = "/profile/band";
         } catch (e) {
             console.log(e.response.data.message);
-            // window.alert("Something is wrong!");
         }
 
         document.getElementById("bandAccountForm").reset();

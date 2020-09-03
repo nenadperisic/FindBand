@@ -41,6 +41,11 @@ class ConfigureMusicianProfile extends Component {
             return ;
         }
 
+        let confirm = window.confirm("Are you sure you want to edit your account?");
+        if (!confirm) {
+            return ;
+        }
+
         try {
             /*await*/ axios.post(
                 'http://localhost:5000/api/user/configure/musician', 

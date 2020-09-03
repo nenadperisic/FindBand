@@ -30,9 +30,7 @@ class MusicianProfile extends Component {
 
 
     configureProfile = async event => {
-        // const forAccount = this.state.forAccount;
-        // document.getElementById("").reset();
-        window.location.href = "/configure/musician";
+        window.location.href = "/configure";
     }
 
     deleteAccount = async event => {
