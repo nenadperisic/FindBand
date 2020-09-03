@@ -11,11 +11,12 @@ router.post('/createAdMusician', async (req, res) => {
         description: req.body.description,
         user: req.body.user,
         accountType: req.body.accountType,
-        instruments: req.body.instruments,
-        genres: req.body.genres,
+        instrument: req.body.instrument,
+        genre: req.body.genre,
         location: req.body.location,
         createdAt: Date.now()
    });
+
    console.log("Account type:")
    console.log(req.body.accountType);
    await newForum.save();
@@ -30,11 +31,12 @@ router.post('/createAdTavern', async (req, res) => {
         title: req.body.title,
         description: req.body.description,
         user: req.body.user,
+        genre: req.body.genre,
         accountType: req.body.accountType,
-        types: req.body.types,
         location: req.body.location,
         createdAt: Date.now()
    });
+
    console.log("Account type:")
    console.log(req.body.types);
    await newForum.save();
@@ -50,11 +52,12 @@ router.post('/createAdBand', async (req, res) => {
         description: req.body.description,
         user: req.body.user,
         accountType: req.body.accountType,
-        genres: req.body.genres,
-        averageAge: req.body.averageAge,
+        instrument: req.body.instrument,
+        genre: req.body.genre,
         location: req.body.location,
         createdAt: Date.now()
    });
+
    console.log("Account type:")
    console.log(req.body.types);
    await newForum.save();

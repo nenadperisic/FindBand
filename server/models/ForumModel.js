@@ -7,8 +7,8 @@ const ForumSchema = new Schema({
     user: String,
     accountType: String,
     location: String,
-    instruments: Array,
-    genres: Array,
+    instrument: String,
+    genre: String,
     types: Array,
     averageAge: Array,
     createdAt: Date

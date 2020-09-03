@@ -99,11 +99,11 @@ class CreateAdTavern extends Component {
         adInfo["user"] = localStorage.email;
         adInfo["accountType"] = localStorage.accountType;
 
-        // try {
-        //     await axios.post('http://localhost:5000/api/forum/createAdBand', adInfo);
-        // } catch (e) {
-        //     console.log(e.response.data.message);
-        // }
+        try {
+            await axios.post('http://localhost:5000/api/forum/createAdTavern', adInfo);
+        } catch (e) {
+            console.log(e.response.data.message);
+        }
 
         console.log(adInfo);
 
