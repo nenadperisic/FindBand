@@ -70,20 +70,20 @@ class SliderComponent extends Component {
             <div id="SliderComponent">
                 <div>
                     <div className="slides">
-                        <img src="/backgrounds/img1.jpg" style={{height: "350px"}}/>
+                        <img src="/backgrounds/img1.jpg" style={{height: "420px"}}/>
                         <div className="text">Welcome to Nađi bend official site!</div>
                     </div>
 
 
                     <div className="slides">
-                        <img src="/backgrounds/img2.jpg" style={{height: "350px"}}/>
+                        <img src="/backgrounds/img2.jpg" style={{height: "420px"}}/>
                         <div className="text">We connect people who are in searh for a member in their band, 
                             people who are looking for other members to form a band or venue where people can play!
                         </div>
                     </div>
 
                     <div className="slides">
-                        <img src="/backgrounds/img3.jpg" style={{height: "350px"}}/>
+                        <img src="/backgrounds/img3.jpg" style={{height: "420px"}}/>
                         <div className="text">After registration, you can create an ad, send an email to a member and connect with other musicians with the same vibe!</div>
                     </div>
 

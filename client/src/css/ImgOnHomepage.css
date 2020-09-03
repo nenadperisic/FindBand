@@ -1,8 +1,11 @@
 .btnBox{
-  position: absolute;
-  left: 40%;
-  bottom: 10%;
+  position: relative;
+  /* bottom: 7%; */
   display: block;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  height: 100%;
 }
 
 .ImgOnHomepage{
@@ -70,14 +73,15 @@ a:link {
 
   .button {
     display: inline-block;
-    border-radius: 50%;
     position: relative;
     border: none;
     color:  #FFFFFF;
-    background-color: #343a40;
+    background-color: rgba(52, 58, 64, 0.85);
     font-size: 16px;
     cursor: pointer;
     transition: all 0.5s;
-    width: 160px;
-    height: 50px;
+    width: 15%;
+    height: 20%;
+    left: 50%;
+    transform: translate(-50%, 70%);
 }
