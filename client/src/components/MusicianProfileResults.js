@@ -10,19 +10,21 @@ class MusicianProfileResults extends Component {
     render(){
         const style={
             width: "100%",
+            margin: "auto"
         };
         
         return(
             <div className = "container" id="listedDetailsMusician" style={style}> 
-                <h3 style={{fontWeight: "bold", fontSize: "35px"}}>{this.props.name}</h3>
+                <img src="/profilePic.webp"style={{height: "50px", width: "50px"}}/>
+                <h1 style={{fontWeight: "bold", fontSize: "35px"}}>{this.props.name}</h1>
                 <hr />
                 <p style={{fontSize: "25px"}}>About:</p>
-                <h6>Description: {this.props.description}</h6> 
-                <h6>🎂 Brith date: {this.props.dateOfBirth}</h6>
-                <h6>🎶 Genres: {this.props.genres}</h6>
-                <h6>🎸 Instruments: {this.props.instruments}</h6>
-                <h6>📍 Location: {this.props.location}</h6>
-                <h6>❓ professional account: {this.props.professionalAccount ? ' ✔️ yes': ' ❌ no'}</h6>
+                <h5>📝 <b>Description:</b> {this.props.description}</h5> 
+                <h5>🎂 <b>Brith date:</b> {this.props.dateOfBirth}</h5>
+                <h5>🎶 <b>Genres:</b> {this.props.genres}</h5>
+                <h5>🎸 <b>Instruments:</b> {this.props.instruments}</h5>
+                <h5>📍 <b>Location:</b> {this.props.location}</h5>
+                <h5>❓ <b>Professional account:</b> {this.props.professionalAccount ? ' ✔️ yes': ' ❌ no'}</h5>
             </div>
         );
     }

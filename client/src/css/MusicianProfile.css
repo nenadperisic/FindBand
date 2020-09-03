@@ -1,89 +1,42 @@
-/* #musicianAccount{
-    position: absolute;
-    background-color: transparent;
-    left: 3%;
-    width: 40%;
-    top: 10%;
-    height: 70%;
-} */
-
-/* #commentSection{
-    position: absolute;
-    top: 10%;
-    right: 3%;
-    background-color: transparent;
-    width: 50%;
-    height: 70%;
-    overflow: overlay;
-} */
-
-#buttonDiv{
-  position: relative;
-  border-color: royalblue;
-  border: 6px;
-  right: 5%;
-}
 #configureBtn{
   position: relative;
   left: 70%;
-  margin-top: 6%;
-  height: 5%;
+  margin-top: 7%;
+  background-color: #343a40;
+  display: inline-block;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 0px;
+  width: 12%;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding: 0.7%;
+  transform: translate(70%, 100%);
 }
 
-#twoButtons{
-    position: relative;
-    right:10%;
-    margin-top: 6%;
-    height: 5%;
-    width: 7%;
+#configureBtn span{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }
 
-.dropbtn {
-    background-color: pink;
-    border: none;
-    cursor: pointer;
-    width: 10%;
-    background-repeat: no-repeat;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    padding: 15%;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown:hover .dropbtn {
-    background-color: green;
-  }
+#configureBtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 
-  #dropOption{
-    position: relative;
-    padding: 5%;
-    width: 90%;
-    height: 30%;
-    display: block;
-    font-size: 12px;
-    margin: 5%;
-  }
+#configureBtn:hover span {
+  padding-right: 10%;
+}
+
+#configureBtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}

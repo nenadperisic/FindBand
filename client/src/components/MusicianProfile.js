@@ -66,9 +66,6 @@ class MusicianProfile extends Component {
     async componentDidMount(){
         {
             await axios.post('http://localhost:5000/api/user/profile/musician', {
-                // params: {
-                //     email: localStorage.email
-                // }
                 email: localStorage.email
             }).then(res => {
                 console.log(localStorage.email)
@@ -103,16 +100,7 @@ class MusicianProfile extends Component {
         return (
             <div className="profile" style={style}>
                 <Header />
-                <div id= "buttonDiv">
-                    <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
-                    <div className="dropdown" id = "twoButtons">
-                        {/* <button className="dropbtn" style={{backgroundImage: "url(/dropDown.png)"}}></button> */}
-                            {/* <div className="dropdown-content">
-                                <button type="button" id="dropOption" onClick={this.logout}> Logout </button>
-                                <button type="button" id="dropOption" onClick={this.deleteAccount}> Delete account </button>
-                            </div> */}
-                    </div>
-                </div>
+                <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
                 {this.state.listResult}
                 <Footer />
             </div>
