@@ -91,6 +91,7 @@ class CreateAdTavern extends Component {
             const {user} = response.data;
 
             adInfo["location"] = user.location;
+            adInfo["type"] = user.tavernType;
         } catch (e) {
             console.log(e.response.data.message);
         }

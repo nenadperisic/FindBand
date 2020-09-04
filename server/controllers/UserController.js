@@ -55,8 +55,6 @@ router.post('/register', async (req, res) => {
     await newUser.save();
     res.send(newUser);
 
-    
-
     return res.status(201);
 });
 //verify func
@@ -64,13 +62,15 @@ router.post('/verify', async (req, res) => {
     // da li user  postoji sa datim mail-om
     const user = await User.findOne({email: req.body.email});
     console.log(user);
-    if(!user){
+    
+    if (!user) {
         return res.status(400).send({
             message: "Email does not exist"
         });
     }
     console.log(req.body.email)
-    if(user.secretToken === req.body.code){
+
+    if (user.secretToken === req.body.code){
         console.log("Verification completed");
         
         await User.updateOne (
@@ -84,15 +84,12 @@ router.post('/verify', async (req, res) => {
         return res.send({
             message: path
         });    
-    }else{
+    } else {
         console.log("Bad verification code!");
         return res.status(401).send({
             message: "Bad verification code!"
         });
     }
-
-
-    
 });
 
 // delete account
@@ -204,7 +201,7 @@ router.post('/profile/musician', async(req, res) => {
 
 router.post('/get/user/data', async (req, res) => {
     const user = await User.findOne({email: req.body.email});
-    // console.log(user);
+    console.log(user);
     // console.log("---------------------")
     
     if (!user) {
@@ -215,6 +212,7 @@ router.post('/get/user/data', async (req, res) => {
 
     res.send({user});
 });
+
 var smtpTransport = nodemailer.createTransport({    
     service: "Gmail",
     auth: {
@@ -246,4 +244,31 @@ router.post('/send', function (req, res) {
         }
     });
 });
+
+router.post("/update/member/list", async (req, res) => {
+    await User.updateOne (
+        { email: req.body.email },
+        {
+            bandMembers: req.body.bandMembers 
+        }
+    );
+
+    return res.status(201);
+});
+
+router.post("/musician/exists/", async (req, res) => {
+    const user = await User.findOne({email: req.body.email});
+    console.log(user);
+
+    if (user && user.accountType === "musician") {
+        return res.status(200).send({
+            indicator: true
+        });
+    } else {
+        return res.status(200).send({
+            indicator: false
+        });
+    }
+});
+
 module.exports = router;

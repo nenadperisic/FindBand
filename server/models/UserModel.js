@@ -17,7 +17,8 @@ const UserSchema = new Schema({
     description: String,
     professionalAccount: String,
     name: String,
-    tavernType: String
+    tavernType: String,
+    bandMembers: [String]
 });
 
 // Password hashing

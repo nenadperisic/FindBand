@@ -9,7 +9,7 @@ const ForumSchema = new Schema({
     location: String,
     instrument: String,
     genre: String,
-    types: Array,
+    type: String,
     averageAge: Array,
     createdAt: Date
 });

@@ -32,6 +32,7 @@ router.post('/createAdTavern', async (req, res) => {
         description: req.body.description,
         user: req.body.user,
         genre: req.body.genre,
+        type: req.body.type,
         accountType: req.body.accountType,
         location: req.body.location,
         createdAt: Date.now()

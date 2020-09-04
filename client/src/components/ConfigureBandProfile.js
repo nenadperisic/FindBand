@@ -9,6 +9,13 @@ class ConfigureBandProfile extends Component {
 
         this.handleConfigureBand = this.handleConfigureBand.bind(this);
         this.deleteAccount = this.deleteAccount.bind(this);
+        this.addMember = this.addMember.bind(this);
+        this.removeMember = this.removeMember.bind(this);
+        this.submitMembers = this.submitMembers.bind(this);
+
+        this.bandMembers = [];
+        this.toBeAdded = [];
+        this.toBeRemoved = [];
     }
 
     deleteAccount = async event => {
@@ -130,16 +137,107 @@ class ConfigureBandProfile extends Component {
                 document.getElementById(genre).checked = true;
             }
 
+            this.bandMembers = !user.bandMembers ? [] : user.bandMembers;
         } catch (e) {
-            console.log(e.response.data.message);
+            console.log(e);
         }
+
+        this.forceUpdate();
     }
 
     componentDidMount() {
         this.setValues();
     }
 
+    addMember = async event => {
+        let value = document.getElementById("new-member-email").value;
+
+        const validationEmailRegex = new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$");
+        if (value === "" || !validationEmailRegex.test(value)) {
+            window.alert("Please insert valid email for new member!");
+            return ;
+        } else if (this.bandMembers.indexOf(value) !== -1) {
+            window.alert("User is already bend member!");
+            return ;
+        }
+
+        try {
+            let result = await axios.post(
+                'http://localhost:5000/api/user/musician/exists',
+                { 
+                    email: value
+                }
+            );
+
+            const indicator = result.data.indicator;
+            if (!indicator) {
+                window.alert("Musician with that email does not exist!");
+                return ;
+            }
+        } catch (e) {
+            console.log(e);
+        }
+
+        this.bandMembers.push(value);
+        // console.log(this.bandMembers);
+        this.toBeAdded.push(value);
+
+        document.getElementById("new-member-email").value = "";
+
+        this.forceUpdate();
+    }
+
+    removeMember() {
+        let value = document.getElementById("remove-member-email").value;
+
+        if (value === "not_selected") {
+            window.alert("Select email member first!");
+            return ;
+        }
+
+        this.bandMembers = this.bandMembers.filter(e => e !== value);
+        // console.log(this.bandMembers);
+        this.toBeRemoved.push(value);
+
+        this.forceUpdate();
+    }
+
+    submitMembers = async event => {
+        try {
+            /* await */ axios.post(
+                'http://localhost:5000/api/user/update/member/list',
+                { 
+                    email: localStorage.email,
+                    bandMembers: this.bandMembers
+                }
+            );
+        } catch (e) {
+            console.log(e);
+        }
+
+        window.alert("List of band members updated successfully!");
+        window.location.href = "/profile/band";
+        console.log('nesto');
+
+        document.getElementById("band-members-form").reset();
+    }
+
     render() {
+        let member_emails = [<option key="not_selected"> not_selected </option>];
+        for (const email of this.bandMembers) {
+            member_emails.push(<option  key={email} value={email}> {email} </option>);
+        }
+
+        let addedMembers = [];
+        for (const email of this.toBeAdded) {
+            addedMembers.push(<li key={email}> {email} </li>)
+        }
+
+        let removedMembers = [];
+        for (const email of this.toBeRemoved) {
+            removedMembers.push(<li key={email}> {email} </li>)
+        }
+
         return (
             <div className="profile">
                 <Header />
@@ -237,6 +335,47 @@ class ConfigureBandProfile extends Component {
                         <button type="button" onClick={this.deleteAccount} className="btn btn-danger"> Delete account </button>
                     </form>
                 </div>
+
+                <div className="container">
+                    <form id="band-members-form">
+                        <h2> Add and Remove band members </h2>
+
+                        <div className="form-group">
+                            <label htmlFor="new-member-email"> Add new member </label>
+                            <div className="input-group">
+                            <input type="text" id="new-member-email" className="form-control" placeholder="Enter email of a new member"/>
+                                <div className="input-group-append">
+                                    <button className="btn btn-success" onClick={this.addMember} type="button"> Add Member </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="remove-member-email"> Remove existing member </label>
+                            <div className="input-group">
+                                <select id="remove-member-email" className="form-control" >
+                                    {member_emails}
+                                </select> 
+                                <div className="input-group-append">
+                                    <button className="btn btn-danger" onClick={this.removeMember} type="button"> Remove Member </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor=""> To be added: </label>
+                            {addedMembers}
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor=""> To be removed: </label>
+                            {removedMembers}
+                        </div>
+
+                        <button type="button" onClick={this.submitMembers} className="btn btn-success"> Submit changes </button>
+                    </form>
+                </div>
+
             </div>
         );
     }
