@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ListResult from './ListResult';
+import ListMyAds from './ListMyAds';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -33,7 +33,7 @@ class showAds extends Component {
 				this.state.result = res.data;
 				console.log(this.state.result);
 				this.state.listResult = this.state.result.map(
-					result => <ListResult
+					result => <ListMyAds
 						// id={result.id}
 						// key={result.id}
 						name={result.title}

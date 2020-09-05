@@ -74,6 +74,15 @@ router.get('/getMusicians', async (req, res) => {
     res.send(query);
 });
 
+router.get('/getByEmail', async (req, res) => {
+    console.log(req.query.email);
+    /* use this to select based on checked filters */
+    const query = await Forum.find({ user : req.query.email}); /* .select({title: "rock"}); */
+    console.log(query);
+
+    res.send(query);
+});
+
 router.get('/getMusiciansFilter', async (req, res) => {
     console.log(req.query.genres);
     console.log(req.query.instruments);
@@ -147,5 +156,20 @@ router.get('/getAllAds', async (req, res) => {
 
     res.send(query);
 });
+
+
+// delete Ad
+router.post('/deleteAd', async (req, res) => {
+    console.log(req.body.id);
+    try {
+        await Forum.findOneAndDelete( { _id: req.body.id });
+        console.log("Deleted ad!");
+    } catch (e) {
+        console.log("Delete ad failed!");
+    }
+
+    res.send();
+});
+
 
 module.exports = router;

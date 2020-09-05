@@ -19,6 +19,7 @@ import ConfigureProfile from './components/ConfigureProfile';
 import ConfigureBandProfile from './components/ConfigureBandProfile';
 import TavernProfile from './components/TavernProfile';
 import ConfigureTavernProfile from './components/ConfigureTavernProfile';
+import MyAds from './components/MyAds';
 import Verify from './components/Verify';
 import ShowAds from './components/ShowAds';
 // import Logout from './components/Logout';
@@ -36,6 +37,7 @@ function App() {
           <Route path="/showAds" exact component={ShowAds} />
           <Route path="/verify" exact component={Verify} />
           <Route path="/CreateAd" exact component={CreateAd} />
+          <Route path="/MyAds" exact component={MyAds} />
           <Route path="/CreateAdMusician" exact component={CreateAdMusician} />
           <Route path="/CreateAdTavern" exact component={CreateAdTavern} />
           <Route path="/CreateAdBand" exact component={CreateAdBand} />
