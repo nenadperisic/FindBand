@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 class ChekLocation extends Component {
 
-    constructor(props){
-        super(props);
-    }
-
-  
-
     render(){
         const styleSelect={
             fontWeight: "bold", 

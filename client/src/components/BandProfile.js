@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import '../css/BandProfile.css';
 import Header from './Header';
 import Footer from './Footer';
-import jsex from './JsonExcercise.json';
-import ListBands from './ListBands';
+// import ListBands from './ListBands';
 
 import axios from 'axios';
 

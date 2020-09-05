@@ -19,6 +19,7 @@ class MusicianProfile extends Component {
             location: '',
             description: '',
             professionalAccount: '',
+            gender: '',
             listResult: null,
             result: []
         };
@@ -64,28 +65,29 @@ class MusicianProfile extends Component {
     }
 
     async componentDidMount(){
-        {
-            await axios.post('http://localhost:5000/api/user/profile/musician', {
-                email: localStorage.email
-            }).then(res => {
-                console.log(localStorage.email)
-                this.state.result = res.data;
-                console.log(this.state.result);
-                this.state.listResult = this.state.result.map(
-                    result => <MusicianProfileResults
-                        // id={result.id}
-                        // key={result.id}
-                        name={result.name}
-                        dateOfBirth={result.dateOfBirth}
-                        genres={result.genres}
-                        instruments={result.instruments}
-                        location={result.location}
-                        description={result.description}
-                        professionalAccount={result.professionalAccount}
-                    />);
-            });
+    
+        await axios.post('http://localhost:5000/api/user/profile/musician', {
+            email: localStorage.email
+        }).then(res => {
+            console.log(localStorage.email)
+            this.state.result = res.data;
+            console.log(this.state.result);
+            this.state.listResult = this.state.result.map(
+                result => <MusicianProfileResults
+                    // id={result.id}
+                    // key={result.id}
+                    name={result.name}
+                    dateOfBirth={result.dateOfBirth}
+                    genres={result.genres}
+                    gender={result.gender}
+                    instruments={result.instruments}
+                    location={result.location}
+                    description={result.description}
+                    professionalAccount={result.professionalAccount}
+                />);
+        });
 
-        }
+    
         this.forceUpdate();
     }
 

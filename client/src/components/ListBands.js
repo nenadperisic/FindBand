@@ -4,12 +4,6 @@ import jsex from './JsonExcercise.json';
 
 class ListBands extends Component {
 
-    constructor(props){
-        super(props);
-        
-
-    }
-
     render(){
         const listResult = jsex.map(
             result => <ListResult
