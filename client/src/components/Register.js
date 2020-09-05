@@ -201,7 +201,7 @@ class Register extends Component {
             // console.log(accountType);
             // window.location.href = accountType;
         } catch (e) {
-            window.alert("Account with this email already exists!");
+            window.alert("Account with that email already exists!");
             // console.log(e.response.data.message)
         }
         // this.forceUpdate();
@@ -212,55 +212,75 @@ class Register extends Component {
         return (
             <div className="signin">
                 <Header />
-                <div className="container" id="registerAccount">
-                    <h2>Register</h2>
+                <div className="container" id="registerAccount" style={{paddingTop: '6%'}}>
 
-                    <form id="formAccount">
-                        <div className="form-group">
-                            <label htmlFor="accountFor">Account for:</label>
-                            <select id="selectAccountType" className="form-control" onChange={this.onAccountTypeChange} selected="musician">
-                                <option value="not_selected">Select account type</option>
-                                <option value="musician">Musician</option>
-                                <option value="band">Band</option>
-                                <option value="tavern">Tavern</option>
-                            </select>
+                    <div className="row">
+
+                    <div className="col-lg-3">
+                    </div>
+
+                    <div className="card col-lg-6">
+                        <div className="card-body">
+
+                            <h2>Register</h2>
+
+                            <form id="formAccount">
+                                <div className="form-group">
+                                    <label htmlFor="accountFor">Account for:</label>
+                                    <select id="selectAccountType" className="form-control" onChange={this.onAccountTypeChange} selected="musician">
+                                        <option value="not_selected">Select account type</option>
+                                        <option value="musician">Musician</option>
+                                        <option value="band">Band</option>
+                                        <option value="tavern">Tavern</option>
+                                    </select>
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="email">Email:</label>
+                                    <input type="email" className="form-control" id="email" placeholder="Enter email" name="email" onChange={this.onEmailChangeforAccount}/>
+                                </div>
+
+                                <div className="form-group" id="date-of-birth-reg-group" style={{display: "none"}}>
+                                    <label htmlFor="date-of-birth-register"> Date of birth: </label>
+                                    <input type="date"
+                                        className="form-control"
+                                        id="date-of-birth-register"
+                                        name="dateOfBirth"
+                                        onChange={this.onDateChange}/>
+                                </div>
+
+                                <div className="form-group" id="gender-reg-group" style={{display: "none"}}>
+                                    <label htmlFor="select-gender-register"> Gender: </label>
+                                    <select id="select-gender-register" className="form-control" onChange={this.onGenderChange}>
+                                        <option value="not_selected"> Select gender </option>
+                                        <option value="male"> Male </option>
+                                        <option value="female"> Female </option>
+                                    </select>
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="pwd">Password:</label>
+                                    <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" onChange={this.onPasswordChangeforAccount}/>
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="pwd">Confirm password:</label>
+                                    <input type="password" className="form-control" id="pwdConfirm" placeholder="Enter password" name="pwd" onChange={this.onPasswordConfirmChangeforAccount}/>
+                                </div>
+
+                                <div className="text-center">
+                                    <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success"> Register </button>
+                                </div>
+                            </form>
+
                         </div>
+                    </div>
 
-                        <div className="form-group">
-                            <label htmlFor="email">Email:</label>
-                            <input type="email" className="form-control" id="email" placeholder="Enter email" name="email" onChange={this.onEmailChangeforAccount}/>
-                        </div>
+                    <div className="col-lg-3">
+                    </div>
+                    
+                    </div>
 
-                        <div className="form-group" id="date-of-birth-reg-group" style={{display: "none"}}>
-                            <label htmlFor="date-of-birth-register"> Date of birth: </label>
-                            <input type="date" 
-                                className="form-control" 
-                                id="date-of-birth-register" 
-                                name="dateOfBirth" 
-                                onChange={this.onDateChange}/>
-                        </div>
-
-                        <div className="form-group" id="gender-reg-group" style={{display: "none"}}>
-                            <label htmlFor="select-gender-register"> Gender: </label>
-                            <select id="select-gender-register" className="form-control" onChange={this.onGenderChange}>
-                                <option value="not_selected"> Select gender </option>
-                                <option value="male"> Male </option>
-                                <option value="female"> Female </option>
-                            </select>
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="pwd">Password:</label>
-                            <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" onChange={this.onPasswordChangeforAccount}/>
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="pwd">Confirm password:</label>
-                            <input type="password" className="form-control" id="pwdConfirm" placeholder="Enter password" name="pwd" onChange={this.onPasswordConfirmChangeforAccount}/>
-                        </div>
-
-                        <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success"> Register </button>
-                    </form>
                 </div>
             </div>
     );

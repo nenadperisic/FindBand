@@ -82,7 +82,7 @@ class Login extends Component {
             window.location.href = target;
         } catch (e) {
             // console.log(e.response.data.message);
-            window.alert(e.response.data.message);
+            window.alert("Account with that email does not exist!");
         }
 
         // console.log(forAccount);
@@ -94,22 +94,41 @@ class Login extends Component {
         return (
             <div className="login">
                 <Header />
-                <div className="container" id="loginAccount">
-                    <h2>Login</h2>
+                <div className="container" id="loginAccount" style={{paddingTop: '6%'}}>
 
-                    <form id="formAccount">
-                        <div className="form-group">
-                            <label htmlFor="email">Email:</label>
-                            <input type="email" className="form-control" id="email" placeholder="Enter email" name="email" onChange={this.onEmailChangeforAccount} />
+                <div className="row">
+
+                    <div className="col-lg-3">
+                    </div>
+
+                    <div className="card col-lg-6">
+                        <div className="card-body">
+
+                            <h2>Login</h2>
+
+                            <form id="formAccount">
+                                <div className="form-group">
+                                    <label htmlFor="email">Email:</label>
+                                    <input type="email" className="form-control" id="email" placeholder="Enter email" name="email" onChange={this.onEmailChangeforAccount} />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="pwd">Password:</label>
+                                    <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" onChange={this.onPasswordChangeforAccount} />
+                                </div>
+
+                                <div className="text-center">
+                                    <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success">Log in</button>
+                                </div>
+                            </form>
+
                         </div>
+                    </div>
 
-                        <div className="form-group">
-                            <label htmlFor="pwd">Password:</label>
-                            <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" onChange={this.onPasswordChangeforAccount} />
-                        </div>
+                    <div className="col-lg-3">
+                    </div>
 
-                        <button type="button" onClick={this.handleSubmitforAccount} className="btn btn-success">Log in</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         

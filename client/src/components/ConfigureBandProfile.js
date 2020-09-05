@@ -179,7 +179,6 @@ class ConfigureBandProfile extends Component {
         }
 
         this.bandMembers.push(value);
-        // console.log(this.bandMembers);
         this.toBeAdded.push(value);
 
         document.getElementById("new-member-email").value = "";
@@ -196,19 +195,29 @@ class ConfigureBandProfile extends Component {
         }
 
         this.bandMembers = this.bandMembers.filter(e => e !== value);
-        // console.log(this.bandMembers);
         this.toBeRemoved.push(value);
 
         this.forceUpdate();
     }
 
     submitMembers = async event => {
+        let confirm = window.confirm("Are you sure you want to update your member list?");
+        if (!confirm) {
+            return ;
+        }
+
+        let emailsToBeRemoved = 
+            Array.from(document.getElementsByClassName("member-emails-class"))
+                .filter(e => e.checked)
+                .map(e => e.id);
+
+        let survivors = this.bandMembers.filter(e => !emailsToBeRemoved.includes(e));
         try {
             /* await */ axios.post(
                 'http://localhost:5000/api/user/update/member/list',
                 { 
                     email: localStorage.email,
-                    bandMembers: this.bandMembers
+                    bandMembers: survivors
                 }
             );
         } catch (e) {
@@ -217,25 +226,26 @@ class ConfigureBandProfile extends Component {
 
         window.alert("List of band members updated successfully!");
         window.location.href = "/profile/band";
-        console.log('nesto');
 
         document.getElementById("band-members-form").reset();
     }
 
     render() {
-        let member_emails = [<option key="not_selected"> not_selected </option>];
-        for (const email of this.bandMembers) {
-            member_emails.push(<option  key={email} value={email}> {email} </option>);
-        }
-
         let addedMembers = [];
         for (const email of this.toBeAdded) {
             addedMembers.push(<li key={email}> {email} </li>)
         }
 
-        let removedMembers = [];
-        for (const email of this.toBeRemoved) {
-            removedMembers.push(<li key={email}> {email} </li>)
+        let memberEmails = [];
+        for (let i = 0; i < this.bandMembers.length; ++i) {
+            memberEmails.push(
+                <div key={i}>
+                    <input className="form-check-input member-emails-class" id={this.bandMembers[i]} type="checkbox" />
+                    <label className="form-check-label">
+                        {this.bandMembers[i]}
+                    </label>
+                </div>
+            );
         }
 
         return (
@@ -351,25 +361,15 @@ class ConfigureBandProfile extends Component {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="remove-member-email"> Remove existing member </label>
-                            <div className="input-group">
-                                <select id="remove-member-email" className="form-control" >
-                                    {member_emails}
-                                </select> 
-                                <div className="input-group-append">
-                                    <button className="btn btn-danger" onClick={this.removeMember} type="button"> Remove Member </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="form-group">
                             <label htmlFor=""> To be added: </label>
                             {addedMembers}
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor=""> To be removed: </label>
-                            {removedMembers}
+                            <label> Select members you want to remove from band: </label>
+                            <div className="form-check">
+                                {memberEmails}
+                            </div>
                         </div>
 
                         <button type="button" onClick={this.submitMembers} className="btn btn-success"> Submit changes </button>
