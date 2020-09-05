@@ -40,3 +40,20 @@
   opacity: 1;
   right: 0;
 }
+
+#profile-img #fileDiv{
+    position: relative;
+    overflow: hidden;
+    width: 20%;
+    border: none;
+    border-radius: 0;
+    font-size: 90%;
+    background: #212529b8;
+    color: white;
+}
+#fileDiv input {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}

@@ -20,28 +20,28 @@ class Musicians extends Component {
     }
 
     async componentDidMount() {
-        {
-            await axios.get('http://localhost:5000/api/forum/getMusicians', {
-                params: {
-                    accountType : localStorage.accountType
-                }
-            }).then(res => {
-                console.log(localStorage.accountType)
-                this.state.result = res.data;
-                console.log(this.state.result);
-                this.state.listResult = this.state.result.map(
-                    result => <ListResult
-                    // id={result.id}
-                    // key={result.user}
-                    name={result.title}
-                    description={result.description}
-                    email={result.user}
-                    genre={result.genres}
-                    instruments={result.instruments}
-                    // location={result.location}
-                    />);
-              })
-          }
+    
+        await axios.get('http://localhost:5000/api/forum/getMusicians', {
+            params: {
+                accountType : localStorage.accountType
+            }
+        }).then(res => {
+            console.log(localStorage.accountType)
+            this.state.result = res.data;
+            console.log(this.state.result);
+            this.state.listResult = this.state.result.map(
+                result => <ListResult
+                // id={result.id}
+                // key={result.user}
+                name={result.title}
+                description={result.description}
+                email={result.user}
+                genre={result.genres}
+                instruments={result.instruments}
+                // location={result.location}
+                />);
+            })
+        
           this.forceUpdate();
     }
 
@@ -59,7 +59,7 @@ class Musicians extends Component {
                 
              }
         }
-        for(var i=0; genres[i]; ++i){
+        for(i=0; genres[i]; ++i){
             // console.log(inputElements)
             if(genres[i].checked){
                 checkedGenres.push(genres[i].value);
@@ -68,30 +68,30 @@ class Musicians extends Component {
         }
         console.log(checkedInstruments)
         console.log(checkedGenres)
-        {
-            await axios.get('http://localhost:5000/api/forum/getMusiciansFilter', {
-                params: {
-                    accountType : localStorage.accountType,
-                    instruments: checkedInstruments,
-                    genres: checkedGenres
-                }
-            }).then(res => {
-                console.log(localStorage.accountType)
-                this.state.result = res.data;
-                console.log(this.state.result);
-                this.state.listResult = this.state.result.map(
-                    result => <ListResult
-                    // id={result.id}
-                    // key={result.id}
-                    name={result.title}
-                    description={result.description}
-                    email={result.user}
-                    genre={result.genres}
-                    instruments={result.instruments}
-                    // location={result.location}
-                    />);
-              })
-          }
+        
+        await axios.get('http://localhost:5000/api/forum/getMusiciansFilter', {
+            params: {
+                accountType : localStorage.accountType,
+                instruments: checkedInstruments,
+                genres: checkedGenres
+            }
+        }).then(res => {
+            console.log(localStorage.accountType)
+            this.state.result = res.data;
+            console.log(this.state.result);
+            this.state.listResult = this.state.result.map(
+                result => <ListResult
+                // id={result.id}
+                // key={result.id}
+                name={result.title}
+                description={result.description}
+                email={result.user}
+                genre={result.genres}
+                instruments={result.instruments}
+                // location={result.location}
+                />);
+            })
+        
           
           this.forceUpdate();
     }

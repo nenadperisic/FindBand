@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import '../css/ImgOnHomepage.css';
-import axios from 'axios';
 // import { Link } from 'react-router-dom';
-import ListResult from './ListResult';
-import Header from './Header';
-import Footer from './Footer';
 import SliderComponent from './SliderComponent';
 
 
