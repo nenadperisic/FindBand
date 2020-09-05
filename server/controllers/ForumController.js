@@ -17,8 +17,8 @@ router.post('/createAdMusician', async (req, res) => {
         createdAt: Date.now()
    });
 
-   console.log("Account type:")
-   console.log(req.body.accountType);
+//    console.log("Account type:")
+//    console.log(req.body.accountType);
    await newForum.save();
    res.send(newForum);
 });
@@ -148,6 +148,45 @@ router.get('/getBandsFilter', async (req, res) => {
 
     // res.send(query);
 });
+
+router.get('/getTaverns', async (req, res) => {
+    console.log(req.query.accountType);
+    /* use this to select based on checked filters */
+    const query = await Forum.find({ accountType: "tavern" });
+    res.send(query);
+});
+
+router.get('/getTavernsFilter', async (req, res) => {
+    console.log("type of tavern: " + req.query.type);
+    console.log("location: " + req.query.location);
+    
+    /* use this to select based on checked filters */
+    if (req.query.type === undefined && req.query.location === "not_selected") {
+        console.log("nothing checked");
+        const query = await Forum.find({ accountType: "tavern" });
+        res.send(query);
+    } 
+    else if (req.query.type === undefined) {
+        const query = await Forum.find({ accountType: "tavern", location: req.query.location });
+        res.send(query);
+    }
+    else if (req.query.location === "not_selected") {
+        console.log("upao ovde")
+        const query = await Forum.find({ accountType: "tavern", type: req.query.type });
+        res.send(query);
+    }
+    else {
+        console.log("checked type and location");
+        const query = await Forum.find({ accountType: "tavern", type: req.query.type, location: req.query.location });
+        res.send(query);
+    }
+
+    // const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments, genres: req.query.genres});
+
+    // res.send(query);
+});
+
+
 
 router.get('/getAllAds', async (req, res) => {
     console.log(req.query.accountType);

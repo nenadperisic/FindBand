@@ -38,38 +38,6 @@ class Header extends React.Component {
         }
     }
 
-    render() {
-        return (
-            <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
-            <Navbar.Brand href="/"> 
-                <img
-                    src="/logoVeb.jpeg"
-                    width="40"
-                    height="40"
-                    className="d-inline-block align-top"
-                    alt="NAĐI BEND"
-                />
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link id="home-nav" className="nav-link-header" href="/"> Home </Nav.Link>
-                    <Nav.Link id="musicians-nav" className="nav-link-header" href="/Musicians"> Musicians </Nav.Link>
-                    <Nav.Link id="bands-nav" className="nav-link-header" href="/Bands"> Bands </Nav.Link>
-                    <Nav.Link id="taverns-nav" className="nav-link-header" href="/Taverns"> Taverns </Nav.Link>
-                    <Nav.Link id="createAd-nav" className="nav-link-header" href="/CreateAd"> CreateAd </Nav.Link>
-                </Nav>
-                <Nav>
-                    <Nav.Link id="login-nav" className="nav-link-header" href="#" onClick={this.loginPage}> Login </Nav.Link>
-                    <Nav.Link id="register-nav" className="nav-link-header" href="#" onClick={this.registerPage}> Register </Nav.Link>
-                    <Nav.Link id="view-profile-nav" className="nav-link-header" href="#" onClick={this.profilePage}> View Profile </Nav.Link>
-                    <Nav.Link id="logout-nav" className="nav-link-header" href="#" onClick={this.logoutPage}> Logout </Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-            </Navbar>
-        );
-    };
-
     componentDidMount() {
         let loginNav = document.getElementById('login-nav');
         let registerNav = document.getElementById('register-nav');
@@ -120,6 +88,38 @@ class Header extends React.Component {
             document.getElementById(tagId).className += " active-nav-link";
         }
     }
+
+    render() {
+        return (
+            <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
+                <Navbar.Brand href="/">
+                    <img
+                        src="/logoVeb.jpeg"
+                        width="40"
+                        height="40"
+                        className="d-inline-block align-top"
+                        alt="NAĐI BEND"
+                    />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link id="home-nav" className="nav-link-header" href="/"> Home </Nav.Link>
+                        <Nav.Link id="musicians-nav" className="nav-link-header" href="/Musicians"> Musicians </Nav.Link>
+                        <Nav.Link id="bands-nav" className="nav-link-header" href="/Bands"> Bands </Nav.Link>
+                        <Nav.Link id="taverns-nav" className="nav-link-header" href="/Taverns"> Taverns </Nav.Link>
+                        <Nav.Link id="createAd-nav" className="nav-link-header" href="/CreateAd"> CreateAd </Nav.Link>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link id="login-nav" className="nav-link-header" href="#" onClick={this.loginPage}> Login </Nav.Link>
+                        <Nav.Link id="register-nav" className="nav-link-header" href="#" onClick={this.registerPage}> Register </Nav.Link>
+                        <Nav.Link id="view-profile-nav" className="nav-link-header" href="#" onClick={this.profilePage}> View Profile </Nav.Link>
+                        <Nav.Link id="logout-nav" className="nav-link-header" href="#" onClick={this.logoutPage}> Logout </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        );
+    };
 
 }
 

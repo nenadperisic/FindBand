@@ -25,10 +25,10 @@ class ChekGenres extends Component {
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Types:</p>
                 <label>
                     <input 
-                        class="types"
+                        className="types"
                         type="checkbox"
                         name="isPub"
-                        value="Pub"
+                        value="pub"
                         checked={this.state.isPub}
                         onChange={this.handleChange}
                     /> Pub 
@@ -36,10 +36,10 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
-                        class="types"
+                        className="types"
                         type="checkbox"
                         name="isRestaurant"
-                        value="Restaurant"
+                        value="restaurant"
                         checked={this.state.isRestaurant}
                         onChange={this.handleChange}
                     /> Restaurant
@@ -47,10 +47,10 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
-                        class="types"
+                        className="types"
                         type="checkbox"
                         name="isNightclub"
-                        value="NightClub"
+                        value="nightClub"
                         checked={this.state.isNightclub}
                         onChange={this.handleChange}
                     /> Night club 

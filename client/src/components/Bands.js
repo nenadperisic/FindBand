@@ -68,30 +68,30 @@ class Bands extends Component {
         }
         console.log(checkedAverageAge);
         console.log(checkedGenres);
-        
-        await axios.get('http://localhost:5000/api/forum/getBandsFilter', {
-            params: {
-                accountType: localStorage.accountType,
-                averageAge: checkedAverageAge,
-                genres: checkedGenres
-            }
-        }).then(res => {
-            console.log(localStorage.accountType)
-            this.state.result = res.data;
-            console.log(this.state.result);
-            this.state.listResult = this.state.result.map(
-                result => <ListResult
-                    // id={result.id}
-                    // key={result.id}
-                    name={result.title}
-                    description={result.description}
-                    email={result.user}
-                    genre={result.genres}
-                    averageAge={result.instruments}
-                // location={result.location}
-                />);
-        })
-    
+        {
+            await axios.get('http://localhost:5000/api/forum/getBandsFilter', {
+                params: {
+                    accountType: localStorage.accountType,
+                    averageAge: checkedAverageAge,
+                    genres: checkedGenres
+                }
+            }).then(res => {
+                console.log(localStorage.accountType)
+                this.state.result = res.data;
+                console.log(this.state.result);
+                this.state.listResult = this.state.result.map(
+                    result => <ListResult
+                        // id={result.id}
+                        // key={result.id}
+                        name={result.title}
+                        description={result.description}
+                        email={result.user}
+                        genre={result.genres}
+                        instruments={result.instruments}
+                    // location={result.location}
+                    />);
+            })
+        }
 
         this.forceUpdate();
     }
@@ -119,7 +119,6 @@ class Bands extends Component {
                         <div>
                             {this.state.listResult}
                         </div>
-                        {/* <ListBands/> */}
                     </div>
                 </div>
                  <Footer />

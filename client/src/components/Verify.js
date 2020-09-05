@@ -47,14 +47,10 @@ class Verify extends Component {
             console.log(response.data.message)
 
             // const target = "/profile/" + localStorage.accountType;
-            window.location.href = response.data.message;
+            window.location.href = "/configure";
         } catch (e) {
-            // console.log(e.response.data.message);
             window.alert(e.response.data.message);
         }
-
-        // console.log(forAccount);
-        // document.getElementById("formAccount").reset();
     }
 
     render() {
