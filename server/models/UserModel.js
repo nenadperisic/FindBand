@@ -11,6 +11,7 @@ const UserSchema = new Schema({
     active: Boolean,
     createdAt: Date,
     dateOfBirth: Date,
+    gender: String,
     genres: [String],
     instruments: [String],
     location: String,

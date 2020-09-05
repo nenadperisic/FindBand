@@ -11,6 +11,7 @@ class Register extends Component {
                 accountType: '',
                 email: '',
                 dateOfBirth: '',
+                gender: '',
                 password: '',
                 confirmPassword: ''
             }
@@ -20,6 +21,7 @@ class Register extends Component {
         this.onAccountTypeChange = this.onAccountTypeChange.bind(this);
         this.onEmailChangeforAccount = this.onEmailChangeforAccount.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
+        this.onGenderChange = this.onGenderChange.bind(this);
         this.onPasswordChangeforAccount = this.onPasswordChangeforAccount.bind(this);
         this.onPasswordConfirmChangeforAccount = this.onPasswordConfirmChangeforAccount.bind(this);
         this.handleSubmitforAccount = this.handleSubmitforAccount.bind(this);
@@ -49,6 +51,9 @@ class Register extends Component {
         } else if (dateOfBirth.getTime() > thresholdDate.getTime() && entity.accountType === "musician") {
             window.alert("You must be older than 16 years old!");
             return false;
+        } else if ((entity.gender === "" || entity.gender === "not_selected") && entity.accountType === "musician") {
+            window.alert("You must select gender!");
+            return false;
         } else if (entity.password === "" || !validationPasswordRegex.test(entity.password)) {
             window.alert("Password must contain between 4-12 characters and at least one digit!");
             return false;
@@ -68,6 +73,7 @@ class Register extends Component {
                 accountType: '',
                 email: '',
                 dateOfBirth: '',
+                gender: '',
                 password: '',
                 confirmPassword: ''
             }
@@ -79,6 +85,7 @@ class Register extends Component {
             accountType: this.state.forAccount.accountType,
             email: email.target.value,
             dateOfBirth: this.state.forAccount.dateOfBirth,
+            gender: this.state.forAccount.gender,
             password: this.state.forAccount.password,
             confirmPassword: this.state.forAccount.confirmPassword
         }
@@ -92,13 +99,29 @@ class Register extends Component {
             accountType: this.state.forAccount.accountType,
             email: this.state.forAccount.email,
             dateOfBirth: date.target.value,
+            gender: this.state.forAccount.gender,
             password: this.state.forAccount.password,
             confirmPassword: this.state.forAccount.confirmPassword
         };
 
         this.setState({
             forAccount
-        })
+        });
+    }
+
+    onGenderChange(gender) {
+        const forAccount = {
+            accountType: this.state.forAccount.accountType,
+            email: this.state.forAccount.email,
+            dateOfBirth: this.state.forAccount.dateOfBirth,
+            gender: gender.target.value,
+            password: this.state.forAccount.password,
+            confirmPassword: this.state.forAccount.confirmPassword
+        };
+
+        this.setState({
+            forAccount
+        });
     }
 
     onPasswordChangeforAccount(password) {
@@ -106,6 +129,7 @@ class Register extends Component {
             accountType: this.state.forAccount.accountType,
             email: this.state.forAccount.email,
             dateOfBirth: this.state.forAccount.dateOfBirth,
+            gender: this.state.forAccount.gender,
             password: password.target.value,
             confirmPassword: this.state.forAccount.confirmPassword
         };
@@ -119,6 +143,7 @@ class Register extends Component {
             accountType: this.state.forAccount.accountType,
             email: this.state.forAccount.email,
             dateOfBirth: this.state.forAccount.dateOfBirth,
+            gender: this.state.forAccount.gender,
             password: this.state.forAccount.password,
             confirmPassword: passwordConfirm.target.value
         };
@@ -130,14 +155,17 @@ class Register extends Component {
     onAccountTypeChange(accountFor) {
         if (accountFor.target.value === "musician") {
             document.getElementById("date-of-birth-reg-group").style.display = "block";
+            document.getElementById("gender-reg-group").style.display = "block";
         } else {
             document.getElementById("date-of-birth-reg-group").style.display = "none";
+            document.getElementById("gender-reg-group").style.display = "none";
         }
 
         const forAccount = {
             accountType: accountFor.target.value,
             email: this.state.forAccount.email,
             dateOfBirth: this.state.forAccount.dateOfBirth,
+            gender: this.state.forAccount.gender,
             password: this.state.forAccount.password,
             confirmPassword: this.state.forAccount.confirmPassword
         }
@@ -204,12 +232,21 @@ class Register extends Component {
                         </div>
 
                         <div className="form-group" id="date-of-birth-reg-group" style={{display: "none"}}>
-                            <label htmlFor="dateOfBirth"> Date of birth: </label>
+                            <label htmlFor="date-of-birth-register"> Date of birth: </label>
                             <input type="date" 
                                 className="form-control" 
                                 id="date-of-birth-register" 
                                 name="dateOfBirth" 
                                 onChange={this.onDateChange}/>
+                        </div>
+
+                        <div className="form-group" id="gender-reg-group" style={{display: "none"}}>
+                            <label htmlFor="select-gender-register"> Gender: </label>
+                            <select id="select-gender-register" className="form-control" onChange={this.onGenderChange}>
+                                <option value="not_selected"> Select gender </option>
+                                <option value="male"> Male </option>
+                                <option value="female"> Female </option>
+                            </select>
                         </div>
 
                         <div className="form-group">

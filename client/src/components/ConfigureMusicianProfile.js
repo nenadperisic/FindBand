@@ -34,8 +34,6 @@ class ConfigureMusicianProfile extends Component {
     handleConfigureMusician = async event => {
         let forAccount = this.getValues();
 
-        console.log(forAccount);
-
         let isValid = this.checkValidity(forAccount);
         if (!isValid) {
             return ;
@@ -53,6 +51,7 @@ class ConfigureMusicianProfile extends Component {
                     email: localStorage.email,
                     name: forAccount.name,
                     dateOfBirth: forAccount.dateOfBirth,
+                    gender: forAccount.gender,
                     genres: forAccount.genres,
                     instruments: forAccount.instruments,
                     location: forAccount.location,
@@ -60,12 +59,10 @@ class ConfigureMusicianProfile extends Component {
                     professionalAccount: forAccount.professionalAccount
             });
 
-            console.log(localStorage.email);
-
             window.alert("Account updated successfully!");
             window.location.href = "/profile/musician";
         } catch (e) {
-            console.log(e.response.data.message);
+            console.log(e);
         }
 
         document.getElementById("musicianAccountForm").reset();
@@ -120,6 +117,7 @@ class ConfigureMusicianProfile extends Component {
         values.location = document.getElementById('location').value;
         values.professionalAccount = document.getElementById('type').value;
         values.description = document.getElementById('description').value;
+        values.gender = document.getElementById('select-gender-configure').value;
         values.genres = [];
         values.instruments = [];
 
@@ -154,6 +152,7 @@ class ConfigureMusicianProfile extends Component {
             document.getElementById('description').value = !user.description ? "" : user.description;
             document.getElementById('location').value = !user.location ? "not_selected" : user.location;
             document.getElementById('type').value = !user.professionalAccount ? "not_selected" : user.professionalAccount;
+            document.getElementById('select-gender-configure').value = !user.gender ? "male" : user.gender;
 
             for (let genre of user.genres) {
                 document.getElementById(genre).checked = true;
@@ -163,7 +162,7 @@ class ConfigureMusicianProfile extends Component {
                 document.getElementById(instrument).checked = true;
             }
         } catch (e) {
-            // console.log(e.response.data.message);
+            console.log(e);
         }
     }
 
@@ -190,6 +189,14 @@ class ConfigureMusicianProfile extends Component {
                                 className="form-control" 
                                 id="dateOfBirth" 
                                 name="dateOfBirth" />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="select-gender-configure"> Gender: </label>
+                            <select id="select-gender-configure" className="form-control" disabled>
+                                <option value="male"> Male </option>
+                                <option value="female"> Female </option>
+                            </select>
                         </div>
 
                         <div className="form-group">

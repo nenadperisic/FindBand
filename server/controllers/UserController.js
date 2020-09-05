@@ -45,6 +45,7 @@ router.post('/register', async (req, res) => {
         email: req.body.email,
         password: req.body.password,
         dateOfBirth: req.body.dateOfBirth,
+        gender: req.body.gender,
         secretToken: '',
         active: false,
         role: 'user'
@@ -57,6 +58,7 @@ router.post('/register', async (req, res) => {
 
     return res.status(201);
 });
+
 //verify func
 router.post('/verify', async (req, res) => {
     // da li user  postoji sa datim mail-om
@@ -144,14 +146,12 @@ router.post('/profile/deleteAccount', async (req, res) => {
 
 // update profile info for musician
 router.post('/configure/musician', async (req, res) => {
-    // console.log("User:");
-    // console.log(req.body);
-
     await User.updateOne (
         { email: req.body.email },
         {  
             name: req.body.name,
             dateOfBirth: req.body.dateOfBirth,
+            gender: req.body.gender,
             genres: req.body.genres,
             instruments: req.body.instruments,
             location: req.body.location,
@@ -201,8 +201,6 @@ router.post('/profile/musician', async(req, res) => {
 
 router.post('/get/user/data', async (req, res) => {
     const user = await User.findOne({email: req.body.email});
-    console.log(user);
-    // console.log("---------------------")
     
     if (!user) {
         return res.status(400).send({
@@ -258,7 +256,6 @@ router.post("/update/member/list", async (req, res) => {
 
 router.post("/musician/exists/", async (req, res) => {
     const user = await User.findOne({email: req.body.email});
-    console.log(user);
 
     if (user && user.accountType === "musician") {
         return res.status(200).send({
