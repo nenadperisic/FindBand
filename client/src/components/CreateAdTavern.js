@@ -116,43 +116,58 @@ class CreateAdTavern extends Component {
     render() {
         return (
             <div>
-                <div className="container" id="create-ad-tavern">
-                    <h2> Create advertisement for your place </h2>
+                <div className="container" id="create-ad-tavern" style={{ paddingTop: '6%' }}>
 
-                    <form id="form-create-ad-tavern">
-                        <div className="form-group">
-                                <label htmlFor="title-tavern-create-ad"> Advertisement Title: </label>
-                                <input id="title-tavern-create-ad"
-                                    name="title-tavern-create-ad"
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Enter Title"
-                                    onChange={this.onTitleChange}
-                                    />
+                    <div className="row">
+
+                        <div className="col-lg-3">
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="genre-tavern-create-ad"> Select wanted genre of the band: </label>
-                            <select id="genre-tavern-create-ad" className="form-control" onChange={this.onSelectedGenreChange}>
-                                <option value="not_selected"> Select Wanted Genre </option>
-                                <option value="pop"> Pop </option>
-                                <option value="rock"> Rock </option>
-                                <option value="jazz"> Jazz </option>
-                                <option value="metal"> Metal </option>
-                                <option value="folk"> Folk </option>
-                            </select>
-                        </div>
+                        <div className="card col-lg-6">
+                            <div className="card-body">
 
-                        <div className="form-group">
-                            <label htmlFor="description-tavern-create-ad"> Advertisement description: </label>
-                            <textarea className="form-control"
-                                id="description-tavern-create-ad"
-                                rows="5"
-                                onChange={this.onDescriptionChange}></textarea>
-                        </div>
+                                <h2> Create advertisement for your place </h2>
 
-                        <button type="button" onClick={this.handleOnSubmit} className="btn btn-success"> Create Ad </button>
-                    </form>
+                                <form id="form-create-ad-tavern">
+                                    <div className="form-group">
+                                            <label htmlFor="title-tavern-create-ad"> Advertisement Title: </label>
+                                            <input id="title-tavern-create-ad"
+                                                name="title-tavern-create-ad"
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Enter Title"
+                                                onChange={this.onTitleChange}
+                                                />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="genre-tavern-create-ad"> Select wanted genre of the band: </label>
+                                        <select id="genre-tavern-create-ad" className="form-control" onChange={this.onSelectedGenreChange}>
+                                            <option value="not_selected"> Select Wanted Genre </option>
+                                            <option value="pop"> Pop </option>
+                                            <option value="rock"> Rock </option>
+                                            <option value="jazz"> Jazz </option>
+                                            <option value="metal"> Metal </option>
+                                            <option value="folk"> Folk </option>
+                                        </select>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="description-tavern-create-ad"> Advertisement description: </label>
+                                        <textarea className="form-control"
+                                            id="description-tavern-create-ad"
+                                            rows="5"
+                                            onChange={this.onDescriptionChange}></textarea>
+                                    </div>
+
+                                    <button type="button" onClick={this.handleOnSubmit} className="btn btn-success"> Create Ad </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div className="col-lg-3">
+                        </div>
+                    </div>
                 </div>
             </div>
         );

@@ -146,93 +146,108 @@ class CreateAdBand extends Component {
     render() {
         return (
             <div>
-                <div className="container" id="create-ad-band">
-                    <h2> Create advertisement for your band </h2>
+                <div className="container" id="create-ad-band" style={{ paddingTop: '4%' }}>
 
-                    <form id="form-create-ad-band">
-                        <div className="form-group">
-                                <label htmlFor="title-band-create-ad"> Advertisement Title: </label>
-                                <input id="title-band-create-ad"
-                                    name="title-band-create-ad"
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Enter Title"
-                                    onChange={this.onTitleChange}
-                                    />
+                    <div className="row">
+
+                        <div className="col-lg-3">
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="genre-band-create-ad"> Select wanted genre: </label>
-                            <select id="genre-band-create-ad" className="form-control" onChange={this.onSelectedGenreChange}>
-                                <option value="not_selected"> Select Wanted Genre </option>
-                                <option value="pop"> Pop </option>
-                                <option value="rock"> Rock </option>
-                                <option value="jazz"> Jazz </option>
-                                <option value="metal"> Metal </option>
-                                <option value="folk"> Folk </option>
-                            </select>
-                        </div>
+                        <div className="card col-lg-6">
+                            <div className="card-body">
 
-                        <div className="form-group">
-                            <label htmlFor="instrument-band-create-ad"> Select wanted instrument: </label>
-                            <select id="instrument-band-create-ad" className="form-control" onChange={this.onSelectedInstrumentChange}>
-                                <option value="not_selected"> Select Wanted Instrument </option>
-                                <option value="voice"> Voice </option>
-                                <option value="guitar"> Guitar </option>
-                                <option value="bassGuitar"> Bass Guitar </option>
-                                <option value="piano"> Piano </option>
-                                <option value="violin"> Violin </option>
-                                <option value="drums"> Drums </option>
-                                <option value="trumpet"> Trumpet </option>
-                            </select>
-                        </div>
+                                <h2> Create advertisement for your band </h2>
 
-                        <div className="form-group">
-                            <label htmlFor="location-band-create-ad"> Location: </label>
-                            <select id="location-band-create-ad" className="form-control" onChange={this.onSelectedLocationChange} >
-                                <option value="not_selected">Select Location</option>
-                                <option value="belgrade"> Belgrade </option>
-                                <option value="noviSad"> Novi Sad </option>
-                                <option value="nis"> Niš </option>
-                                <option value="kragujevac"> Kragujevac </option>
-                                <option value="subotica"> Subotica </option>
-                                <option value="pristina"> Priština </option>
-                                <option value="pancevo"> Pančevo </option>
-                                <option value="loznica"> Loznica </option>
-                                <option value="zrenjanin"> Zrenjanin </option>
-                                <option value="cacak"> Čačak </option>
-                                <option value="krusevac"> Kruševac </option>
-                                <option value="kraljevo"> Kraljevo </option>
-                                <option value="noviPazar"> Novi Pazar </option>
-                                <option value="smederevo"> Smederevo </option>
-                                <option value="leskovac"> Leskovac </option>
-                                <option value="uzice"> Užice </option>
-                                <option value="vranje"> Vranje </option>
-                                <option value="valjevo"> Valjevo </option>
-                                <option value="sabac"> Šabac </option>
-                                <option value="sombor"> Sombor </option>
-                                <option value="pozarevac"> Požarevac </option>
-                                <option value="pirot"> Pirot </option>
-                                <option value="zajecar"> Zaječar </option>
-                                <option value="kikinda"> Kikinda </option>
-                                <option value="sremskaMitrovica"> Sremska Mitrovica </option>
-                                <option value="jagodina"> Jagodina </option>
-                                <option value="vrsac"> Vršac </option>
-                                <option value="bor"> Bor </option>
-                                <option value="prokuplje"> Prokuplje </option>
-                            </select>
-                        </div>
+                                <form id="form-create-ad-band">
+                                    <div className="form-group">
+                                            <label htmlFor="title-band-create-ad"> Advertisement Title: </label>
+                                            <input id="title-band-create-ad"
+                                                name="title-band-create-ad"
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Enter Title"
+                                                onChange={this.onTitleChange}
+                                                />
+                                    </div>
 
-                        <div className="form-group">
-                            <label htmlFor="description-band-create-ad"> Advertisement description: </label>
-                            <textarea className="form-control"
-                                id="description-band-create-ad"
-                                rows="5"
-                                onChange={this.onDescriptionChange}></textarea>
-                        </div>
+                                    <div className="form-group">
+                                        <label htmlFor="genre-band-create-ad"> Select wanted genre: </label>
+                                        <select id="genre-band-create-ad" className="form-control" onChange={this.onSelectedGenreChange}>
+                                            <option value="not_selected"> Select Wanted Genre </option>
+                                            <option value="pop"> Pop </option>
+                                            <option value="rock"> Rock </option>
+                                            <option value="jazz"> Jazz </option>
+                                            <option value="metal"> Metal </option>
+                                            <option value="folk"> Folk </option>
+                                        </select>
+                                    </div>
 
-                        <button type="button" onClick={this.handleOnSubmit} className="btn btn-success"> Create Ad </button>
-                    </form>
+                                    <div className="form-group">
+                                        <label htmlFor="instrument-band-create-ad"> Select wanted instrument: </label>
+                                        <select id="instrument-band-create-ad" className="form-control" onChange={this.onSelectedInstrumentChange}>
+                                            <option value="not_selected"> Select Wanted Instrument </option>
+                                            <option value="voice"> Voice </option>
+                                            <option value="guitar"> Guitar </option>
+                                            <option value="bassGuitar"> Bass Guitar </option>
+                                            <option value="piano"> Piano </option>
+                                            <option value="violin"> Violin </option>
+                                            <option value="drums"> Drums </option>
+                                            <option value="trumpet"> Trumpet </option>
+                                        </select>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="location-band-create-ad"> Location: </label>
+                                        <select id="location-band-create-ad" className="form-control" onChange={this.onSelectedLocationChange} >
+                                            <option value="not_selected">Select Location</option>
+                                            <option value="belgrade"> Belgrade </option>
+                                            <option value="noviSad"> Novi Sad </option>
+                                            <option value="nis"> Niš </option>
+                                            <option value="kragujevac"> Kragujevac </option>
+                                            <option value="subotica"> Subotica </option>
+                                            <option value="pristina"> Priština </option>
+                                            <option value="pancevo"> Pančevo </option>
+                                            <option value="loznica"> Loznica </option>
+                                            <option value="zrenjanin"> Zrenjanin </option>
+                                            <option value="cacak"> Čačak </option>
+                                            <option value="krusevac"> Kruševac </option>
+                                            <option value="kraljevo"> Kraljevo </option>
+                                            <option value="noviPazar"> Novi Pazar </option>
+                                            <option value="smederevo"> Smederevo </option>
+                                            <option value="leskovac"> Leskovac </option>
+                                            <option value="uzice"> Užice </option>
+                                            <option value="vranje"> Vranje </option>
+                                            <option value="valjevo"> Valjevo </option>
+                                            <option value="sabac"> Šabac </option>
+                                            <option value="sombor"> Sombor </option>
+                                            <option value="pozarevac"> Požarevac </option>
+                                            <option value="pirot"> Pirot </option>
+                                            <option value="zajecar"> Zaječar </option>
+                                            <option value="kikinda"> Kikinda </option>
+                                            <option value="sremskaMitrovica"> Sremska Mitrovica </option>
+                                            <option value="jagodina"> Jagodina </option>
+                                            <option value="vrsac"> Vršac </option>
+                                            <option value="bor"> Bor </option>
+                                            <option value="prokuplje"> Prokuplje </option>
+                                        </select>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="description-band-create-ad"> Advertisement description: </label>
+                                        <textarea className="form-control"
+                                            id="description-band-create-ad"
+                                            rows="5"
+                                            onChange={this.onDescriptionChange}></textarea>
+                                    </div>
+
+                                    <button type="button" onClick={this.handleOnSubmit} className="btn btn-success"> Create Ad </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div className="col-lg-3">
+                        </div>
+                    </div>
                 </div>
             </div>
         );
