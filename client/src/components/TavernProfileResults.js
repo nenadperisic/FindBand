@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Tabs from 'react-responsive-tabs';
 import 'react-responsive-tabs/styles.css';
 
-class MusicianProfileResults extends Component {
+class TavernProfileResults extends Component {
     
     constructor(props){
         super(props); 
@@ -22,33 +22,19 @@ class MusicianProfileResults extends Component {
                                         </div>},
             { tabName: 'Details', content: <div>
                                                 <div className="row">
-                                                <div className="col-md-6">
+                                        <div className="col-md-6">
                                             <label><span role="img" aria-label="acceessible-emoji">✉️</span> E-mail: </label>
                                         </div>
                                         <div className="col-md-6">
                                             <p>{this.props.email}</p>
                                         </div>
-                                        <div className="col-md-6">
-                                            <label><span role="img" aria-label="acceessible-emoji">🎂</span> Brith date: </label>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <p>{this.props.dateOfBirth}</p>
-                                        </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <label><span role="img" aria-label="acceessible-emoji">🎶</span> Genres: </label>
+                                            <label><span role="img" aria-label="acceessible-emoji">🍺</span> Type: </label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{this.props.genres}</p>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <label><span role="img" aria-label="acceessible-emoji">🎸 </span> Instruments: </label>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <p>{this.props.instruments}</p>
+                                            <p>{this.props.tavernType}</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -57,14 +43,6 @@ class MusicianProfileResults extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <p>{this.props.location}</p>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <label><span role="img" aria-label="acceessible-emoji">❓</span> Professional account: </label>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <p>{this.props.professionalAccount ? ' ✔️ yes': ' ❌ no'}</p>
                                         </div>
                                     </div>
                                             </div> },
@@ -106,4 +84,4 @@ class MusicianProfileResults extends Component {
     }
 }
 
-export default MusicianProfileResults;
+export default TavernProfileResults;

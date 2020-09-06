@@ -77,6 +77,7 @@ class MusicianProfile extends Component {
                     // id={result.id}
                     key={result._id}
                     name={result.name}
+                    email={result.email}
                     dateOfBirth={result.dateOfBirth}
                     genres={result.genres}
                     gender={result.gender}
@@ -95,7 +96,7 @@ class MusicianProfile extends Component {
     render() {
         const style={
             // backgroundImage: "url('/backgrounds/grayBlur.jpg')",
-            height: "200vh",
+            height: "100vh",
             width: "100%",
             backgroundRepeat: "repeat"
         }

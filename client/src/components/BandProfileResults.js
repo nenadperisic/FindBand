@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Tabs from 'react-responsive-tabs';
 import 'react-responsive-tabs/styles.css';
 
-class MusicianProfileResults extends Component {
+class BandProfileResults extends Component {
     
     constructor(props){
         super(props); 
@@ -22,17 +22,11 @@ class MusicianProfileResults extends Component {
                                         </div>},
             { tabName: 'Details', content: <div>
                                                 <div className="row">
-                                                <div className="col-md-6">
+                                        <div className="col-md-6">
                                             <label><span role="img" aria-label="acceessible-emoji">✉️</span> E-mail: </label>
                                         </div>
                                         <div className="col-md-6">
                                             <p>{this.props.email}</p>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <label><span role="img" aria-label="acceessible-emoji">🎂</span> Brith date: </label>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <p>{this.props.dateOfBirth}</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -41,14 +35,6 @@ class MusicianProfileResults extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <p>{this.props.genres}</p>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <label><span role="img" aria-label="acceessible-emoji">🎸 </span> Instruments: </label>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <p>{this.props.instruments}</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -106,4 +92,4 @@ class MusicianProfileResults extends Component {
     }
 }
 
-export default MusicianProfileResults;
+export default BandProfileResults;

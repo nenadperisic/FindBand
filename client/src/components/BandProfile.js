@@ -2,20 +2,8 @@ import React, { Component } from 'react';
 import '../css/BandProfile.css';
 import Header from './Header';
 import Footer from './Footer';
-// import ListBands from './ListBands';
-
+import BandProfileResults from './BandProfileResults';
 import axios from 'axios';
-
-const band = {
-    "id": 4,
-    "name": "Banddddd",
-    "genre": "Rock",
-    "instruments": ["Bass guitar", "vocal", "guitar"],
-    "location": "Belgrade",
-    "description": "Rock on!",
-    "email" : "result4@gmail.com",
-    "professionalAccount" : "yes"
-}
 
 class MusicianProfile extends Component {
     constructor(props) {
@@ -68,32 +56,46 @@ class MusicianProfile extends Component {
         }
     }
 
+    async componentDidMount(){
+    
+        await axios.post('http://localhost:5000/api/user/profile/band', {
+            email: localStorage.email
+        }).then(res => {
+            console.log(localStorage.email)
+            this.state.result = res.data;
+            console.log(this.state.result);
+            this.state.listResult = this.state.result.map(
+                result => <BandProfileResults
+                    // id={result.id}
+                    key={result._id}
+                    name={result.name}
+                    email={result.email}
+                    genres={result.genres}
+                    location={result.location}
+                    description={result.description}
+                    professionalAccount={result.professionalAccount}
+                />);
+        });
+
+    
+        this.forceUpdate();
+    }
+
+
     render() {  
+        const style={
+            // backgroundImage: "url('/backgrounds/grayBlur.jpg')",
+            height: "100vh",
+            width: "100%",
+            backgroundRepeat: "repeat"
+        }
 
         return (
-            <div>
-            <Header />
-            <div id="bandAccount">
-                <p>{band.name} </p>
-            </div>
-            <div  id = "buttonConfigure">
-                <button className = "button" type="button" onClick={this.configureProfile} className="btn btn-success"> Configure profile </button>
-            </div>
-
-            <div class="dropdown" id = "twoButtons">
-                <button class="dropbtn">Dropdown</button>
-                <div class="dropdown-content">
-                    <button type="button" onClick={this.logout} className="btn btn-success"> Logout </button>
-                    <button type="button" onClick={this.deleteAccount} className="btn btn-success"> Delete account </button>
-                 </div>
-            </div>
-
-            <div id = "description">
-                <p>{band.description}</p>
-                <p>Our location: {band.location}</p>
-                <p>Instruments: {band.instruments}</p>
-            </div>
-            <Footer />
+            <div className="profile" style={style}>
+                <Header />
+                <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
+                {this.state.listResult}
+                <Footer />
             </div>
         );
     }

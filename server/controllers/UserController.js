@@ -199,6 +199,16 @@ router.post('/profile/musician', async(req, res) => {
     res.send(query);
 });
 
+router.post('/profile/band', async(req, res) => {
+    const query = await User.find({email: req.body.email});
+    res.send(query);
+});
+
+router.post('/profile/tavern', async(req, res) => {
+    const query = await User.find({email: req.body.email});
+    res.send(query);
+});
+
 router.post('/get/user/data', async (req, res) => {
     const user = await User.findOne({email: req.body.email});
     
