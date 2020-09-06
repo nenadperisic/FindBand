@@ -75,7 +75,7 @@ class MusicianProfile extends Component {
             this.state.listResult = this.state.result.map(
                 result => <MusicianProfileResults
                     // id={result.id}
-                    // key={result.id}
+                    key={result._id}
                     name={result.name}
                     dateOfBirth={result.dateOfBirth}
                     genres={result.genres}
@@ -94,8 +94,8 @@ class MusicianProfile extends Component {
 
     render() {
         const style={
-            backgroundImage: "url('/backgrounds/grayBlur.jpg')",
-            height: "100vh",
+            // backgroundImage: "url('/backgrounds/grayBlur.jpg')",
+            height: "200vh",
             width: "100%",
             backgroundRepeat: "repeat"
         }

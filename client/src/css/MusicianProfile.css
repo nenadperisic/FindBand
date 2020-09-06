@@ -44,7 +44,7 @@
 #profile-img #fileDiv{
     position: relative;
     overflow: hidden;
-    width: 20%;
+    width: 59%;
     border: none;
     border-radius: 0;
     font-size: 90%;
@@ -56,4 +56,16 @@
   opacity: 0;
   right: 0;
   top: 0;
+}
+
+.profile-head .nav-tabs{
+  margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+  font-weight:600;
+  border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+  border: none;
+  border-bottom:2px solid #0062cc;
 }

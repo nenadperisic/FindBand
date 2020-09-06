@@ -17,28 +17,28 @@ class MyAds extends Component {
 
     
     async componentDidMount() {
-        {
-            await axios.get('http://localhost:5000/api/forum/getByEmail', {
-                params: {
-                    email : localStorage.email
-                }
-            }).then(res => {
-                console.log(localStorage.accountType)
-                this.state.result = res.data;
-                console.log(this.state.result);
-                this.state.listResult = this.state.result.map(
-                    result => <ListMyAds
-                    id={result._id}
-                    // key={result.user}
-                    name={result.title}
-                    description={result.description}
-                    email={result.user}
-                    genre={result.genres}
-                    instruments={result.instruments}
-                    // location={result.location}
-                    />);
-              })
-          }
+        
+        await axios.get('http://localhost:5000/api/forum/getByEmail', {
+            params: {
+                email : localStorage.email
+            }
+        }).then(res => {
+            console.log(localStorage.accountType)
+            this.state.result = res.data;
+            console.log(this.state.result);
+            this.state.listResult = this.state.result.map(
+                result => <ListMyAds
+                id={result._id}
+                // key={result.user}
+                name={result.title}
+                description={result.description}
+                email={result.user}
+                genre={result.genres}
+                instruments={result.instruments}
+                // location={result.location}
+                />);
+            })
+          
           this.forceUpdate();
     }
 
