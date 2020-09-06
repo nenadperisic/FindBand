@@ -59,7 +59,7 @@ class TavernProfile extends Component {
         return (
             <div className="profile" style={style}>
                 <Header />
-                <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
+                <button type="button" id="configureBtn" onClick={this.handleConfigureProfile}> <span>Configure profile </span></button>
                 {this.state.listResult}
                 <Footer />
             </div>
