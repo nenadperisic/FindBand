@@ -16,7 +16,7 @@ class ChekLocation extends Component {
             <div style={{color: "white"}}>
                 <p style={styleSelect}>Location:</p>
                 
-                <select id="tavernLocation"  className="form-control location" onChange={this.onAccountTypeChange} selected="musician">
+                <select id="location"  className="form-control location" onChange={this.onAccountTypeChange} selected="musician">
                     <option value="not_selected"> Select Location </option>
                         <option  style={styleOption} value="Belgrade" > Belgrade </option>
                         <option  style={styleOption} value="Bor" > Bor </option>

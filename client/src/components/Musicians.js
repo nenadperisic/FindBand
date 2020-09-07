@@ -28,85 +28,105 @@ class Musicians extends Component {
         }).then(res => {
             console.log(localStorage.accountType)
             this.state.result = res.data;
-            console.log(this.state.result);
-            this.state.listResult = this.state.result.map(
-                result => <ListResult
-                // id={result.id}
-                // key={result.user}
-                name={result.title}
-                description={result.description}
-                email={result.user}
-                genre={result.genres}
-                instruments={result.instruments}
-                // location={result.location}
-                />);
-            })
+            });
         
           this.forceUpdate();
     }
 
 
     async applyFilter(event){
-        var checkedInstruments = []; 
         var checkedGenres = [];
-        var instruments = document.getElementsByClassName('instruments');
+        var checkedInstruments = [];
+        let checkedLocation;
         var genres = document.getElementsByClassName('genres');
-        for(var i=0; instruments[i]; ++i){
+        var instruments = document.getElementsByClassName('instruments');
+        let location = document.getElementById('location');
+
+        for (let i = 0; genres[i]; ++i) {
             // console.log(inputElements)
-            if(instruments[i].checked){
+            if (genres[i].checked) {
+                checkedGenres.push(genres[i].value);
+
+            }
+        }
+
+        for (let i = 0; instruments[i]; ++i) {
+            if (instruments[i].checked) {
                 console.log(instruments[i].value)
                 checkedInstruments.push(instruments[i].value);
-                
-             }
+
+            }
         }
-        for(i=0; genres[i]; ++i){
-            // console.log(inputElements)
-            if(genres[i].checked){
-                checkedGenres.push(genres[i].value);
-                
-             }
-        }
-        console.log(checkedInstruments);
-        console.log(checkedGenres);
-        
-        await axios.get('http://localhost:5000/api/forum/getMusiciansFilter', {
+        checkedLocation = location.value;
+
+        await axios.get('http://localhost:5000/api/forum/getBandsFilter', {
             params: {
-                accountType : localStorage.accountType,
-                instruments: checkedInstruments,
-                genres: checkedGenres
+                accountType: localStorage.accountType,
+                instrument: checkedInstruments,
+                genre: checkedGenres,
+                location: checkedLocation
             }
         }).then(res => {
             console.log(localStorage.accountType)
             this.state.result = res.data;
-            console.log(this.state.result);
-            this.state.listResult = this.state.result.map(
-                result => <ListResult
-                // id={result.id}
-                // key={result.id}
-                name={result.title}
-                description={result.description}
-                email={result.user}
-                genre={result.genres}
-                instruments={result.instruments}
-                // location={result.location}
-                />);
-            })
-        
+        });
           
           this.forceUpdate();
     }
 
+    viewAd(id) {
+        console.log(id);
+    }
 
     render() {
+        const style = {
+            borderRadius: "25px",
+            borderStyle: "solid",
+            borderColor: "#343a40",
+            height: "40%",
+            margin: "3%",
+            backgroundColor: "rgba(4,4,4, 0.7)"
+        };
+        const styleItems = {
+            marginLeft: "20px",
+            color: "white"
+        };
+
+        const styleButton = {
+            colorborder: "1px solid rgb(70, 171, 230)",
+            marginLeft: "75%",
+            backgroundColor: "#343a40",
+            textAlign: "center"
+        };
+
+        let emptyArray = [];
+        for (let e of this.state.result) {
+            console.log(e.title);
+            emptyArray.push(<div style={style}>
+                <div style={{ marginTop: "20px" }}>
+                    <h2 style={styleItems}>{e.title}</h2>
+                    <h5 style={styleItems}>Description: {e.description}</h5>
+                    <h6 style={styleItems}>Genre: {e.genre}</h6>
+                    <h6 style={styleItems}>Instrument: {e.instrument}</h6>
+                    <h6 style={styleItems}>Location: {e.location}</h6>
+                    <h6 style={styleItems}>Email: {e.user}</h6>
+                    <button className="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
+                        <span>View Ad</span>
+                    </button>
+                </div>
+
+            </div>);
+        }
+
         return(
             <div>
                  <Header />
                  <div id="boxes"> 
                     <img src="/backgrounds/speakerBlur.jpg" alt="image_background"/>
                     <div className="container" id="left">
-                        <CheckInstruments />
-                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckGenres /> 
+                        <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
+                        <CheckInstruments />
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
                         <CheckLocation /> 
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
@@ -117,7 +137,7 @@ class Musicians extends Component {
                     </div>
                     <div className="container" id="containerList">
                         <div>
-                            {this.state.listResult}
+                            {emptyArray}
                         </div>
                     </div>
                 </div>

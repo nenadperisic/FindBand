@@ -17,8 +17,6 @@ router.post('/createAdMusician', async (req, res) => {
         createdAt: Date.now()
    });
 
-//    console.log("Account type:")
-//    console.log(req.body.accountType);
    await newForum.save();
    res.send(newForum);
 });
@@ -74,6 +72,53 @@ router.get('/getMusicians', async (req, res) => {
     res.send(query);
 });
 
+router.get('/getMusiciansFilter', async (req, res) => {
+    /* use this to select based on checked filters */
+    console.log(req.body.accountType)
+    if (req.query.genre === undefined && req.query.instrument === undefined && req.query.location === "not_selected") {
+        console.log("nothing checked");
+        const query = await Forum.find({ accountType: "musician" });
+        res.send(query);
+    }
+    else if (req.query.genre === undefined && req.query.location === "not_selected") {
+        console.log("only instrument selected");
+        const query = await Forum.find({ accountType: "musician", instrument: req.query.instrument });
+        res.send(query);
+    }
+    else if (req.query.genre === undefined && req.query.instrument === undefined) {
+        console.log("only location");
+        const query = await Forum.find({ accountType: "musician", location: req.query.location });
+        res.send(query);
+    }
+    else if (req.query.location === "not_selected" && req.query.instrument === undefined) {
+        console.log("only genre");
+        const query = await Forum.find({ accountType: "musician", genre: req.query.genre });
+        res.send(query);
+    }
+    else if (req.query.location === "not_selected") {
+        console.log("genre and instrument")
+        const query = await Forum.find({ accountType: "musician", genre: req.query.genre, instrument: req.query.instrument });
+        res.send(query);
+    }
+    else if (req.query.instrument === undefined) {
+        console.log("genre and location");
+        const query = await Forum.find({ accountType: "musician", genre: req.query.genre, location: req.query.location });
+        res.send(query);
+    }
+    else if (req.query.genre === undefined) {
+        console.log("instrument and location")
+        const query = await Forum.find({ accountType: "musician", instrument: req.query.instrument, location: req.query.location });
+        res.send(query);
+    }
+    else {
+        console.log("checked genre, instrument and average age");
+        const query = await Forum.find({ accountType: "musician", genre: req.query.genre, instrument: req.query.instrument, location: req.query.location });
+        res.send(query);
+    }
+
+    // res.send(query);
+});
+
 router.get('/getByEmail', async (req, res) => {
     console.log(req.query.email);
     /* use this to select based on checked filters */
@@ -82,34 +127,6 @@ router.get('/getByEmail', async (req, res) => {
 
     res.send(query);
 });
-
-router.get('/getMusiciansFilter', async (req, res) => {
-    console.log(req.query.genres);
-    console.log(req.query.instruments);
-    /* use this to select based on checked filters */
-    if (req.query.genres === undefined && req.query.instruments === undefined ) {
-        console.log("nista nije stiklirano");
-        const query = await Forum.find({ accountType : "musician"});
-        res.send(query);
-    } else if (req.query.genres === undefined) {
-        console.log("samo instrumenti");
-        const query = await Forum.find({ accountType : "musician", instruments: req.query.instruments});
-        res.send(query);
-    } else if (req.query.instruments === undefined) {
-        console.log("samo zanrovi");
-        const query = await Forum.find({ accountType : "musician", genres: req.query.genres});
-        res.send(query);
-    } else {
-        console.log("stiklirani instrumenti i zanrovi");
-        const query = await Forum.find({ accountType : "musician", instruments: req.query.instruments, genres: req.query.genres});
-        res.send(query);
-    }
-
-    // const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments, genres: req.query.genres});
-
-    // res.send(query);
-});
-
 
 router.get('/getBands', async (req, res) => {
     console.log(req.query.accountType);
@@ -120,31 +137,48 @@ router.get('/getBands', async (req, res) => {
 });
 
 router.get('/getBandsFilter', async (req, res) => {
-    console.log(req.query.genres);
-    console.log(req.query.instruments);
     /* use this to select based on checked filters */
-    if (req.query.genres === undefined && req.query.averageAge === undefined) {
-        console.log("nista nije stiklirano");
+    console.log(req.body.accountType)
+    if (req.query.genre === undefined && req.query.instrument === undefined && req.query.location === "not_selected") {
+        console.log("nothing checked");
         const query = await Forum.find({ accountType: "band" });
         res.send(query);
     } 
-    else if (req.query.genres === undefined) {
-        console.log("only average age");
-        const query = await Forum.find({ accountType: "band", averageAge: req.query.averageAge });
+    else if (req.query.genre === undefined && req.query.location === "not_selected") {
+        console.log("only instrument selected");
+        const query = await Forum.find({ accountType: "band", instrument: req.query.instrument });
         res.send(query);
     } 
-    else if (req.query.averageAge === undefined) {
-        console.log("only genres");
-        const query = await Forum.find({ accountType: "band", genres: req.query.genres });
+    else if (req.query.genre === undefined && req.query.instrument === undefined) {
+        console.log("only location");
+        const query = await Forum.find({ accountType: "band", location: req.query.location });
+        res.send(query);
+    }
+    else if (req.query.location === "not_selected" && req.query.instrument === undefined) {
+        console.log("only genre");
+        const query = await Forum.find({ accountType: "band", genre: req.query.genre });
+        res.send(query);
+    }
+    else if (req.query.location === "not_selected") {
+        console.log("genre and instrument")
+        const query = await Forum.find({ accountType: "band", genre: req.query.genre, instrument: req.query.instrument });
+        res.send(query);
+    }
+    else if (req.query.instrument === undefined) {
+        console.log("genre and location");
+        const query = await Forum.find({ accountType: "band", genre: req.query.genre, location: req.query.location });
+        res.send(query);
+    }
+    else if (req.query.genre === undefined) {
+        console.log("instrument and location")
+        const query = await Forum.find({ accountType: "band", instrument: req.query.instrument, location: req.query.location });
         res.send(query);
     }
     else {
-        console.log("checked averageAge and genres");
-        const query = await Forum.find({ accountType: "band", averageAge: req.query.averageAge, genres: req.query.genres });
+        console.log("checked genre, instrument and average age");
+        const query = await Forum.find({ accountType: "band", genre: req.query.genre, instrument: req.query.instrument, location: req.query.location });
         res.send(query);
     }
-
-    // const query = await Forum.find({ accountType : req.query.accountType, instruments: req.query.instruments, genres: req.query.genres});
 
     // res.send(query);
 });

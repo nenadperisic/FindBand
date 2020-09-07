@@ -28,19 +28,7 @@ class Taverns extends Component {
         }).then(res => {
             this.state.result = res.data;
             console.log(this.state.result);
-            this.state.listResult = this.state.result.map(
-                result => <ListResult
-                    // id={result.id}
-                    // key={result.id}
-                    name={result.title}
-                    description={result.description}
-                    email={result.user}
-                    genre={result.genres}
-                    averageAge={result.averageAge}
-                    location={result.location}
-                />);
-        })
-    
+        });
         this.forceUpdate();
     }
 
@@ -49,7 +37,7 @@ class Taverns extends Component {
         let checkedTypes = [];
         let checkedLocation;
         var types = document.getElementsByClassName('types');
-        let location = document.getElementById('tavernLocation');
+        let location = document.getElementById('location');
         for (let i = 0; types[i]; ++i) {
             if (types[i].checked) {
                 console.log(types[i].value)
@@ -67,30 +55,57 @@ class Taverns extends Component {
                 location: checkedLocation
             }
         }).then(res => {
-            console.log(localStorage.accountType)
+            console.log(localStorage.accountType);
             this.state.result = res.data;
-            console.log(this.state.result);
-            this.state.listResult = this.state.result.map(
-                result => <ListResult
-                    // id={result.id}
-                    // key={result.id}
-                    name={result.title}
-                    description={result.description}
-                    email={result.user}
-                    genre={result.genres}
-                    instruments={result.instruments}
-                    type={result.type}
-                    location={result.location}
-                />);
-        })
-    
+        });
 
         this.forceUpdate();
     }
 
-
+    viewAd(id) {
+        console.log(id);
+    }
 
     render() {
+        const style = {
+            borderRadius: "25px",
+            borderStyle: "solid",
+            borderColor: "#343a40",
+            height: "40%",
+            margin: "3%",
+            backgroundColor: "rgba(4,4,4, 0.7)"
+        };
+        const styleItems = {
+            marginLeft: "20px",
+            color: "white"
+        };
+
+        const styleButton = {
+            colorborder: "1px solid rgb(70, 171, 230)",
+            marginLeft: "75%",
+            backgroundColor: "#343a40",
+            textAlign: "center"
+        };
+
+        let emptyArray = [];
+        for (let e of this.state.result) {
+            console.log(e.title);
+            emptyArray.push(<div style={style}>
+                <div style={{ marginTop: "20px" }}>
+                    <h2 style={styleItems}>{e.title}</h2>
+                    <h5 style={styleItems}>Description: {e.description}</h5>
+                    <h6 style={styleItems}>Genre: {e.genre}</h6>
+                    <h6 style={styleItems}>We are: {e.type}</h6>
+                    <h6 style={styleItems}>Location: {e.location}</h6>
+                    <h6 style={styleItems}>Email: {e.user}</h6>
+                    <button className="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
+                        <span>View Ad</span>
+                    </button>
+                </div>
+
+            </div>);
+        }
+
         return(
             <div>
                  <Header />
@@ -104,11 +119,11 @@ class Taverns extends Component {
                         <button id="button2" style={{backgroundColor: "#343a40"}} onClick={this.applyFilter}>
                             <span>Apply</span>
                         </button>
-
                     </div>
+
                     <div className="container" id="containerList">
                         <div>
-                            {this.state.listResult}
+                            {emptyArray}
                         </div>
                     </div>
                 </div>
