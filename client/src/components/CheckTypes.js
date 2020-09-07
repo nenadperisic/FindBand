@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ChekGenres extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state={
             isPub: false,
@@ -12,15 +12,15 @@ class ChekGenres extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event){
+    handleChange(event) {
         const {name, checked} = event.target;
         this.setState({
             [name]: checked
         })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div style={{color: "white"}}>
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Types:</p>
                 <label>
@@ -28,7 +28,7 @@ class ChekGenres extends Component {
                         className="types"
                         type="checkbox"
                         name="isPub"
-                        value="pub"
+                        value="Pub"
                         checked={this.state.isPub}
                         onChange={this.handleChange}
                     /> Pub 
@@ -39,7 +39,7 @@ class ChekGenres extends Component {
                         className="types"
                         type="checkbox"
                         name="isRestaurant"
-                        value="restaurant"
+                        value="Restaurant"
                         checked={this.state.isRestaurant}
                         onChange={this.handleChange}
                     /> Restaurant
@@ -50,7 +50,7 @@ class ChekGenres extends Component {
                         className="types"
                         type="checkbox"
                         name="isNightclub"
-                        value="nightClub"
+                        value="Night Club"
                         checked={this.state.isNightclub}
                         onChange={this.handleChange}
                     /> Night club 

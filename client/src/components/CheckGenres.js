@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ChekGenres extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state={
             isPop: false,
@@ -14,20 +14,20 @@ class ChekGenres extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event){
+    handleChange(event) {
         const {name, checked} = event.target;
         this.setState({
             [name]: checked
         })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div style={{color: "white"}}>
                 <p style={{fontWeight: "bold", fontSize:"20px"}}>Genres:</p>
                 <label>
                     <input 
-                        class="genres"
+                        className="genres"
                         type="checkbox"
                         name="isPop"
                         value="Pop"
@@ -38,7 +38,7 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
-                        class="genres"
+                        className="genres"
                         type="checkbox"
                         name="isRock"
                         value="Rock"
@@ -49,7 +49,7 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
-                        class="genres"
+                        className="genres"
                         type="checkbox"
                         name="isJazz"
                         value="Jazz"
@@ -60,7 +60,7 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
-                        class="genres"
+                        className="genres"
                         type="checkbox"
                         name="isMetal"
                         value="Metal"
@@ -71,7 +71,7 @@ class ChekGenres extends Component {
                 <br/>
                 <label>
                     <input 
-                        class="genres"
+                        className="genres"
                         type="checkbox"
                         name="isFolk"
                         value="Folk"

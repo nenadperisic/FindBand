@@ -39,21 +39,24 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        let loginNav = document.getElementById('login-nav');
-        let registerNav = document.getElementById('register-nav');
-        let viewProfileNav = document.getElementById('view-profile-nav');
-        let logoutNav = document.getElementById('logout-nav');
+        let loginNav = document.getElementById("login-nav");
+        let registerNav = document.getElementById("register-nav");
+        let viewProfileNav = document.getElementById("view-profile-nav");
+        let logoutNav = document.getElementById("logout-nav");
+        let createAdNav = document.getElementById("createAd-nav");
 
         if (!localStorage.email) {
             loginNav.style.display = "block";
             registerNav.style.display = "block";
             viewProfileNav.style.display = "none";
             logoutNav.style.display = "none";
+            createAdNav.style.display = "none";
         } else {            
             loginNav.style.display = "none";
             registerNav.style.display = "none";
             viewProfileNav.style.display = "block";
             logoutNav.style.display = "block";
+            createAdNav.style.display = "block";
         }
 
         let tagId = "";

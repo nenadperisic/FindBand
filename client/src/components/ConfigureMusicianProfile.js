@@ -25,7 +25,7 @@ class ConfigureMusicianProfile extends Component {
                     localStorage.clear();
                     window.location.href = "/";
                 } catch (e) {
-                    console.log(e.response.data.message);
+                    console.log(e);
                 }
             }
         }
@@ -68,18 +68,18 @@ class ConfigureMusicianProfile extends Component {
         document.getElementById("musicianAccountForm").reset();
 
         // every checkbox needs to be separately unchecked
-        document.getElementById("pop").checked = false;
-        document.getElementById("rock").checked = false;
-        document.getElementById("jazz").checked = false;
-        document.getElementById("metal").checked = false;
-        document.getElementById("folk").checked = false;
-        document.getElementById("voice").checked = false;
-        document.getElementById("guitar").checked = false;
-        document.getElementById("bassGuitar").checked = false;
-        document.getElementById("piano").checked = false;
-        document.getElementById("violin").checked = false;
-        document.getElementById("drums").checked = false;
-        document.getElementById("trumpet").checked = false;
+        document.getElementById("Pop").checked = false;
+        document.getElementById("Rock").checked = false;
+        document.getElementById("Jazz").checked = false;
+        document.getElementById("Metal").checked = false;
+        document.getElementById("Folk").checked = false;
+        document.getElementById("Voice").checked = false;
+        document.getElementById("Guitar").checked = false;
+        document.getElementById("Bass Guitar").checked = false;
+        document.getElementById("Piano").checked = false;
+        document.getElementById("Violin").checked = false;
+        document.getElementById("Drums").checked = false;
+        document.getElementById("Trumpet").checked = false;
     }
 
     checkValidity(account) {
@@ -202,102 +202,102 @@ class ConfigureMusicianProfile extends Component {
                         <div className="form-group">
                             <label> Select genre: </label> <br/>
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input genre-select" value="pop" id="pop" />
-                                <label className="custom-control-label" htmlFor="pop"> Pop </label>
+                                <input type="checkbox" className="custom-control-input genre-select" value="Pop" id="Pop" />
+                                <label className="custom-control-label" htmlFor="Pop"> Pop </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input genre-select" value="rock" id="rock" />
-                                <label className="custom-control-label" htmlFor="rock"> Rock </label>
+                                <input type="checkbox" className="custom-control-input genre-select" value="Rock" id="Rock" />
+                                <label className="custom-control-label" htmlFor="Rock"> Rock </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input genre-select" value="jazz" id="jazz" />
-                                <label className="custom-control-label" htmlFor="jazz"> Jazz </label>
+                                <input type="checkbox" className="custom-control-input genre-select" value="Jazz" id="Jazz" />
+                                <label className="custom-control-label" htmlFor="Jazz"> Jazz </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input genre-select" value="metal" id="metal" />
-                                <label className="custom-control-label" htmlFor="metal"> Metal </label>
+                                <input type="checkbox" className="custom-control-input genre-select" value="Metal" id="Metal" />
+                                <label className="custom-control-label" htmlFor="Metal"> Metal </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input genre-select" value="folk" id="folk" />
-                                <label className="custom-control-label" htmlFor="folk"> Folk </label>
+                                <input type="checkbox" className="custom-control-input genre-select" value="Folk" id="Folk" />
+                                <label className="custom-control-label" htmlFor="Folk"> Folk </label>
                             </div>
                         </div>
 
                         <div className="form-group">
                             <label> Select instruments: </label> <br/>
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input instrument-select" value="voice" id="voice" />
-                                <label className="custom-control-label" htmlFor="voice"> Voice </label>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="Voice" id="Voice" />
+                                <label className="custom-control-label" htmlFor="Voice"> Voice </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input instrument-select" value="guitar" id="guitar" />
-                                <label className="custom-control-label" htmlFor="guitar"> Guitar </label>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="Guitar" id="Guitar" />
+                                <label className="custom-control-label" htmlFor="Guitar"> Guitar </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input instrument-select" value="bassGuitar" id="bassGuitar" />
-                                <label className="custom-control-label" htmlFor="bassGuitar"> Bass Guitar </label>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="Bass Guitar" id="Bass Guitar" />
+                                <label className="custom-control-label" htmlFor="Bass Guitar"> Bass Guitar </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input instrument-select" value="piano" id="piano" />
-                                <label className="custom-control-label" htmlFor="piano"> Piano </label>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="Piano" id="Piano" />
+                                <label className="custom-control-label" htmlFor="Piano"> Piano </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input instrument-select" value="violin" id="violin" />
-                                <label className="custom-control-label" htmlFor="violin"> Violin </label>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="Violin" id="Violin" />
+                                <label className="custom-control-label" htmlFor="Violin"> Violin </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input instrument-select" value="drums" id="drums" />
-                                <label className="custom-control-label" htmlFor="drums"> Drums </label>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="Drums" id="Drums" />
+                                <label className="custom-control-label" htmlFor="Drums"> Drums </label>
                             </div>
 
                             <div className="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" className="custom-control-input instrument-select" value="trumpet" id="trumpet" />
-                                <label className="custom-control-label" htmlFor="trumpet"> Trumpet </label>
+                                <input type="checkbox" className="custom-control-input instrument-select" value="Trumpet" id="Trumpet" />
+                                <label className="custom-control-label" htmlFor="Trumpet"> Trumpet </label>
                             </div>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="location"> Location: </label>
-                            <select id="location" className="form-control"  >
-                                <option value="not_selected">Select Location</option>
-                                <option value="belgrade"> Belgrade </option>
-                                <option value="noviSad"> Novi Sad </option>
-                                <option value="nis"> Niš </option>
-                                <option value="kragujevac"> Kragujevac </option>
-                                <option value="subotica"> Subotica </option>
-                                <option value="pristina"> Priština </option>
-                                <option value="pancevo"> Pančevo </option>
-                                <option value="loznica"> Loznica </option>
-                                <option value="zrenjanin"> Zrenjanin </option>
-                                <option value="cacak"> Čačak </option>
-                                <option value="krusevac"> Kruševac </option>
-                                <option value="kraljevo"> Kraljevo </option>
-                                <option value="noviPazar"> Novi Pazar </option>
-                                <option value="smederevo"> Smederevo </option>
-                                <option value="leskovac"> Leskovac </option>
-                                <option value="uzice"> Užice </option>
-                                <option value="vranje"> Vranje </option>
-                                <option value="valjevo"> Valjevo </option>
-                                <option value="sabac"> Šabac </option>
-                                <option value="sombor"> Sombor </option>
-                                <option value="pozarevac"> Požarevac </option>
-                                <option value="pirot"> Pirot </option>
-                                <option value="zajecar"> Zaječar </option>
-                                <option value="kikinda"> Kikinda </option>
-                                <option value="sremskaMitrovica"> Sremska Mitrovica </option>
-                                <option value="jagodina"> Jagodina </option>
-                                <option value="vrsac"> Vršac </option>
-                                <option value="bor"> Bor </option>
-                                <option value="prokuplje"> Prokuplje </option>
+                            <select id="location" className="form-control" >
+                                <option value="not_selected"> Select Location </option>
+                                <option value="Belgrade" > Belgrade </option>
+                                <option value="Bor" > Bor </option>
+                                <option value="Čačak" > Čačak </option>
+                                <option value="Jagodina" > Jagodina </option>
+                                <option value="Kikinda" > Kikinda </option>
+                                <option value="Kragujevac" > Kragujevac </option>
+                                <option value="Kraljevo" > Kraljevo </option>
+                                <option value="Kruševac" > Kruševac </option>
+                                <option value="Leskovac" > Leskovac </option>
+                                <option value="Loznica" > Loznica </option>
+                                <option value="Niš" > Niš </option>
+                                <option value="Novi Pazar" > Novi Pazar </option>
+                                <option value="Novi Sad" > Novi Sad </option>
+                                <option value="Pančevo" > Pančevo </option>
+                                <option value="Pirot" > Pirot </option>
+                                <option value="Požarevac" > Požarevac </option>
+                                <option value="Priština" > Priština </option>
+                                <option value="Prokuplje" > Prokuplje </option>
+                                <option value="Šabac" > Šabac </option>
+                                <option value="Smederevo" > Smederevo </option>
+                                <option value="Sombor" > Sombor </option>
+                                <option value="Sremska Mitrovica" > Sremska Mitrovica </option>
+                                <option value="Subotica" > Subotica </option>
+                                <option value="Užice" > Užice </option>
+                                <option value="Valjevo" > Valjevo </option>
+                                <option value="Vranje" > Vranje </option>
+                                <option value="Vršac" > Vršac </option>
+                                <option value="Zaječar" > Zaječar </option>
+                                <option value="Zrenjanin" > Zrenjanin </option>
                             </select>
                         </div>
 

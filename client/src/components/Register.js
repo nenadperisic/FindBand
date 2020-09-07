@@ -181,13 +181,13 @@ class Register extends Component {
         }
 
         try {
-            const verify = await axios.post('/api/user/send', {email: forAccount.email});
+            await axios.post('/api/user/send', {email: forAccount.email});
         } catch (e) {
             window.alert("cannot send email!");
         }
 
         try {
-            const response = /* await */ axios.post('/api/user/register', forAccount);
+            /* await */ axios.post('/api/user/register', forAccount);
 
             localStorage.setItem("email", forAccount.email);
             localStorage.setItem("accountType", forAccount.accountType);

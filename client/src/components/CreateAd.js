@@ -7,17 +7,13 @@ import CreateAdBand from './CreateAdBand';
 
 class CreateAd extends Component {
     
-    
     render() {
         return (
             <div className="createAd">
                 <Header />
-                {console.log(localStorage.accountType)}
-                {localStorage.accountType === undefined ?    window.alert("You must be logged in!") : console.log("You have access!")}
                 {localStorage.accountType === "musician" ? <CreateAdMusician />: null}
                 {localStorage.accountType === "tavern" ? <CreateAdTavern /> : null}
-                {localStorage.accountType === "band" ? <CreateAdBand /> : null}
-                
+                {localStorage.accountType === "band" ? <CreateAdBand /> : null}                
                 <Footer />
             </div>
             

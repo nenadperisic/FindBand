@@ -113,7 +113,7 @@ class CreateAdMusician extends Component {
 
             adInfo["location"] = user.location;
         } catch (e) {
-            console.log(e.response.data.message);
+            console.log(e);
         }
 
         // add needed info
@@ -123,7 +123,7 @@ class CreateAdMusician extends Component {
         try {
             await axios.post('http://localhost:5000/api/forum/createAdMusician', adInfo);
         } catch (e) {
-            console.log(e.response.data.message);
+            console.log(e);
         }
 
         console.log(adInfo);
@@ -163,11 +163,11 @@ class CreateAdMusician extends Component {
                                         <label htmlFor="genre-musician-create-ad"> I would like to play (genre): </label>
                                         <select id="genre-musician-create-ad" className="form-control" onChange={this.onSelectedGenreChange}>
                                             <option value="not_selected"> Select Desired Genre </option>
-                                            <option value="pop"> Pop </option>
-                                            <option value="rock"> Rock </option>
-                                            <option value="jazz"> Jazz </option>
-                                            <option value="metal"> Metal </option>
-                                            <option value="folk"> Folk </option>
+                                            <option value="Pop"> Pop </option>
+                                            <option value="Rock"> Rock </option>
+                                            <option value="Jazz"> Jazz </option>
+                                            <option value="Metal"> Metal </option>
+                                            <option value="Folk"> Folk </option>
                                         </select>
                                     </div>
 
@@ -175,13 +175,13 @@ class CreateAdMusician extends Component {
                                         <label htmlFor="instrument-musician-create-ad"> I would like to play (instrument): </label>
                                         <select id="instrument-musician-create-ad" className="form-control" onChange={this.onSelectedInstrumentChange}>
                                             <option value="not_selected"> Select Desired Instrument </option>
-                                            <option value="voice"> Voice </option>
-                                            <option value="guitar"> Guitar </option>
-                                            <option value="bassGuitar"> Bass Guitar </option>
-                                            <option value="piano"> Piano </option>
-                                            <option value="violin"> Violin </option>
-                                            <option value="drums"> Drums </option>
-                                            <option value="trumpet"> Trumpet </option>
+                                            <option value="Voice"> Voice </option>
+                                            <option value="Guitar"> Guitar </option>
+                                            <option value="Bass Guitar"> Bass Guitar </option>
+                                            <option value="Piano"> Piano </option>
+                                            <option value="Violin"> Violin </option>
+                                            <option value="Drums"> Drums </option>
+                                            <option value="Trumpet"> Trumpet </option>
                                         </select>
                                     </div>
 

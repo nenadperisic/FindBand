@@ -93,7 +93,7 @@ class CreateAdTavern extends Component {
             adInfo["location"] = user.location;
             adInfo["type"] = user.tavernType;
         } catch (e) {
-            console.log(e.response.data.message);
+            console.log(e);
         }
 
         // add needed info
@@ -103,7 +103,7 @@ class CreateAdTavern extends Component {
         try {
             await axios.post('http://localhost:5000/api/forum/createAdTavern', adInfo);
         } catch (e) {
-            console.log(e.response.data.message);
+            console.log(e);
         }
 
         console.log(adInfo);
@@ -144,11 +144,11 @@ class CreateAdTavern extends Component {
                                         <label htmlFor="genre-tavern-create-ad"> Select wanted genre of the band: </label>
                                         <select id="genre-tavern-create-ad" className="form-control" onChange={this.onSelectedGenreChange}>
                                             <option value="not_selected"> Select Wanted Genre </option>
-                                            <option value="pop"> Pop </option>
-                                            <option value="rock"> Rock </option>
-                                            <option value="jazz"> Jazz </option>
-                                            <option value="metal"> Metal </option>
-                                            <option value="folk"> Folk </option>
+                                            <option value="Pop"> Pop </option>
+                                            <option value="Rock"> Rock </option>
+                                            <option value="Jazz"> Jazz </option>
+                                            <option value="Metal"> Metal </option>
+                                            <option value="Folk"> Folk </option>
                                         </select>
                                     </div>
 

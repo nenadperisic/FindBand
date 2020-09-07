@@ -25,7 +25,7 @@ class ConfigureTavernProfile extends Component {
                     localStorage.clear();
                     window.location.href = "/";
                 } catch (e) {
-                    console.log(e.response.data.message);
+                    console.log(e);
                 }
             }
         }
@@ -62,8 +62,7 @@ class ConfigureTavernProfile extends Component {
             window.alert("Account updated successfully!");
             window.location.href = "/profile/tavern";
         } catch (e) {
-            console.log(e.response.data.message);
-            window.alert("Something is wrong!");
+            console.log(e);
         }
 
         document.getElementById("tavernAccountForm").reset();
@@ -109,7 +108,7 @@ class ConfigureTavernProfile extends Component {
             document.getElementById('location').value = !user.location ? "not_selected" : user.location;
 
         } catch (e) {
-            console.log(e.response.data.message);
+            console.log(e);
         }
     }
 
@@ -134,45 +133,45 @@ class ConfigureTavernProfile extends Component {
                             <label htmlFor="type"> Type: </label>
                             <select id="type" className="form-control" >
                                 <option value="not_selected"> Select type </option>
-                                <option value="pub"> Pub </option>
-                                <option value="restaurant"> Restaurant </option>
-                                <option value="nightclub"> Nightclub </option>
+                                <option value="Pub"> Pub </option>
+                                <option value="Restaurant"> Restaurant </option>
+                                <option value="Night Club"> Nightclub </option>
                             </select>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="location"> Location: </label>
                             <select id="location" className="form-control" >
-                                <option value="not_selected">Select Location</option>
-                                <option value="belgrade"> Belgrade </option>
-                                <option value="noviSad"> Novi Sad </option>
-                                <option value="nis"> Niš </option>
-                                <option value="kragujevac"> Kragujevac </option>
-                                <option value="subotica"> Subotica </option>
-                                <option value="pristina"> Priština </option>
-                                <option value="pancevo"> Pančevo </option>
-                                <option value="loznica"> Loznica </option>
-                                <option value="zrenjanin"> Zrenjanin </option>
-                                <option value="cacak"> Čačak </option>
-                                <option value="krusevac"> Kruševac </option>
-                                <option value="kraljevo"> Kraljevo </option>
-                                <option value="noviPazar"> Novi Pazar </option>
-                                <option value="smederevo"> Smederevo </option>
-                                <option value="leskovac"> Leskovac </option>
-                                <option value="uzice"> Užice </option>
-                                <option value="vranje"> Vranje </option>
-                                <option value="valjevo"> Valjevo </option>
-                                <option value="sabac"> Šabac </option>
-                                <option value="sombor"> Sombor </option>
-                                <option value="pozarevac"> Požarevac </option>
-                                <option value="pirot"> Pirot </option>
-                                <option value="zajecar"> Zaječar </option>
-                                <option value="kikinda"> Kikinda </option>
-                                <option value="sremskaMitrovica"> Sremska Mitrovica </option>
-                                <option value="jagodina"> Jagodina </option>
-                                <option value="vrsac"> Vršac </option>
-                                <option value="bor"> Bor </option>
-                                <option value="prokuplje"> Prokuplje </option>
+                                <option value="not_selected"> Select Location </option>
+                                <option value="Belgrade" > Belgrade </option>
+                                <option value="Bor" > Bor </option>
+                                <option value="Čačak" > Čačak </option>
+                                <option value="Jagodina" > Jagodina </option>
+                                <option value="Kikinda" > Kikinda </option>
+                                <option value="Kragujevac" > Kragujevac </option>
+                                <option value="Kraljevo" > Kraljevo </option>
+                                <option value="Kruševac" > Kruševac </option>
+                                <option value="Leskovac" > Leskovac </option>
+                                <option value="Loznica" > Loznica </option>
+                                <option value="Niš" > Niš </option>
+                                <option value="Novi Pazar" > Novi Pazar </option>
+                                <option value="Novi Sad" > Novi Sad </option>
+                                <option value="Pančevo" > Pančevo </option>
+                                <option value="Pirot" > Pirot </option>
+                                <option value="Požarevac" > Požarevac </option>
+                                <option value="Priština" > Priština </option>
+                                <option value="Prokuplje" > Prokuplje </option>
+                                <option value="Šabac" > Šabac </option>
+                                <option value="Smederevo" > Smederevo </option>
+                                <option value="Sombor" > Sombor </option>
+                                <option value="Sremska Mitrovica" > Sremska Mitrovica </option>
+                                <option value="Subotica" > Subotica </option>
+                                <option value="Užice" > Užice </option>
+                                <option value="Valjevo" > Valjevo </option>
+                                <option value="Vranje" > Vranje </option>
+                                <option value="Vršac" > Vršac </option>
+                                <option value="Zaječar" > Zaječar </option>
+                                <option value="Zrenjanin" > Zrenjanin </option>
                             </select>
                         </div>
 

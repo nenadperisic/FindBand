@@ -132,7 +132,7 @@ class CreateAdBand extends Component {
         try {
             await axios.post('http://localhost:5000/api/forum/createAdBand', adInfo);
         } catch (e) {
-            console.log(e.response.data.message);
+            console.log(e);
         }
 
         console.log(adInfo);
@@ -156,7 +156,7 @@ class CreateAdBand extends Component {
                         <div className="card col-lg-6">
                             <div className="card-body">
 
-                                <h2> Create advertisement for your band </h2>
+                                <h2> Advertise open positions in your band to musicians </h2>
 
                                 <form id="form-create-ad-band">
                                     <div className="form-group">
@@ -174,11 +174,11 @@ class CreateAdBand extends Component {
                                         <label htmlFor="genre-band-create-ad"> Select wanted genre: </label>
                                         <select id="genre-band-create-ad" className="form-control" onChange={this.onSelectedGenreChange}>
                                             <option value="not_selected"> Select Wanted Genre </option>
-                                            <option value="pop"> Pop </option>
-                                            <option value="rock"> Rock </option>
-                                            <option value="jazz"> Jazz </option>
-                                            <option value="metal"> Metal </option>
-                                            <option value="folk"> Folk </option>
+                                            <option value="Pop"> Pop </option>
+                                            <option value="Rock"> Rock </option>
+                                            <option value="Jazz"> Jazz </option>
+                                            <option value="Metal"> Metal </option>
+                                            <option value="Folk"> Folk </option>
                                         </select>
                                     </div>
 
@@ -186,49 +186,49 @@ class CreateAdBand extends Component {
                                         <label htmlFor="instrument-band-create-ad"> Select wanted instrument: </label>
                                         <select id="instrument-band-create-ad" className="form-control" onChange={this.onSelectedInstrumentChange}>
                                             <option value="not_selected"> Select Wanted Instrument </option>
-                                            <option value="voice"> Voice </option>
-                                            <option value="guitar"> Guitar </option>
-                                            <option value="bassGuitar"> Bass Guitar </option>
-                                            <option value="piano"> Piano </option>
-                                            <option value="violin"> Violin </option>
-                                            <option value="drums"> Drums </option>
-                                            <option value="trumpet"> Trumpet </option>
+                                            <option value="Voice"> Voice </option>
+                                            <option value="Guitar"> Guitar </option>
+                                            <option value="Bass Guitar"> Bass Guitar </option>
+                                            <option value="Piano"> Piano </option>
+                                            <option value="Violin"> Violin </option>
+                                            <option value="Drums"> Drums </option>
+                                            <option value="Trumpet"> Trumpet </option>
                                         </select>
                                     </div>
 
                                     <div className="form-group">
                                         <label htmlFor="location-band-create-ad"> Location: </label>
                                         <select id="location-band-create-ad" className="form-control" onChange={this.onSelectedLocationChange} >
-                                            <option value="not_selected">Select Location</option>
-                                            <option value="belgrade"> Belgrade </option>
-                                            <option value="noviSad"> Novi Sad </option>
-                                            <option value="nis"> Niš </option>
-                                            <option value="kragujevac"> Kragujevac </option>
-                                            <option value="subotica"> Subotica </option>
-                                            <option value="pristina"> Priština </option>
-                                            <option value="pancevo"> Pančevo </option>
-                                            <option value="loznica"> Loznica </option>
-                                            <option value="zrenjanin"> Zrenjanin </option>
-                                            <option value="cacak"> Čačak </option>
-                                            <option value="krusevac"> Kruševac </option>
-                                            <option value="kraljevo"> Kraljevo </option>
-                                            <option value="noviPazar"> Novi Pazar </option>
-                                            <option value="smederevo"> Smederevo </option>
-                                            <option value="leskovac"> Leskovac </option>
-                                            <option value="uzice"> Užice </option>
-                                            <option value="vranje"> Vranje </option>
-                                            <option value="valjevo"> Valjevo </option>
-                                            <option value="sabac"> Šabac </option>
-                                            <option value="sombor"> Sombor </option>
-                                            <option value="pozarevac"> Požarevac </option>
-                                            <option value="pirot"> Pirot </option>
-                                            <option value="zajecar"> Zaječar </option>
-                                            <option value="kikinda"> Kikinda </option>
-                                            <option value="sremskaMitrovica"> Sremska Mitrovica </option>
-                                            <option value="jagodina"> Jagodina </option>
-                                            <option value="vrsac"> Vršac </option>
-                                            <option value="bor"> Bor </option>
-                                            <option value="prokuplje"> Prokuplje </option>
+                                            <option value="not_selected"> Select Location </option>
+                                            <option value="Belgrade" > Belgrade </option>
+                                            <option value="Bor" > Bor </option>
+                                            <option value="Čačak" > Čačak </option>
+                                            <option value="Jagodina" > Jagodina </option>
+                                            <option value="Kikinda" > Kikinda </option>
+                                            <option value="Kragujevac" > Kragujevac </option>
+                                            <option value="Kraljevo" > Kraljevo </option>
+                                            <option value="Kruševac" > Kruševac </option>
+                                            <option value="Leskovac" > Leskovac </option>
+                                            <option value="Loznica" > Loznica </option>
+                                            <option value="Niš" > Niš </option>
+                                            <option value="Novi Pazar" > Novi Pazar </option>
+                                            <option value="Novi Sad" > Novi Sad </option>
+                                            <option value="Pančevo" > Pančevo </option>
+                                            <option value="Pirot" > Pirot </option>
+                                            <option value="Požarevac" > Požarevac </option>
+                                            <option value="Priština" > Priština </option>
+                                            <option value="Prokuplje" > Prokuplje </option>
+                                            <option value="Šabac" > Šabac </option>
+                                            <option value="Smederevo" > Smederevo </option>
+                                            <option value="Sombor" > Sombor </option>
+                                            <option value="Sremska Mitrovica" > Sremska Mitrovica </option>
+                                            <option value="Subotica" > Subotica </option>
+                                            <option value="Užice" > Užice </option>
+                                            <option value="Valjevo" > Valjevo </option>
+                                            <option value="Vranje" > Vranje </option>
+                                            <option value="Vršac" > Vršac </option>
+                                            <option value="Zaječar" > Zaječar </option>
+                                            <option value="Zrenjanin" > Zrenjanin </option>
                                         </select>
                                     </div>
 

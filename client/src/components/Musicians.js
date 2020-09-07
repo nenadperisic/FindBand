@@ -66,8 +66,8 @@ class Musicians extends Component {
                 
              }
         }
-        console.log(checkedInstruments)
-        console.log(checkedGenres)
+        console.log(checkedInstruments);
+        console.log(checkedGenres);
         
         await axios.get('http://localhost:5000/api/forum/getMusiciansFilter', {
             params: {
