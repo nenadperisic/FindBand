@@ -37,9 +37,9 @@ class ListResult extends Component{
             <div style = {style}>
                 <div style={{marginTop: "20px"}}>
                     <h2 style={styleItems}>{this.props.name}</h2>
+                    <h5 style={styleItems}>Description: {this.props.description}</h5>
                     <h6 style={styleItems}>Genre: {this.props.genre}</h6>
                     <h6 style={styleItems}>Instruments: {this.props.instruments}</h6>
-                    <h5 style={styleItems}>Description: {this.props.description}</h5>
                     <h6 style={styleItems}>Email: {this.props.email}</h6>
                    <button className ="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
                        <span>View Ad</span>

@@ -28,9 +28,7 @@ class ListMyAds extends Component{
             console.log("Delete failed!");
         }
         
-        window.alert("Ad deleted successfully!");
-
-                
+        window.alert("Ad deleted successfully!");                
         window.location.href = "/MyAds";
         
     }
@@ -72,7 +70,6 @@ class ListMyAds extends Component{
                        <span>Remove Ad</span>
                     </button>
                 </div>
-
             </div>
         );
     }
