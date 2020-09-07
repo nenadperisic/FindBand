@@ -10,12 +10,16 @@ class MusicianProfileResults extends Component {
     constructor(props){
         super(props); 
 
+        
+
         this.getTabs = this.getTabs.bind(this);
     }
 
 
     getTabs() {
-
+        const dateOfBirth = this.props.dateOfBirth;
+        const date = new Date(dateOfBirth);
+        var options = {year: 'numeric', month: 'long', day: 'numeric' };
         const tabs = [
             { tabName: 'About', content: <div className="col-md-6">
                                             <label>{this.props.description}</label>
@@ -32,7 +36,7 @@ class MusicianProfileResults extends Component {
                                             <label><span role="img" aria-label="acceessible-emoji">🎂</span> Brith date: </label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{this.props.dateOfBirth}</p>
+                                            <p>{new Intl.DateTimeFormat('en-GB', options).format(date)}</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -40,7 +44,7 @@ class MusicianProfileResults extends Component {
                                             <label><span role="img" aria-label="acceessible-emoji">🎶</span> Genres: </label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{this.props.genres}</p>
+                                            <p>{this.props.genres.map(g => " " + g)}</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -48,7 +52,7 @@ class MusicianProfileResults extends Component {
                                             <label><span role="img" aria-label="acceessible-emoji">🎸 </span> Instruments: </label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{this.props.instruments}</p>
+                                            <p>{this.props.instruments.map(i => " " + i)}</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -81,13 +85,16 @@ class MusicianProfileResults extends Component {
 
 
     render(){
-        
+        const style={
+            height: "50%",
+            width: "50%"
+        };
         return(
             <Container>
                 <Row>
                     <Col xs = {3}>
                         <div id="profile-img">
-                           {this.props.gender === "female" ? <img src="/profileFemale.jpg" alt = "profile"/>: <img src="/profileMale.jpg" alt = "profile"/>}
+                           {this.props.gender === "female" ? <img src="/profilef.jpg" style={style} alt = "profile"/>: <img src="/profilem.jpg" style={style} alt = "profile"/>}
                             <br/>
                             <div className="file btn btn-lg" id="fileDiv">
                                 Change photo

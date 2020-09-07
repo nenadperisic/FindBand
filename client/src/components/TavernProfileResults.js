@@ -65,7 +65,7 @@ class TavernProfileResults extends Component {
                 <Row>
                     <Col xs = {3}>
                         <div id="profile-img">
-                           {this.props.gender === "female" ? <img src="/profileFemale.jpg" alt = "profile"/>: <img src="/profileMale.jpg" alt = "profile"/>}
+                           <img src="/profilet.jpg" alt = "profile" style={{height: "50%", width: "50%"}}/>
                             <br/>
                             <div className="file btn btn-lg" id="fileDiv">
                                 Change photo

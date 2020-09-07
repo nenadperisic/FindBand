@@ -34,7 +34,7 @@ class BandProfileResults extends Component {
                                             <label><span role="img" aria-label="acceessible-emoji">🎶</span> Genres: </label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{this.props.genres}</p>
+                                            <p>{this.props.genres.map(g => " " + g)}</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -73,7 +73,7 @@ class BandProfileResults extends Component {
                 <Row>
                     <Col xs = {3}>
                         <div id="profile-img">
-                           {this.props.gender === "female" ? <img src="/profileFemale.jpg" alt = "profile"/>: <img src="/profileMale.jpg" alt = "profile"/>}
+                           <img src="/profileb.jpg" alt = "profile" style={{height: "50%", width: "50%"}}/>
                             <br/>
                             <div className="file btn btn-lg" id="fileDiv">
                                 Change photo

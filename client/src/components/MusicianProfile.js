@@ -103,8 +103,10 @@ class MusicianProfile extends Component {
         return (
             <div className="profile" style={style}>
                 <Header />
-                <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
-                {this.state.listResult}
+                <div>
+                    <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
+                    {this.state.listResult}
+                </div>
                 <Footer />
             </div>
         );
