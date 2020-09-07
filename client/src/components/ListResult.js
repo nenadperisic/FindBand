@@ -5,12 +5,22 @@ class ListResult extends Component{
     constructor(props){
         super(props)
 
-        this.viewAd = this.viewAd.bind(this);
+        this.viewProfile = this.viewProfile.bind(this);
+        this.apply = this.apply(this);
     }
 
-    viewAd(id){
+    viewProfile(id){
         console.log(id);
     }
+    apply(id){
+        console.log(id);
+    }
+
+    componentDidMount() {
+		if (localStorage.email !== undefined) {
+            document.getElementsById("button").style.display = "none";
+		}
+	}
 
     render(){
         const style={
@@ -30,7 +40,9 @@ class ListResult extends Component{
                 colorborder: "1px solid rgb(70, 171, 230)",
                 marginLeft: "75%", 
                 backgroundColor: "#343a40",
-                textAlign: "center"
+                textAlign: "center",
+                padding: "1%",
+                width: "20%"
             };
 
         return(
@@ -41,8 +53,11 @@ class ListResult extends Component{
                     <h6 style={styleItems}>Instruments: {this.props.instruments}</h6>
                     <h5 style={styleItems}>Description: {this.props.description}</h5>
                     <h6 style={styleItems}>Email: {this.props.email}</h6>
-                   <button className ="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
-                       <span>View Ad</span>
+                   <button className ="buttonView" id="button" style={styleButton} onClick={() => this.viewProfile(this.props.id)}>
+                       <span>View profile</span>
+                    </button>
+                    <button className ="buttonView" id="button" style={styleButton} onClick={() => this.apply(this.props.id)}>
+                       <span>Apply</span>
                     </button>
                 </div>
 

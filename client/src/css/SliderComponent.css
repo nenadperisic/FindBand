@@ -4,6 +4,7 @@
     margin: auto;
     margin-top: 5%;
     color: royalblue;
+    height: 100vh;
 }
 
 .prev, .next {
@@ -24,11 +25,13 @@
   .prev{
     left: 0;
     top: 50%;
+    z-index: 10;
   }
   .next {
     right: 0;
     border-radius: 3px 0 0 3px;
     top: 50%;
+    z-index: 10;
   }
 
   .prev:hover, .next:hover {
@@ -58,8 +61,9 @@
   #dotDiv{
     position: absolute;
     margin-left: 50%;
-    transform: translate(-50%, -80%);
+    transform: translate(-50%, 40%);
     padding: 3%;
+    bottom: 5%;
   }
   .dot {
     cursor: pointer;
@@ -80,6 +84,8 @@
     background-color: grey;
   }
   .slides {
+    height: 100%;
+    width: 100%;
     position: relative;
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/TavernProfile.css';
+import '../css/Profiles.css';
 import Header from './Header';
 import Footer from './Footer';
 import TavernProfileResults from './TavernProfileResults';
@@ -59,8 +59,13 @@ class TavernProfile extends Component {
         return (
             <div className="profile" style={style}>
                 <Header />
-                <button type="button" id="configureBtn" onClick={this.handleConfigureProfile}> <span>Configure profile </span></button>
-                {this.state.listResult}
+                <div>
+                    <button type="button" id="configureBtn" onClick={this.handleConfigureProfile}> <span>Configure profile </span></button>
+                    <br/>
+                    <button className="button" id="configureBtn"><a href="/listMyAds"><span>Show my ads</span></a></button>
+
+                    {this.state.listResult}
+                </div>
                 <Footer />
             </div>
         );

@@ -22,6 +22,7 @@ import ConfigureTavernProfile from './components/ConfigureTavernProfile';
 import MyAds from './components/MyAds';
 import Verify from './components/Verify';
 import ShowAds from './components/ShowAds';
+import ListMyAds from './components/ListMyAds';
 // import Logout from './components/Logout';
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
           <Route path="/showAds" exact component={ShowAds} />
+          <Route path="/listMyAds" exact component={ListMyAds} />
           <Route path="/verify" exact component={Verify} />
           <Route path="/CreateAd" exact component={CreateAd} />
           <Route path="/MyAds" exact component={MyAds} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/MusicianProfile.css';
+import '../css/Profiles.css';
 import Header from './Header';
 import Footer from './Footer';
 import MusicianProfileResults from './MusicianProfileResults';
@@ -105,6 +105,9 @@ class MusicianProfile extends Component {
                 <Header />
                 <div>
                     <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
+                    <br/>
+                    <button className="button" id="configureBtn"><a href="/listMyAds"><span>Show my ads</span></a></button>
+
                     {this.state.listResult}
                 </div>
                 <Footer />
