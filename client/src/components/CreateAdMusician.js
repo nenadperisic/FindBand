@@ -136,7 +136,7 @@ class CreateAdMusician extends Component {
     render() {
         return (
             <div>
-                <div className="container" id="create-ad-musician" style={{ paddingTop: '4%' }}>
+                <div className="container" id="create-ad-musician" style={{ paddingTop: '70px', paddingBottom: '50px' }}>
                     <div className="row">
 
                         <div className="col-lg-3">

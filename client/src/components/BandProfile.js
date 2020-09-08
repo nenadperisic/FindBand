@@ -15,6 +15,7 @@ class MusicianProfile extends Component {
             location: '',
             description: '',
             professionalAccount: '',
+            bandMembers: []
         };
 
         this.configureProfile = this.configureProfile.bind(this);
@@ -42,10 +43,10 @@ class MusicianProfile extends Component {
                     location={result.location}
                     description={result.description}
                     professionalAccount={result.professionalAccount}
+                    bandMembers={result.bandMembers}
                 />);
         });
 
-    
         this.forceUpdate();
     }
 

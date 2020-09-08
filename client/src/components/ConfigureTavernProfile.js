@@ -128,7 +128,7 @@ class ConfigureTavernProfile extends Component {
         return (
             <div className="profile">
                 <Header />
-                <div className="container" style={{ paddingTop: '6%', paddingBottom: '6%' }}>
+                <div className="container" style={{ paddingTop: '70px', paddingBottom: '50px' }}>
                     <form id="tavernAccountForm">
                         <h2> Configure your profile </h2>
 

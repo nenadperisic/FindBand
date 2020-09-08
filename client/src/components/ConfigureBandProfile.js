@@ -258,7 +258,7 @@ class ConfigureBandProfile extends Component {
         return (
             <div className="profile">
                 <Header />
-                <div className="container" style={{ paddingTop: '6%', paddingBottom: '6%' }}>
+                <div className="container" style={{ paddingTop: '70px', paddingBottom: '50px' }}>
                     <form id="bandAccountForm">
                         <h2> Configure your profile </h2>
 
@@ -353,7 +353,7 @@ class ConfigureBandProfile extends Component {
                     </form>
                 </div>
 
-                <div className="container" style={{ paddingBottom: '6%' }}>
+                <div className="container" style={{ paddingBottom: '50px' }}>
                     <form id="band-members-form">
                         <h2> Add and Remove band members </h2>
 

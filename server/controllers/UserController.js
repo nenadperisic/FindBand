@@ -223,6 +223,23 @@ router.post('/get/user/data', async (req, res) => {
     res.send({user});
 });
 
+router.post('/get/bandMembers', async (req, res) => {
+    let members = [];
+    for (let e of req.body.bandMembers) {
+        const user = await User.findOne({ email: e });
+    
+        if (!user) {
+            members.push('Account deleted');
+        } else {
+            members.push(user.name);
+        }
+    }
+
+    res.send({members});
+    return res.status(200);
+});
+
+
 var smtpTransport = nodemailer.createTransport({    
     service: "Gmail",
     auth: {

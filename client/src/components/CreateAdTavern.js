@@ -116,7 +116,7 @@ class CreateAdTavern extends Component {
     render() {
         return (
             <div>
-                <div className="container" id="create-ad-tavern" style={{ paddingTop: '6%' }}>
+                <div className="container" id="create-ad-tavern" style={{ paddingTop: '70px', paddingBottom: '50px' }}>
 
                     <div className="row">
 

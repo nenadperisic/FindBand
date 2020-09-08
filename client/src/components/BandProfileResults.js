@@ -4,18 +4,18 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Tabs from 'react-responsive-tabs';
 import 'react-responsive-tabs/styles.css';
+import BandMembers from './BandMembers';
+
 
 class BandProfileResults extends Component {
     
     constructor(props){
-        super(props); 
+        super(props);
 
         this.getTabs = this.getTabs.bind(this);
     }
 
-
     getTabs() {
-
         const tabs = [
             { tabName: 'About', content: <div className="col-md-6">
                                             <label>{this.props.description}</label>
@@ -54,6 +54,11 @@ class BandProfileResults extends Component {
                                         </div>
                                     </div>
                                             </div> },
+                {tabName: "Band Members", content: 
+                    <div>
+                        <BandMembers members={this.props.bandMembers}/>
+                    </div>
+                },
             ];
 
         return tabs.map((tab, index) => ({
