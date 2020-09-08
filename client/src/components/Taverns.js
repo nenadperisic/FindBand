@@ -3,7 +3,6 @@ import Header from './Header';
 import Footer from './Footer';
 import CheckTypes from './CheckTypes';
 import CheckLocation from './CheckLocation';
-import ListResult from './ListResult';
 import '../css/FindMBV.css';
 import axios from 'axios';
 

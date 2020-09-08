@@ -183,28 +183,27 @@ class Register extends Component {
         try {
             await axios.post('/api/user/send', {email: forAccount.email});
         } catch (e) {
-            window.alert("cannot send email!");
+            window.alert("Cannot send email!");
         }
 
         try {
-            /* await */ axios.post('/api/user/register', forAccount);
+            await axios.post(
+                '/api/user/register',
+                forAccount
+            ).then(res => {
+                console.log(res.status);
+            });
 
             localStorage.setItem("email", forAccount.email);
             localStorage.setItem("accountType", forAccount.accountType);
-            
+
             console.log("Registration success");
-            
+
             document.getElementById("formAccount").reset();
             window.location.href = "/verify";
-
-            // const accountType = "/configure/" + forAccount.accountType;
-            // console.log(accountType);
-            // window.location.href = accountType;
         } catch (e) {
             window.alert("Account with that email already exists!");
-            // console.log(e.response.data.message)
         }
-        // this.forceUpdate();
     }
 
     render() {

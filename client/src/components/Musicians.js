@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ListResult from './ListResult';
 import Header from './Header';
 import Footer from './Footer';
 import CheckInstruments from './CheckInstruments';
@@ -59,7 +58,7 @@ class Musicians extends Component {
         }
         checkedLocation = location.value;
 
-        await axios.get('http://localhost:5000/api/forum/getBandsFilter', {
+        await axios.get('http://localhost:5000/api/forum/getMusiciansFilter', {
             params: {
                 accountType: localStorage.accountType,
                 instrument: checkedInstruments,

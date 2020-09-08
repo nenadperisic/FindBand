@@ -25,7 +25,12 @@ class ConfigureBandProfile extends Component {
             const confirm = window.confirm("Do you want to delete your accout? If you do, your account data will be permanently lost!")
             if (confirm) {
                 try {
-                    /* await */ axios.post('http://localhost:5000/api/user/profile/deleteAccount', { email: localStorage.email });
+                    await axios.post(
+                        'http://localhost:5000/api/user/profile/deleteAccount',
+                        { email: localStorage.email }
+                    ).then(res => {
+                        console.log(res.status);
+                    });
 
                     window.alert("account deleted successfully!");
 
@@ -53,7 +58,7 @@ class ConfigureBandProfile extends Component {
         }
 
         try {
-            /* await */ axios.post(
+            await axios.post(
                 'http://localhost:5000/api/user/configure/band',
                 {
                     email: localStorage.email,
@@ -62,11 +67,11 @@ class ConfigureBandProfile extends Component {
                     location: forBand.location,
                     description: forBand.description,
                     professionalAccount: forBand.professionalAccount
-                });
+                }
+            ).then(res => {
+                console.log(res.status);
+            });
 
-            console.log("bandProfile response:");
-            console.log(localStorage.email);
-            // console.log(response.forBand);
             localStorage.setItem("name", forBand);
             localStorage.setItem("genre", forBand);
 
@@ -213,13 +218,15 @@ class ConfigureBandProfile extends Component {
 
         let survivors = this.bandMembers.filter(e => !emailsToBeRemoved.includes(e));
         try {
-            /* await */ axios.post(
+            await axios.post(
                 'http://localhost:5000/api/user/update/member/list',
                 { 
                     email: localStorage.email,
                     bandMembers: survivors
                 }
-            );
+            ).then(res => {
+                console.log(res.status);
+            });
         } catch (e) {
             console.log(e);
         }
@@ -251,7 +258,7 @@ class ConfigureBandProfile extends Component {
         return (
             <div className="profile">
                 <Header />
-                <div className="container">
+                <div className="container" style={{ paddingTop: '6%', paddingBottom: '6%' }}>
                     <form id="bandAccountForm">
                         <h2> Configure your profile </h2>
 
@@ -346,7 +353,7 @@ class ConfigureBandProfile extends Component {
                     </form>
                 </div>
 
-                <div className="container">
+                <div className="container" style={{ paddingBottom: '6%' }}>
                     <form id="band-members-form">
                         <h2> Add and Remove band members </h2>
 

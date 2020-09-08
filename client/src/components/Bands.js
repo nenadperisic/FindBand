@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import CheckAge from './CheckAge';
 import CheckGenres from './CheckGenres';
 import CheckInstruments from './CheckInstruments';
 import CheckLocation from './CheckLocation';
 import '../css/FindMBV.css';
-import ListResult from './ListResult';
 import axios from 'axios';
 
 class Bands extends Component {

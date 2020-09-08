@@ -62,7 +62,7 @@ class TavernProfile extends Component {
                 <div>
                     <button type="button" id="configureBtn" onClick={this.handleConfigureProfile}> <span>Configure profile </span></button>
                     <br/>
-                    <button className="button" id="configureBtn"><a href="/listMyAds"><span>Show my ads</span></a></button>
+                    <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
 
                     {this.state.listResult}
                 </div>

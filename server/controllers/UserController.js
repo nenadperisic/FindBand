@@ -35,11 +35,12 @@ router.post('/register', async (req, res) => {
     // da li user vec postoji sa datim mail-om
     const user = await User.findOne({email: req.body.email});
     console.log(user)
-    if(user){
+    if (user) {
         return res.status(400).send({
             message: "Email already exists"
         });
     }
+
     const newUser = User({
         accountType: req.body.accountType,
         email: req.body.email,
@@ -73,7 +74,7 @@ router.post('/verify', async (req, res) => {
     console.log(req.body.email)
 
     if (user.secretToken === req.body.code){
-        console.log("Verification completed");
+        console.log("Verification complete!");
         
         await User.updateOne (
             { email: req.body.email },
@@ -99,9 +100,15 @@ router.post('/profile/deleteAccount', async (req, res) => {
     console.log(req.body.email);
     try {
         await User.findOneAndDelete( { email: req.body.email });
-        console.log("deleted account");
+        // console.log("Account deleted");
+        return res.status(200).send({
+            message: "Account deleted"
+        });
     } catch (e) {
-        console.log("delete account failed");
+        console.log("Failed to delete", req.body.email);
+        return res.status(500).send({
+            message: "Failed to delete account"
+        });
     }
 });
 
@@ -133,17 +140,6 @@ router.post('/login', async (req, res) => {
     });
 });
 
-// delete account
-router.post('/profile/deleteAccount', async (req, res) => {
-    console.log(req.body.email);
-    try {
-        await User.findOneAndDelete( { email: req.body.email });
-        console.log("deleted account");
-    } catch (e) {
-        console.log("delete account failed");
-    }
-});
-
 // update profile info for musician
 router.post('/configure/musician', async (req, res) => {
     await User.updateOne (
@@ -160,7 +156,9 @@ router.post('/configure/musician', async (req, res) => {
         }
     );
 
-    return res.status(201);
+    return res.status(201).send({
+        message: "configured!"
+    });
 });
 
 // update profile info for band
@@ -176,7 +174,9 @@ router.post('/configure/band', async (req, res) => {
         }
     );
 
-    return res.status(201);
+    return res.status(201).send({
+        message: "configured!"
+    });
 });
 
 // update profile info for tavern
@@ -191,7 +191,9 @@ router.post('/configure/tavern', async (req, res) => {
         }
     );
 
-    return res.status(201);
+    return res.status(201).send({
+        message: "configured!"
+    });
 });
 
 router.post('/profile/musician', async(req, res) => {
@@ -261,7 +263,9 @@ router.post("/update/member/list", async (req, res) => {
         }
     );
 
-    return res.status(201);
+    return res.status(201).send({
+        message: "member list updated!"
+    });
 });
 
 router.post("/musician/exists/", async (req, res) => {

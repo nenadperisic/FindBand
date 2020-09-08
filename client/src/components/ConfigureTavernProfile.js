@@ -18,7 +18,12 @@ class ConfigureTavernProfile extends Component {
             const confirm = window.confirm("Do you want to delete your accout? If you do, your account data will be permanently lost!")
             if (confirm) {
                 try {
-                    /* await */ axios.post('http://localhost:5000/api/user/profile/deleteAccount', { email: localStorage.email });
+                    await axios.post(
+                        'http://localhost:5000/api/user/profile/deleteAccount',
+                        { email: localStorage.email }
+                    ).then(res => {
+                        console.log(res.status);
+                    });
 
                     window.alert("account deleted successfully!");
 
@@ -46,7 +51,7 @@ class ConfigureTavernProfile extends Component {
         }
 
         try {
-            /* await */ axios.post(
+            await axios.post(
                 'http://localhost:5000/api/user/configure/tavern',
                 {
                     email: localStorage.email,
@@ -54,7 +59,10 @@ class ConfigureTavernProfile extends Component {
                     tavernType: forTavern.tavernType,
                     location: forTavern.location,
                     description: forTavern.description,
-                });
+                }
+            ).then(res => {
+                console.log(res.status);
+            });
 
             localStorage.setItem("name", forTavern);
             localStorage.setItem("genre", forTavern);
@@ -120,7 +128,7 @@ class ConfigureTavernProfile extends Component {
         return (
             <div className="profile">
                 <Header />
-                <div className="container">
+                <div className="container" style={{ paddingTop: '6%', paddingBottom: '6%' }}>
                     <form id="tavernAccountForm">
                         <h2> Configure your profile </h2>
 

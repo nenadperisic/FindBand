@@ -18,7 +18,12 @@ class ConfigureMusicianProfile extends Component {
             const confirm = window.confirm("Do you want to delete your accout? If you do, your account data will be permanently lost!")
             if (confirm) {
                 try {
-                    /* await */ axios.post('http://localhost:5000/api/user/profile/deleteAccount', { email: localStorage.email });
+                    await axios.post(
+                        'http://localhost:5000/api/user/profile/deleteAccount',
+                        { email: localStorage.email }
+                    ).then(res => {
+                        console.log(res.status);
+                    });
 
                     window.alert("account deleted successfully!");
 
@@ -45,7 +50,7 @@ class ConfigureMusicianProfile extends Component {
         }
 
         try {
-            /*await*/ axios.post(
+            await axios.post(
                 'http://localhost:5000/api/user/configure/musician', 
                 { 
                     email: localStorage.email,
@@ -57,6 +62,9 @@ class ConfigureMusicianProfile extends Component {
                     location: forAccount.location,
                     description: forAccount.description,
                     professionalAccount: forAccount.professionalAccount
+                }
+            ).then(res => {
+                console.log(res.status);
             });
 
             window.alert("Account updated successfully!");
@@ -174,7 +182,7 @@ class ConfigureMusicianProfile extends Component {
         return (
             <div className="profile">
                 <Header />
-                <div className="container">
+                <div className="container" style={{ paddingTop: '6%', paddingBottom: '6%' }}>
                     <form id="musicianAccountForm">
                         <h2> Configure your profile </h2>
 

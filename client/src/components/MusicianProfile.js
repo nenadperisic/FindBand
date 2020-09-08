@@ -25,43 +25,11 @@ class MusicianProfile extends Component {
         };
 
         this.configureProfile = this.configureProfile.bind(this);
-        this.deleteAccount = this.deleteAccount.bind(this);
-        this.logout = this.logout.bind(this);
     }
 
 
     configureProfile = async event => {
         window.location.href = "/configure";
-    }
-
-    deleteAccount = async event => {
-        // const forAccount = this.state.forAccount;
-        if (!localStorage.email) {
-            window.alert("You must be logged in if you want to delete account.");
-        } else {
-            var confirm = window.confirm("Delete your account? If you choose yes, all data from your account will be lost.");
-            if (confirm) {
-                try {
-                    /* await */ axios.post('http://localhost:5000/api/user/profile/deleteAccount', { email: localStorage.email });
-                } catch (e) {
-                    // console.log(e.response.data.message);
-                    window.alert("Error while sending request for delete account!");
-                }
-                localStorage.clear();
-            }
-        }
-    }
-
-    logout = async event => {
-        // const forAccount = this.state.forAccount;
-        if (!localStorage.email) {
-            window.alert("You are not logged in");
-        } else {
-            var confirm = window.confirm("Logout from your account?");
-            if (confirm) {
-                localStorage.clear();
-            }
-        }
     }
 
     async componentDidMount(){
@@ -106,7 +74,7 @@ class MusicianProfile extends Component {
                 <div>
                     <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
                     <br/>
-                    <button className="button" id="configureBtn"><a href="/listMyAds"><span>Show my ads</span></a></button>
+                    <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
 
                     {this.state.listResult}
                 </div>
