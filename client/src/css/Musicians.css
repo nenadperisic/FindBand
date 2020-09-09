@@ -28,3 +28,24 @@
     border-right: 6px solid;
     height: 100%;
 }
+
+#styleButton{
+    border-color: 1px solid rgb(70, 171, 230);
+    margin-left: 75%;
+    background-color: #343a40;
+    text-align: center;
+    margin-bottom: 3%;
+   }
+  
+  #styleButtonViewProfile{
+    border-color: 1px solid rgb(70, 171, 230);
+    margin-left: -50%;
+    margin-bottom: 3%;
+    background-color: #343a40;
+    text-align: center;
+    
+  };
+
+  .buttons{
+    display: inline;
+};

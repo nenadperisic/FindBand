@@ -61,7 +61,7 @@ class Register extends Component {
         console.log(forAccount.title);
         console.log(forAccount.message);
         try {
-            await axios.post('/api/user/contact', {contact: localStorage.getItem("contactMail"), title: forAccount.title, message: forAccount.message, email: localStorage.getItem('email')});
+            await axios.post('/api/user/contact', {contact: localStorage.getItem("contactEmail"), title: forAccount.title, message: forAccount.message, email: localStorage.getItem('email')});
         } catch (e) {
             window.alert("Cannot send email!");
         }

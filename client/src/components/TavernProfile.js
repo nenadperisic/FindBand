@@ -28,7 +28,7 @@ class TavernProfile extends Component {
     async componentDidMount(){
     
         await axios.post('http://localhost:5000/api/user/profile/tavern', {
-            email: localStorage.email
+            email: localStorage.contactEmail
         }).then(res => {
             console.log(localStorage.email)
             this.state.result = res.data;
@@ -45,6 +45,11 @@ class TavernProfile extends Component {
                 />);
         });
 
+        if(localStorage.email !== localStorage.contactEmail){
+            document.getElementById("configureButtons").style.display = "none";
+        }else{
+            document.getElementById("configureButtons").style.display = "block";
+        }
     
         this.forceUpdate();
     }
@@ -60,11 +65,13 @@ class TavernProfile extends Component {
             <div className="profile" style={style}>
                 <Header />
                 <div>
-                    <button type="button" id="configureBtn" onClick={this.handleConfigureProfile}> <span>Configure profile </span></button>
+                <div id="configureButtons">
+                    <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
                     <br/>
                     <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
+                </div>
+                {this.state.listResult}
 
-                    {this.state.listResult}
                 </div>
                 <Footer />
             </div>

@@ -21,6 +21,7 @@ class Header extends React.Component {
     }
 
     profilePage() {
+        localStorage.setItem("contactEmail", localStorage.email);
         let target = "/profile/" + localStorage.accountType;
         window.location.href = target;
     }

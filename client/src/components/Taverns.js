@@ -4,6 +4,7 @@ import Footer from './Footer';
 import CheckTypes from './CheckTypes';
 import CheckLocation from './CheckLocation';
 import '../css/FindMBV.css';
+import '../css/Musicians.css';
 import axios from 'axios';
 
 class Taverns extends Component {
@@ -62,8 +63,13 @@ class Taverns extends Component {
     }
 
     viewAd(email) {
-        localStorage.setItem("contactMail", email);
+        localStorage.setItem("contactEmail", email);
         window.location.href = "/ContactForm";
+    }
+
+    viewProfile(email) {
+        localStorage.setItem("contactEmail", email);
+        window.location.href = "/profile/tavern";
     }
 
     render() {
@@ -80,12 +86,12 @@ class Taverns extends Component {
             color: "white"
         };
 
-        const styleButton = {
-            colorborder: "1px solid rgb(70, 171, 230)",
-            marginLeft: "75%",
-            backgroundColor: "#343a40",
-            textAlign: "center"
-        };
+        // const styleButton = {
+        //     colorborder: "1px solid rgb(70, 171, 230)",
+        //     marginLeft: "75%",
+        //     backgroundColor: "#343a40",
+        //     textAlign: "center"
+        // };
 
         let emptyArray = [];
         for (let e of this.state.result) {
@@ -98,9 +104,14 @@ class Taverns extends Component {
                     <h6 style={styleItems}>We are: {e.type}</h6>
                     <h6 style={styleItems}>Location: {e.location}</h6>
                     <h6 style={styleItems}>Email: {e.user}</h6>
-                    <button className="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(e.user)}>
-                        <span>Contact</span>
-                    </button>
+                    <div className="buttons">
+                        <button className="btn btn-success" id="styleButton"  onClick={() => this.viewAd(e.user)}> Contact    
+                        </button>
+                        <span> </span>
+                        <button className="btn btn-success" id="styleButtonViewProfile"  onClick={() => this.viewProfile(e.user)}>
+                        View profile
+                        </button>
+                    </div>
                 </div>
 
             </div>);

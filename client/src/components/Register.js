@@ -195,6 +195,7 @@ class Register extends Component {
             });
 
             localStorage.setItem("email", forAccount.email);
+            localStorage.setItem("contactEmail", forAccount.email);
             localStorage.setItem("accountType", forAccount.accountType);
 
             console.log("Registration success");

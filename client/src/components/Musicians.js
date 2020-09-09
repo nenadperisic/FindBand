@@ -6,6 +6,7 @@ import CheckInstruments from './CheckInstruments';
 import CheckGenres from './CheckGenres';
 import CheckLocation from './CheckLocation';
 import '../css/FindMBV.css';
+import '../css/Musicians.css';
 
 class Musicians extends Component {
 
@@ -20,16 +21,20 @@ class Musicians extends Component {
 
     async componentDidMount() {
     
-        await axios.get('http://localhost:5000/api/forum/getMusicians', {
-            params: {
-                accountType : localStorage.accountType
-            }
-        }).then(res => {
-            console.log(localStorage.accountType)
-            this.state.result = res.data;
-            });
+        // await axios.get('http://localhost:5000/api/forum/getMusicians', {
+        //     params: {
+        //         accountType : localStorage.accountType
+        //     }
+        // }).then(res => {
+        //     console.log(localStorage.accountType)
+        //     this.state.result = res.data;
+        //     });
         
-          this.forceUpdate();
+        const result = await axios.get('http://localhost:5000/api/forum/getMusicians');
+                
+        this.state.result = result.data;
+
+        this.forceUpdate();
     }
 
 
@@ -73,8 +78,14 @@ class Musicians extends Component {
           this.forceUpdate();
     }
 
-    viewAd(id) {
-        console.log(id);
+    viewAd(email) {
+        localStorage.setItem("contactEmail", email);
+        window.location.href = "/ContactForm";
+    }
+
+    viewProfile(email) {
+        localStorage.setItem("contactEmail", email);
+        window.location.href = "/profile/musician";
     }
 
     render() {
@@ -91,12 +102,20 @@ class Musicians extends Component {
             color: "white"
         };
 
-        const styleButton = {
-            colorborder: "1px solid rgb(70, 171, 230)",
-            marginLeft: "75%",
-            backgroundColor: "#343a40",
-            textAlign: "center"
-        };
+        // const styleButton = {
+        //     colorborder: "1px solid rgb(70, 171, 230)",
+        //     marginLeft: "75%",
+        //     backgroundColor: "#343a40",
+        //     textAlign: "center",
+        // };
+
+        // const styleButtonViewProfile = {
+        //     colorborder: "1px solid rgb(70, 171, 230)",
+        //     marginLeft: "60%",
+        //     backgroundColor: "#343a40",
+        //     textAlign: "center",
+            
+        // };
 
         let emptyArray = [];
         for (let e of this.state.result) {
@@ -109,9 +128,14 @@ class Musicians extends Component {
                     <h6 style={styleItems}>Instrument: {e.instrument}</h6>
                     <h6 style={styleItems}>Location: {e.location}</h6>
                     <h6 style={styleItems}>Email: {e.user}</h6>
-                    <button className="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
-                        <span>View Ad</span>
-                    </button>
+                    <div className="buttons">
+                        <button className="btn btn-success" id="styleButton"  onClick={() => this.viewAd(e.user)}> Contact    
+                        </button>
+                        <span> </span>
+                        <button className="btn btn-success" id="styleButtonViewProfile"  onClick={() => this.viewProfile(e.user)}>
+                        View profile
+                        </button>
+                    </div>
                 </div>
 
             </div>);

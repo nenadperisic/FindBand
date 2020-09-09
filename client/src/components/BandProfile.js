@@ -28,7 +28,7 @@ class MusicianProfile extends Component {
     async componentDidMount(){
     
         await axios.post('http://localhost:5000/api/user/profile/band', {
-            email: localStorage.email
+            email: localStorage.contactEmail
         }).then(res => {
             console.log(localStorage.email)
             this.state.result = res.data;
@@ -47,6 +47,12 @@ class MusicianProfile extends Component {
                 />);
         });
 
+        if(localStorage.email !== localStorage.contactEmail){
+            document.getElementById("configureButtons").style.display = "none";
+        }else{
+            document.getElementById("configureButtons").style.display = "block";
+        }
+
         this.forceUpdate();
     }
 
@@ -62,13 +68,12 @@ class MusicianProfile extends Component {
         return (
             <div className="profile" style={style}>
                 <Header />
-                <div>
+                <div id="configureButtons">
                     <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
                     <br/>
                     <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
-
-                    {this.state.listResult}
                 </div>
+                {this.state.listResult}
                 <Footer />
             </div>
         );
