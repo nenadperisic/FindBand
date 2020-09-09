@@ -72,21 +72,21 @@ class Login extends Component {
             const response = await axios.post('/api/user/login', forAccount);
             const {user, token} = response.data;            
 
-            console.log("uspesan log in");
             localStorage.setItem("token", token);
             localStorage.setItem("email", forAccount.email)
             localStorage.setItem("contactEmail", forAccount.email);
             localStorage.setItem("accountType", user.accountType)
-            console.log(localStorage.email)
 
             const target = "/profile/" + user.accountType;
             window.location.href = target;
         } catch (e) {
-            // console.log(e.response.data.message);
-            window.alert("Account with that email does not exist!");
+            if (e.request.status === 400) {
+                window.alert('Account with that email does not exist!');
+            } else if (e.request.status === 401) {
+                window.alert('Wrong password! Try again...');
+            }
         }
 
-        // console.log(forAccount);
         // document.getElementById("formAccount").reset();
     }
 

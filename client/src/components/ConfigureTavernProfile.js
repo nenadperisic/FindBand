@@ -129,6 +129,10 @@ class ConfigureTavernProfile extends Component {
             <div className="profile">
                 <Header />
                 <div className="container" style={{ paddingTop: '70px', paddingBottom: '50px' }}>
+
+                    <div className="card">
+                    <div className="card-body">
+
                     <form id="tavernAccountForm">
                         <h2> Configure your profile </h2>
 
@@ -194,6 +198,10 @@ class ConfigureTavernProfile extends Component {
                         <span> </span>
                         <button type="button" onClick={this.deleteAccount} className="btn btn-danger"> Delete account </button>
                     </form>
+
+                    </div>
+                    </div>
+
                 </div>
             </div>
         );

@@ -66,7 +66,7 @@ class TavernProfile extends Component {
                 <Header />
                 <div>
                 <div id="configureButtons">
-                    <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
+                    <button type="button" id="configureBtn" onClick={this.handleConfigureProfile}> <span>Configure profile </span></button>
                     <br/>
                     <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
                 </div>

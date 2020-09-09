@@ -259,6 +259,10 @@ class ConfigureBandProfile extends Component {
             <div className="profile">
                 <Header />
                 <div className="container" style={{ paddingTop: '70px', paddingBottom: '50px' }}>
+
+                    <div class="card">
+                    <div class="card-body">
+
                     <form id="bandAccountForm">
                         <h2> Configure your profile </h2>
 
@@ -351,9 +355,17 @@ class ConfigureBandProfile extends Component {
                         <span> </span>
                         <button type="button" onClick={this.deleteAccount} className="btn btn-danger"> Delete account </button>
                     </form>
+
+                    </div>
+                    </div>
+
                 </div>
 
                 <div className="container" style={{ paddingBottom: '50px' }}>
+
+                    <div className="card">
+                    <div className="card-body">
+
                     <form id="band-members-form">
                         <h2> Add and Remove band members </h2>
 
@@ -381,8 +393,11 @@ class ConfigureBandProfile extends Component {
 
                         <button type="button" onClick={this.submitMembers} className="btn btn-success"> Submit changes </button>
                     </form>
-                </div>
-                
+
+                    </div>
+                    </div>
+
+                </div>                
             </div>
         );
     }

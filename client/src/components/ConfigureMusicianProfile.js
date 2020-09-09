@@ -183,6 +183,10 @@ class ConfigureMusicianProfile extends Component {
             <div className="profile">
                 <Header />
                 <div className="container" style={{ paddingTop: '70px', paddingBottom: '50px' }}>
+
+                    <div className="card">
+                    <div className="card-body">
+
                     <form id="musicianAccountForm">
                         <h2> Configure your profile </h2>
 
@@ -329,6 +333,10 @@ class ConfigureMusicianProfile extends Component {
                         <span> </span>
                         <button type="button" onClick={this.deleteAccount} className="btn btn-danger"> Delete account </button>
                     </form>
+
+                    </div>
+                    </div>
+
                 </div>
             </div>
         );
