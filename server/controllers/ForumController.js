@@ -120,11 +120,7 @@ router.get('/getMusiciansFilter', async (req, res) => {
 });
 
 router.get('/getByEmail', async (req, res) => {
-    console.log(req.query.email);
-    /* use this to select based on checked filters */
-    const query = await Forum.find({ user : req.query.email}); /* .select({title: "rock"}); */
-    console.log(query);
-
+    const query = await Forum.find({ user : req.query.email});
     res.send(query);
 });
 

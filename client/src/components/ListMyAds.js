@@ -54,24 +54,41 @@ class ListMyAds extends Component{
                 textAlign: "center"
             };
 
-        return(
-            <div style = {style}>
-                <div style={{marginTop: "20px"}}>
-                    <h2 style={styleItems}>{this.props.name}</h2>
-                    <h6 style={styleItems}>Genre: {this.props.genre}</h6>
-                    <h6 style={styleItems}>Instruments: {this.props.instruments}</h6>
-                    <h5 style={styleItems}>Description: {this.props.description}</h5>
-                    <h6 style={styleItems}>Email: {this.props.email}</h6>
-                    {/* <h6 style={styleItems}>Id: {this.props.id}</h6> */}
-                    <button className ="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
-                       <span>View Ad</span>
-                    </button>
-                    <button className ="buttonView" id="button" style={styleButton} onClick={() => this.removeAd(this.props.id)}>
-                       <span>Remove Ad</span>
-                    </button>
-                </div>
-            </div>
-        );
+            if (localStorage.accountType === "tavern") {
+                return (<div style={style}>
+                    <div style={{ marginTop: "20px" }}>
+                        <h2 style={styleItems}>{this.props.title}</h2>
+                        <h5 style={styleItems}>Description: {this.props.description}</h5>
+                        <h6 style={styleItems}>Genre: {this.props.genre}</h6>
+                        <h6 style={styleItems}>We are: {this.props.type}</h6>
+                        <h6 style={styleItems}>Location: {this.props.location}</h6>
+                        <h6 style={styleItems}>Email: {this.props.email}</h6>
+                        <div className="buttons">
+                            <button className="btn btn-success" id="styleButton" onClick={() => this.removeAd(this.props.id)}>
+                                <span>Remove Ad</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>);
+            } else {
+                return (<div style={style}>
+                    <div style={{ marginTop: "20px" }}>
+                        <h2 style={styleItems}>{this.props.title}</h2>
+                        <h5 style={styleItems}>Description: {this.props.description}</h5>
+                        <h6 style={styleItems}>Genre: {this.props.genre}</h6>
+                        <h6 style={styleItems}>Instrument: {this.props.instrument}</h6>
+                        <h6 style={styleItems}>Location: {this.props.location}</h6>
+                        <h6 style={styleItems}>Email: {this.props.email}</h6>
+                        <div className="buttons">
+                            <button className="btn btn-success" id="styleButton" onClick={() => this.removeAd(this.props.id)}>
+                                <span>Remove Ad</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>);
+            }
     }
 
 }

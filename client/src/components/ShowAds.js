@@ -39,12 +39,23 @@ class showAds extends Component {
 						name={result.title}
 						description={result.description}
 						email={result.user}
-						genre={result.genres}
-						instruments={result.instruments}
-					// location={result.location}
+						genre={result.genre}
+						instrument={result.instrument}
+						type={result.type}
+						location={result.location}
 					/>);
             })
             this.forceUpdate();
+	}
+
+	contact(email) {
+		localStorage.setItem("contactEmail", email);
+		window.location.href = "/ContactForm";
+	}
+
+	viewProfile(email, accountType) {
+		localStorage.setItem("contactEmail", email);
+		window.location.href = "/profile/" + accountType;
 	}
 
 	render(){
@@ -54,13 +65,76 @@ class showAds extends Component {
             margin: "auto",
             marginTop: "10%",
             marginBottom: "10%",
-        }
+		}
+		const style = {
+			borderRadius: "25px",
+			borderStyle: "solid",
+			borderColor: "#343a40",
+			height: "40%",
+			margin: "3%",
+			backgroundColor: "rgba(4,4,4, 0.7)"
+		};
+		const styleItems = {
+			marginLeft: "20px",
+			color: "white"
+		};
+
+		const styleButton = {
+			colorborder: "1px solid rgb(70, 171, 230)",
+			marginLeft: "75%",
+			backgroundColor: "#343a40",
+			textAlign: "center"
+		};
+		
+		let adsArray = [];
+		for (let e of this.state.result) {
+			console.log(e.title);
+			if (e.accountType !== "tavern") {
+			adsArray.push(<div style={style}>
+				<div style={{ marginTop: "20px" }}>
+					<h2 style={styleItems}>{e.title}</h2>
+					<h5 style={styleItems}>Description: {e.description}</h5>
+					<h6 style={styleItems}>Genre: {e.genre}</h6>
+					<h6 style={styleItems}>Instrument: {e.instrument}</h6>
+					<h6 style={styleItems}>Location: {e.location}</h6>
+					<h6 style={styleItems}>Email: {e.user}</h6>
+					<div className="buttons">
+						<button className="btn btn-success" id="styleButton" onClick={() => this.contact(e.user)}> Contact
+                        </button>
+						<span> </span>
+						<button className="btn btn-success" id="styleButtonViewProfile" onClick={() => this.viewProfile(e.user, e.accountType)}>
+							View profile
+                        </button>
+					</div>
+				</div>
+				</div>);
+			} else {
+				adsArray.push(<div style={style}>
+					<div style={{ marginTop: "20px" }}>
+					<h2 style={styleItems}>{e.title}</h2>
+					<h5 style={styleItems}>Description: {e.description}</h5>
+					<h6 style={styleItems}>Genre: {e.genre}</h6>
+					<h6 style={styleItems}>Type: {e.type}</h6>
+					<h6 style={styleItems}>Location: {e.location}</h6>
+					<h6 style={styleItems}>Email: {e.user}</h6>
+					<div className="buttons">
+						<button className="btn btn-success" id="styleButton" onClick={() => this.viewAd(e.user)}> Contact
+                        </button>
+						<span> </span>
+							<button className="btn btn-success" id="styleButtonViewProfile" onClick={() => this.viewProfile(e.user, e.accountType)}>
+							View profile
+                        </button>
+					</div>
+				</div>
+				</div>);
+			}
+		}
 
 		return (
 			<div className="showAds">
                 <Header />
                 <div style={styleList}>
-                    {this.state.listResult}
+					{adsArray}
                 </div>
                 <Footer />
             </div>

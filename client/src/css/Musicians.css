@@ -39,12 +39,20 @@
   
   #styleButtonViewProfile{
     border-color: 1px solid rgb(70, 171, 230);
-    margin-left: -50%;
+    margin-left: -40%;
     margin-bottom: 3%;
     background-color: #343a40;
     text-align: center;
     
   };
+
+  #button2 {
+    border-color: 1px solid rgb(70, 171, 230);
+    /* margin-left: 75%; */
+    background-color: #343a40;
+    text-align: center;
+    margin-bottom: 3%;
+   }
 
   .buttons{
     display: inline;

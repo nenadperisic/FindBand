@@ -33,9 +33,10 @@ class MyAds extends Component {
                 name={result.title}
                 description={result.description}
                 email={result.user}
-                genre={result.genres}
-                instruments={result.instruments}
-                // location={result.location}
+                genre={result.genre}
+                instrument={result.instrument}
+                type={result.type}
+                location={result.location}
                 />);
             })
           
