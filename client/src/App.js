@@ -23,6 +23,7 @@ import MyAds from './components/MyAds';
 import Verify from './components/Verify';
 import ShowAds from './components/ShowAds';
 import ListMyAds from './components/ListMyAds';
+import ContactForm from './components/ContactForm';
 // import Logout from './components/Logout';
 
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/CreateAdMusician" exact component={CreateAdMusician} />
           <Route path="/CreateAdTavern" exact component={CreateAdTavern} />
           <Route path="/CreateAdBand" exact component={CreateAdBand} />
+          <Route path="/ContactForm" exact component={ContactForm} />
           <Route path="/Musicians" exact component={Musicians} />
           <Route path="/Bands" exact component={Bands} />  
           <Route path="/Taverns" exact component={Taverns} />  

@@ -61,8 +61,9 @@ class Taverns extends Component {
         this.forceUpdate();
     }
 
-    viewAd(id) {
-        console.log(id);
+    viewAd(email) {
+        localStorage.setItem("contactMail", email);
+        window.location.href = "/ContactForm";
     }
 
     render() {
@@ -97,8 +98,8 @@ class Taverns extends Component {
                     <h6 style={styleItems}>We are: {e.type}</h6>
                     <h6 style={styleItems}>Location: {e.location}</h6>
                     <h6 style={styleItems}>Email: {e.user}</h6>
-                    <button className="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(this.props.id)}>
-                        <span>View Ad</span>
+                    <button className="buttonView" id="button" style={styleButton} onClick={() => this.viewAd(e.user)}>
+                        <span>Contact</span>
                     </button>
                 </div>
 

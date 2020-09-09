@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/UserModel");
 const randomstring = require("randomstring");
+const Forum = require("../models/ForumModel");
 
 var secretToken;
 
@@ -100,6 +101,7 @@ router.post('/profile/deleteAccount', async (req, res) => {
     console.log(req.body.email);
     try {
         await User.findOneAndDelete( { email: req.body.email });
+        await Forum.deleteMany({user: req.body.email});
         // console.log("Account deleted");
         return res.status(200).send({
             message: "Account deleted"
@@ -243,8 +245,8 @@ router.post('/get/bandMembers', async (req, res) => {
 var smtpTransport = nodemailer.createTransport({    
     service: "Gmail",
     auth: {
-        user: "shone9611@gmail.com",
-        pass: "xdznmesueucetady"
+        user: "nadji.bend.official@gmail.com",
+        pass: "ntnid1996"
     }
 });
 
@@ -259,6 +261,25 @@ router.post('/send', function (req, res) {
         to: req.body.email,
         subject: "Please confirm your Email account",
         html: "Hello,<br> Please enter following verification code to finish registration.<br><p>" + secretToken + "</p>"
+    }
+    console.log("Salje mail")
+    smtpTransport.sendMail(mailOptions, function (error, response) {
+        if (error) {
+            console.log(error);
+            res.send("error");
+        } else {
+            // res.send("sent");
+            res.send("sent");
+        }
+    });
+});
+
+router.post('/contact', function (req, res) {
+    
+    mailOptions = {
+        to: req.body.contact,
+        subject: req.body.title,
+        html:   req.body.message + "<br><br><br>" + " You can contact this user for more information on email: " + req.body.email 
     }
     console.log("Salje mail")
     smtpTransport.sendMail(mailOptions, function (error, response) {
