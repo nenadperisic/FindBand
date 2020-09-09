@@ -107,8 +107,8 @@ class Taverns extends Component {
 
         return(
             <div>
-                 <Header />
-                 <div id="boxesTaverns"> 
+                <Header />
+                <div id="boxesTaverns"> 
                     {/* <img src="/backgrounds/tavernBlur.jpg" alt="image_background"/> */}
                     <div className="container" id="left">
                         <CheckTypes /> 

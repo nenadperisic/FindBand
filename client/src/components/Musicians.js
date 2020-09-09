@@ -120,7 +120,7 @@ class Musicians extends Component {
         return(
             <div>
                  <Header />
-                 <div id="boxesMusicians"> 
+                <div id="boxesMusicians"> 
                     {/* <img src="/backgrounds/speakerBlur.jpg" alt="image_background"/> */}
                     <div className="container" id="left">
                         <CheckGenres /> 
@@ -132,7 +132,7 @@ class Musicians extends Component {
                         <button id="button2" style={{backgroundColor: "#343a40"}} onClick={this.applyFilter}>
                             <span>Apply</span>
                         </button>
-                </div>
+                    </div>
                 <div>
                     </div>
                     <div className="container" id="containerList">

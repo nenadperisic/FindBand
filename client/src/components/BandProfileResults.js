@@ -75,8 +75,6 @@ class BandProfileResults extends Component {
         
         return(
             <Container>
-                {console.log("OVDE")}
-                {console.log(this.props.professionalAccount)}
                 <Row>
                     <Col xs = {3}>
                         <div id="profile-img">
