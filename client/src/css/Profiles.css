@@ -13,9 +13,9 @@
   width: 12%;
   transition: all 0.5s;
   cursor: pointer;
-  padding: 0.7%;
+  padding: 3px;
   bottom: 50%;
-  transform: translate(70%, 220%);
+  transform: translate(70%, 350%);
 }
 
 #configureBtn span{

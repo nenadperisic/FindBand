@@ -68,7 +68,7 @@ class MusicianProfileResults extends Component {
                                             <label><span role="img" aria-label="acceessible-emoji">❓</span> Professional account: </label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{this.props.professionalAccount ? ' ✔️ yes': ' ❌ no'}</p>
+                                            <p>{this.props.professionalAccount === 'proffesional' ? ' ✔️ yes': ' ❌ no'}</p>
                                         </div>
                                     </div>
                                             </div> },

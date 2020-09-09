@@ -5,7 +5,7 @@
     background-color: transparent;
     width: 50%;
     height: 70%;
-    overflow: overlay;
+    overflow: auto;
 }
 
 
@@ -13,9 +13,27 @@
     margin-top: 2%;
 
 }
-#boxes img{
-    width: 100%;
-    background-repeat: repeat;
+#boxesBand{
+    background-image: url("/backgrounds/guitarBlur.jpg");
+    /* width: 100%;
+    height: 100%; */
+    background-size: cover;
+    /* resize: both;
+    background-repeat: repeat-y;
+}
+
+#boxesMusicians{
+    background-image: url("/backgrounds/speakerBlur.jpg");
+    background-repeat: repeat-y;
+    /* width: 100%; */
+    height: 250vh;
+}
+
+#boxesTaverns{
+    background-image: url("/backgrounds/tavernBlur.jpg");
+    background-repeat: repeat-y;
+    /* width: 100%; */
+    height: 150vh;
 }
 
 #left{

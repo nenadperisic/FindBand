@@ -5,6 +5,7 @@
     margin-top: 5%;
     color: royalblue;
     height: 100vh;
+    display: block;
 }
 
 .prev, .next {
@@ -61,7 +62,7 @@
   #dotDiv{
     position: absolute;
     margin-left: 50%;
-    transform: translate(-50%, 40%);
+    transform: translate(-50%, 55%);
     padding: 3%;
     bottom: 5%;
   }
@@ -83,22 +84,36 @@
   #firstDiv{
     background-color: grey;
   }
-  .slides {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
+.slides {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
 
-  @-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
 
-  @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#slides1{
+  background-image: url("/backgrounds/img1.jpg");
+  background-size: cover;
+}
+
+#slides2{
+  background-image: url("/backgrounds/img2.jpg");
+  background-size: cover;
+}
+#slides3{
+  background-image: url("/backgrounds/img3.jpg");
+  background-size: cover;
+}

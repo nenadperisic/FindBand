@@ -108,8 +108,8 @@ class Taverns extends Component {
         return(
             <div>
                  <Header />
-                 <div id="boxes"> 
-                    <img src="/backgrounds/tavernBlur.jpg" alt="image_background"/>
+                 <div id="boxesTaverns"> 
+                    {/* <img src="/backgrounds/tavernBlur.jpg" alt="image_background"/> */}
                     <div className="container" id="left">
                         <CheckTypes /> 
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
@@ -119,7 +119,8 @@ class Taverns extends Component {
                             <span>Apply</span>
                         </button>
                     </div>
-
+                </div>
+                <div>
                     <div className="container" id="containerList">
                         <div>
                             {emptyArray}

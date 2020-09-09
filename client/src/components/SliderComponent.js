@@ -67,11 +67,6 @@ class SliderComponent extends Component {
     }
 
     render() {
-
-        const imgStyle={
-           objectFit: "cover"
-        }
-
         return (
             <div id="SliderComponent">
 
@@ -82,7 +77,6 @@ class SliderComponent extends Component {
                     <br/><br/>
                     <button className="button"><a href="/showAds"><span>Show ads</span></a></button>
 					{/* <button className="btnShowAds"> <a href="/ShowForum"> Show ads </a></button> */}
-
                     <div id="dotDiv" style={{textAlign:"center"}}>
                     <span className="dot" onClick={() => this.currentSlide(1)}></span>
                     <span className="dot" onClick={() => this.currentSlide(2)}></span>
@@ -91,21 +85,21 @@ class SliderComponent extends Component {
                 </div>
                 
                 <div style={{height: "100%", width:"100%", overflow: "hidden"}}>
-                    <div className="slides">
-                        <img src="/backgrounds/img1.jpg" alt="sliderImg1" style={{imgStyle}}/>
+                    <div className="slides" id="slides1">
+                        {/* <img src="/backgrounds/img1.jpg" alt="sliderImg1" style={{imgStyle}}/> */}
                         <div className="text">Welcome to Find band official site!</div>
                     </div>
 
 
-                    <div className="slides">
-                        <img src="/backgrounds/img2.jpg" alt="sliderImg2" style={{imgStyle}}/>
+                    <div className="slides" id="slides2">
+                        {/* <img src="/backgrounds/img2.jpg" alt="sliderImg2" style={{imgStyle}}/> */}
                         <div className="text">We connect people who are in searh for a member in their band, 
                             people who are looking for other members to form a band or venue where people can play!
                         </div>
                     </div>
 
-                    <div className="slides">
-                        <img src="/backgrounds/img3.jpg" alt="sliderImg3" style={{imgStyle}}/>
+                    <div className="slides" id="slides3">
+                        {/* <img src="/backgrounds/img3.jpg" alt="sliderImg3" style={{imgStyle}}/> */}
                         <div className="text">After registration, you can create an ad, send an email to a member and connect with other musicians with the same vibe!</div>
                     </div>
 

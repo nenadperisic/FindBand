@@ -119,10 +119,11 @@ class Bands extends Component {
         }
 
         return(
-            <div>
+            <div style={{height: "200vh"}}>
                  <Header />
-                 <div id="boxes"> 
-                    <img src="/backgrounds/guitarBlur.jpg" alt="image_background"/>
+                 <div id="boxesBand"> 
+                    {/* <img src="/backgrounds/guitarBlur.jpg" alt="image_background" id="imageBcg"/> */}
+                    </div>
                     <div className="container" id="left">
                         <CheckGenres /> 
                         <hr style={{height:"1px", backgroundColor:"#343a40"}}/>
@@ -134,7 +135,8 @@ class Bands extends Component {
                             <span>Apply</span>
                         </button>
                     </div>
-
+                
+                <div>
                     <div className="container" id="containerList">
                         <div>
                             {emptyArray}
