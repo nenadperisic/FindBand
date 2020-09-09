@@ -102,25 +102,10 @@ class Musicians extends Component {
             color: "white"
         };
 
-        // const styleButton = {
-        //     colorborder: "1px solid rgb(70, 171, 230)",
-        //     marginLeft: "75%",
-        //     backgroundColor: "#343a40",
-        //     textAlign: "center",
-        // };
-
-        // const styleButtonViewProfile = {
-        //     colorborder: "1px solid rgb(70, 171, 230)",
-        //     marginLeft: "60%",
-        //     backgroundColor: "#343a40",
-        //     textAlign: "center",
-            
-        // };
-
-        let emptyArray = [];
+        let adsArray = [];
         for (let e of this.state.result) {
             console.log(e.title);
-            emptyArray.push(<div style={style}>
+            adsArray.push(<div style={style}>
                 <div style={{ marginTop: "20px" }}>
                     <h2 style={styleItems}>{e.title}</h2>
                     <h5 style={styleItems}>Description: {e.description}</h5>
@@ -161,7 +146,7 @@ class Musicians extends Component {
                     </div>
                     <div className="container" id="containerList">
                         <div>
-                            {emptyArray}
+                            {adsArray}
                         </div>
                     </div>
                 </div>
