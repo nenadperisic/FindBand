@@ -45,11 +45,23 @@ class MyAds extends Component {
 
     
     render() {
+        const styleList={
+            position: "relative",
+            width: "70%",
+            margin: "auto",
+            marginTop: "0",
+            marginBottom: "0",
+            transform: "translate(-50%)",
+		}
+        const styleCreateAd = {
+            backgroundImage: "url('/backgrounds/showAdsBcgBlur.jpg')",
+            height: "100vh"
+        }
         return (
-            <div className="createAd">
+            <div className="createAd" style={styleCreateAd}>
                 <Header />
                     
-                    <div className="container" id="containerList">
+                    <div className="container" id="containerList" style={styleList}>
                         <div>
                             {this.state.listResult}
                         </div>
