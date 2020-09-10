@@ -19,6 +19,7 @@ const UserSchema = new Schema({
     professionalAccount: String,
     name: String,
     tavernType: String,
+    rating: [Number],
     bandMembers: [String]
 });
 

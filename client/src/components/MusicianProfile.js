@@ -3,6 +3,8 @@ import '../css/Profiles.css';
 import Header from './Header';
 import Footer from './Footer';
 import MusicianProfileResults from './MusicianProfileResults';
+// import ReactStars from "react-rating-stars-component";
+import StarRatingComponent from 'react-star-rating-component';
 // import CommentResult from './CommentResult';
 
 import axios from 'axios';
@@ -10,6 +12,7 @@ import axios from 'axios';
 class MusicianProfile extends Component {
     constructor(props) {
         super(props);
+        
         this.state = {
             areThereComments : false,
             name: '',
@@ -21,11 +24,30 @@ class MusicianProfile extends Component {
             professionalAccount: '',
             gender: '',
             listResult: null,
-            result: []
+            result: [],
+            average: 0
         };
 
         this.configureProfile = this.configureProfile.bind(this);
     }
+
+    async ratingChanged(newRating) {
+        console.log(newRating);
+        try {
+            const result = await axios.post('http://localhost:5000/api/rating/rate',
+                {
+                    rating : newRating, 
+                    ratedId: localStorage.contactEmail,
+                    raterId: localStorage.email
+                });
+        } catch (error) {
+            window.alert("You have already rated this profile.")
+        }
+
+        
+        window.location.reload(false);
+        
+    };
 
 
     configureProfile = async event => {
@@ -62,12 +84,30 @@ class MusicianProfile extends Component {
             document.getElementById("configureButtons").style.display = "block";
         }
 
-    
+        try {
+            const result = await axios.post('http://localhost:5000/api/rating/getRatings',
+                {   
+                    ratedId: localStorage.contactEmail,
+                });
+            console.log("Result is: ");
+            console.log(result.data.result);
+            this.setState({average:result.data.result });
+
+        } catch (error) {
+            console.log("getRating failed!")
+        }
+        console.log("this.average")
+        console.log(this.state.average);
+
+        
+
         this.forceUpdate();
     }
 
 
     render() {
+
+        
         const style={
             // backgroundImage: "url('/backgrounds/grayBlur.jpg')",
             height: "100vh",
@@ -82,8 +122,24 @@ class MusicianProfile extends Component {
                     <button type="button" id="configureBtn" onClick={this.configureProfile}> <span>Configure profile </span></button>
                     <br/>
                     <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
+                    
                 </div>
+
+                
+                
+
                 {this.state.listResult}
+                {console.log(this.state.average)}
+                
+
+                <div style={{marginLeft: "14%", paddingTop: "1%"}}>
+                <StarRatingComponent 
+                    name="rate1" 
+                    starCount={5}
+                    value={this.state.average}
+                    onStarClick={this.ratingChanged.bind(this)}
+                />
+                </div>
                 <Footer />
             </div>
         );

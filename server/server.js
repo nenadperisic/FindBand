@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, "..", "client/build")));
 
 app.use('/api/user', require('./controllers/UserController')); 
 app.use('/api/forum', require('./controllers/ForumController')); 
+app.use('/api/rating', require('./controllers/RatingController')); 
 // app.use('/api/bands', require('./controllers/BandController')); 
 
 

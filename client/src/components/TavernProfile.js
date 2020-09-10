@@ -3,6 +3,7 @@ import '../css/Profiles.css';
 import Header from './Header';
 import Footer from './Footer';
 import TavernProfileResults from './TavernProfileResults';
+import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 
 
@@ -24,6 +25,24 @@ class TavernProfile extends Component {
     handleConfigureProfile = async event => {
         window.location.href = "/configure";
     }
+
+    async ratingChanged(newRating) {
+        console.log(newRating);
+        try {
+            const result = await axios.post('http://localhost:5000/api/rating/rate',
+                {
+                    rating : newRating, 
+                    ratedId: localStorage.contactEmail,
+                    raterId: localStorage.email
+                });
+        } catch (error) {
+            window.alert("You have already rated this profile.")
+        }
+
+        
+        window.location.reload(false);
+        
+    };
 
     async componentDidMount(){
     
@@ -50,6 +69,19 @@ class TavernProfile extends Component {
         }else{
             document.getElementById("configureButtons").style.display = "block";
         }
+
+        try {
+            const result = await axios.post('http://localhost:5000/api/rating/getRatings',
+                {   
+                    ratedId: localStorage.contactEmail,
+                });
+            console.log("Result is: ");
+            console.log(result.data.result);
+            this.setState({average:result.data.result });
+
+        } catch (error) {
+            console.log("getRating failed!")
+        }
     
         this.forceUpdate();
     }
@@ -71,6 +103,15 @@ class TavernProfile extends Component {
                     <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
                 </div>
                 {this.state.listResult}
+
+                <div style={{marginLeft: "14%", paddingTop: "1%"}}>
+                <StarRatingComponent 
+                    name="rate1" 
+                    starCount={5}
+                    value={this.state.average}
+                    onStarClick={this.ratingChanged.bind(this)}
+                />
+                </div>
 
                 </div>
                 <Footer />
