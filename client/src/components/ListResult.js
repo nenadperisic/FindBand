@@ -5,8 +5,6 @@ class ListResult extends Component{
     constructor(props){
         super(props)
 
-        this.viewProfile = this.viewProfile.bind(this);
-        this.apply = this.apply(this);
     }
 
     viewProfile(id){
@@ -16,11 +14,6 @@ class ListResult extends Component{
         console.log(id);
     }
 
-    componentDidMount() {
-		if (localStorage.email !== undefined) {
-            document.getElementsById("button").style.display = "none";
-		}
-	}
 
     render(){
         const style={
@@ -53,12 +46,6 @@ class ListResult extends Component{
                     <h6 style={styleItems}>Genre: {this.props.genre}</h6>
                     <h6 style={styleItems}>Instruments: {this.props.instruments}</h6>
                     <h6 style={styleItems}>Email: {this.props.email}</h6>
-                   <button className ="buttonView" id="button" style={styleButton} onClick={() => this.viewProfile(this.props.id)}>
-                       <span>View profile</span>
-                    </button>
-                    <button className ="buttonView" id="button" style={styleButton} onClick={() => this.apply(this.props.id)}>
-                       <span>Apply</span>
-                    </button>
                 </div>
 
             </div>

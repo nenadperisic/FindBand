@@ -63,8 +63,10 @@ class showAds extends Component {
             position: "relative",
             width: "70%",
             margin: "auto",
-            marginTop: "10%",
-            marginBottom: "10%",
+            marginTop: "0",
+			marginBottom: "0",
+			paddingTop: "10%",
+			paddingBottom: "10%"
 		}
 		const style = {
 			borderRadius: "25px",
@@ -79,12 +81,18 @@ class showAds extends Component {
 			color: "white"
 		};
 
-		const styleButton = {
-			colorborder: "1px solid rgb(70, 171, 230)",
-			marginLeft: "75%",
-			backgroundColor: "#343a40",
-			textAlign: "center"
+		const styleShowAds = {
+			backgroundImage: "url('/backgrounds/showAdsBcgBlur.jpg')",
 		};
+
+		const styleButtonsDiv = {
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            justifyContent: "flex-end",
+            padding: "2%"
+            
+        };
 		
 		let adsArray = [];
 		for (let e of this.state.result) {
@@ -98,11 +106,11 @@ class showAds extends Component {
 					<h6 style={styleItems}>Instrument: {e.instrument}</h6>
 					<h6 style={styleItems}>Location: {e.location}</h6>
 					<h6 style={styleItems}>Email: {e.user}</h6>
-					<div className="buttons">
-						<button className="btn btn-success" id="styleButton" onClick={() => this.contact(e.user)}> Contact
+					<div className="buttonsDiv" style={styleButtonsDiv}>
+						<button className="btn btn-success" id="styleButton" style={{marginLeft: "15px", height: "50%"}} onClick={() => this.contact(e.user)}> Contact
                         </button>
 						<span> </span>
-						<button className="btn btn-success" id="styleButtonViewProfile" onClick={() => this.viewProfile(e.user, e.accountType)}>
+						<button className="btn btn-success" id="styleButtonViewProfile" style={{marginLeft: "15px", height: "50%"}} onClick={() => this.viewProfile(e.user, e.accountType)}>
 							View profile
                         </button>
 					</div>
@@ -131,7 +139,7 @@ class showAds extends Component {
 		}
 
 		return (
-			<div className="showAds">
+			<div className="showAds" style={styleShowAds}>
                 <Header />
                 <div style={styleList}>
 					{adsArray}
