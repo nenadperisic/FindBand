@@ -136,6 +136,7 @@ class Taverns extends Component {
                 </div>
                 <div>
                     <div className="container" id="containerList">
+
                         <div>
                             {adsArray}
                         </div>
