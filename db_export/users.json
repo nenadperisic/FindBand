@@ -1,0 +1,266 @@
+[{
+  "_id": {
+    "$oid": "5f36c931b3c1d716fc41454f"
+  },
+  "accountType": "musician",
+  "email": "asd@gmail.com",
+  "password": "$2a$10$X.A9cJ2zxnewF5xZop0Wy.PhB0qudj0b1cYfJIzvitFm/UC17t486",
+  "__v": 0,
+  "age": "16",
+  "dateOfBirth": {
+    "$date": {
+      "$numberLong": "-137721600000"
+    }
+  },
+  "description": "lalalla",
+  "genres": [
+    "rock",
+    "metal"
+  ],
+  "instruments": [
+    "guitar"
+  ],
+  "location": "belgrade",
+  "name": "aleksandar",
+  "professionalAccount": "proffesional"
+},{
+  "_id": {
+    "$oid": "5f3ac7454f201a52e837e36f"
+  },
+  "accountType": "tavern",
+  "email": "tavern@t.com",
+  "password": "$2a$10$byprgrqNebvRbUgx3wdEgeDqGwdi/n6nEF94/JQGcGka54kUnhHnm",
+  "__v": 0,
+  "description": "Jedno od najboljih mesta za provod u gradu. Brace Majer 37, Subotica",
+  "location": "Subotica",
+  "name": "The Pub Pub"
+},{
+  "_id": {
+    "$oid": "5f3bc41c4fe2318c88f56830"
+  },
+  "genres": [
+    "Pop",
+    "Metal",
+    "Folk"
+  ],
+  "instruments": [
+    "Voice",
+    "Drums",
+    "Trumpet"
+  ],
+  "accountType": "musician",
+  "email": "musician@m.com",
+  "password": "$2a$10$GbPkIxV903/lY2tcqRuui.G7zsgzinIoCu6R5qXbdeJsQGCyC1Bge",
+  "__v": 0,
+  "dateOfBirth": {
+    "$date": {
+      "$numberLong": "-3829766400000"
+    }
+  },
+  "description": "Ja sam pavle i bavim se muzikom od svoje pete godine. Najvise volim da sviram bubnjeve, ali pored njih znam i trubu. ",
+  "location": "Subotica",
+  "name": "Pavle Jurišić Šturm",
+  "professionalAccount": "proffesional"
+},{
+  "_id": {
+    "$oid": "5f43ef4109459f33e81439a7"
+  },
+  "genres": [],
+  "instruments": [],
+  "accountType": "musician",
+  "email": "nadjiband.team@gmail.com",
+  "password": "$2a$10$WwR62fYbVPq4PdI.bjqDuOb5m3AMJtxBhXqUQo7gbMOhAfLwdlXmS",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f52e7d2e87629514fb6b699"
+  },
+  "genres": [
+    "Pop",
+    "Metal"
+  ],
+  "instruments": [
+    "Voice",
+    "Guitar",
+    "Bass Guitar"
+  ],
+  "accountType": "musician",
+  "email": "ribljakost5@hotmail.com",
+  "password": "$2a$10$7aeZt5oIxqoySCq0Pk/HJuHTPdguQppXghNrSxao/0qHNX0xrx4vy",
+  "dateOfBirth": {
+    "$date": "1997-01-10T00:00:00Z"
+  },
+  "__v": 0,
+  "description": "Voleo bih da se bavim muzikom iz hobija i da pronadjem ljude koji takodje to zele. Zavrsio sam osnovnu muzicku skolu. Prvu gitaru sam dobio sa 6 godina i od tada sviram",
+  "location": "Belgrade",
+  "name": "Kosta Jovičić",
+  "professionalAccount": "proffesional"
+},{
+  "_id": {
+    "$oid": "5f53947a464972958d78c3e3"
+  },
+  "genres": [
+    "Folk"
+  ],
+  "instruments": [
+    "Violin"
+  ],
+  "accountType": "musician",
+  "email": "example@gmail.com",
+  "password": "$2a$10$QRo01SeUuu6D2VVBxvFuTuTP1iaYpF6FUCsBrtOE3aa/jH0gwEufu",
+  "dateOfBirth": {
+    "$date": "2003-06-11T00:00:00Z"
+  },
+  "__v": 0,
+  "description": "Predsednik.",
+  "location": "Novi Sad",
+  "name": "Alekstandar Vucic",
+  "professionalAccount": "proffesional"
+},{
+  "_id": {
+    "$oid": "5f539e34464972958d78c3e5"
+  },
+  "genres": [
+    "rock",
+    "metal"
+  ],
+  "instruments": [],
+  "accountType": "band",
+  "email": "nenadperisicbg@gmail.com",
+  "password": "$2a$10$8mqK.LrzBRWM2TGA6ryf4u2/4R6m4dWqTI0.bME4rjXRNmTcD9htG",
+  "dateOfBirth": null,
+  "__v": 0,
+  "description": "",
+  "location": "subotica",
+  "name": "dsff",
+  "professionalAccount": "proffesional"
+},{
+  "_id": {
+    "$oid": "5f553089349ea617cbff7154"
+  },
+  "genres": [],
+  "instruments": [],
+  "accountType": "musician",
+  "email": "ajvaznevena6@gmail.com",
+  "password": "$2a$10$c3Fl8EfdkgnP7ky7TtsjK.2x.iLGfa1g5b07OGhG1OrDX2pdMAGzm",
+  "dateOfBirth": {
+    "$date": "1996-08-05T00:00:00Z"
+  },
+  "__v": 0,
+  "description": "Ja sam Nena i volim da pevam u slobodno vreme. Pevala sam u horu, ali nikad kao glavni vokal.\nTakođe, svirala sam lila, plastičnu frulicu iz muzičkog u trećem osnovne i znam da odsviram pesmicu \"Razgranala grana jorgovana\".",
+  "location": "Pančevo",
+  "name": "nena_pevacica",
+  "professionalAccount": "hobby"
+},{
+  "_id": {
+    "$oid": "5f5661dbf65f15fbf0cd3a05"
+  },
+  "genres": [],
+  "instruments": [],
+  "accountType": "tavern",
+  "email": "drugaribljakost@gmail.com",
+  "password": "$2a$10$O361NSNp1VzcwxCC1eYjduGrFD61EMAYDIh/ZrXq8HVLRbb/OCZLy",
+  "dateOfBirth": null,
+  "__v": 0,
+  "description": "Sa vama smo svakog dana u nedelji u periodu od 21h do 6h. Najbolje zurke u centru grada.",
+  "location": "Belgrade",
+  "name": "The Room"
+},{
+  "_id": {
+    "$oid": "5f58f05e8840f149d4690c87"
+  },
+  "genres": [
+    "Rock"
+  ],
+  "instruments": [
+    "Voice"
+  ],
+  "accountType": "musician",
+  "email": "igormilosevic96@gmail.com",
+  "password": "$2a$10$bh4BfC024tyGitO/m3WcXedG4yznXkel.7PIbqkPZCQdf/EtJmpTm",
+  "dateOfBirth": {
+    "$date": "1996-08-04T00:00:00Z"
+  },
+  "__v": 0,
+  "description": "Cao cao",
+  "location": "Belgrade",
+  "name": "Igor Milosevic",
+  "professionalAccount": "proffesional"
+},{
+  "_id": {
+    "$oid": "5f58f05f48273cc168f02c6b"
+  },
+  "genres": [],
+  "instruments": [],
+  "accountType": "musician",
+  "email": "perisicnenad96@gmail.com",
+  "password": "$2a$10$xCIfC6KPPTtzAgPHaskL6OJCL8FUz3WBiMWBkvSHNWPABsBKriIqC",
+  "dateOfBirth": {
+    "$date": "2001-03-02T00:00:00Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f58f717c9b58a25a540218a"
+  },
+  "genres": [
+    "Pop",
+    "Rock",
+    "Jazz",
+    "Metal",
+    "Folk"
+  ],
+  "instruments": [],
+  "accountType": "band",
+  "email": "nadji.band.official@gmail.com",
+  "password": "$2a$10$lo1zEMpmw9xsXM8NQt7WDeOwlKBF9fOuCKjO.8kn1huko3rS4TM4u",
+  "dateOfBirth": null,
+  "__v": 0,
+  "description": "Napravili smo ovaj projekat za programiranje za veb",
+  "location": "Belgrade",
+  "name": "Zvanicna strana Pronadji Bend organizacije",
+  "professionalAccount": "hobby"
+},{
+  "_id": {
+    "$oid": "5f5a0066aee869602301dc9c"
+  },
+  "genres": [
+    "Pop",
+    "Jazz"
+  ],
+  "instruments": [],
+  "accountType": "band",
+  "email": "ribljakostslike@gmail.com",
+  "password": "$2a$10$6sbJV74xkOk.nP0McgC7eerrpgrPj82Z39TPwZwVDRsB.5/OQ.WAe",
+  "dateOfBirth": null,
+  "__v": 0,
+  "description": "Mi smo the fish bone, najbolji bend u gradu. Najvise volimo da sviramo pop i jazz ali se bavimo i ostalim muzickim zanrovima.",
+  "location": "Novi Sad",
+  "name": "The Fish Bone",
+  "professionalAccount": "proffesional"
+},{
+  "_id": {
+    "$oid": "5f5a4a460b4f9e82045fc990"
+  },
+  "genres": [
+    "Rock",
+    "Jazz",
+    "Metal"
+  ],
+  "instruments": [
+    "Bass Guitar",
+    "Piano",
+    "Drums"
+  ],
+  "accountType": "musician",
+  "email": "davgavrilovic@gmail.com",
+  "password": "$2a$10$PfFeFjCW2zGeRsLlh66Ihu2vqgoM7280/YEQrQJ8rxA4vugljrNmi",
+  "dateOfBirth": {
+    "$date": "1995-10-10T00:00:00Z"
+  },
+  "__v": 0,
+  "description": "ovo je moj opis profila",
+  "location": "Belgrade",
+  "name": "David Gav",
+  "professionalAccount": "hobby"
+}]

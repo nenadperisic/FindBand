@@ -52,6 +52,8 @@
     font-size: 90%;
     background: #212529b8;
     color: white;
+    top:50%;
+    display: inline-block;
 }
 #fileDiv input {
   position: absolute;

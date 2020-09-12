@@ -1,0 +1,127 @@
+[{
+  "_id": {
+    "$oid": "5f59fda2aee869602301dc98"
+  },
+  "averageAge": [],
+  "title": "Zelim da budem bubnjar u bendu",
+  "description": "Zeleo bih da budem clan benda koji planira velike stvari.",
+  "user": "musician@m.com",
+  "accountType": "musician",
+  "instrument": "Drums",
+  "genre": "Metal",
+  "location": "Subotica",
+  "createdAt": {
+    "$date": "2020-09-10T10:19:14.331Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f59ff3aaee869602301dc9a"
+  },
+  "averageAge": [],
+  "title": "Potreban nam je bend za svirku",
+  "description": "Trazimo bend koji ima iskustva sa nastupima.",
+  "user": "tavern@t.com",
+  "genre": "Rock",
+  "accountType": "tavern",
+  "location": "Subotica",
+  "createdAt": {
+    "$date": "2020-09-10T10:26:02.975Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f59ffcdaee869602301dc9b"
+  },
+  "averageAge": [],
+  "title": "Potreban bend popularne muzike",
+  "description": "Odgovoricemo vam u najkracem mogucem roku",
+  "user": "drugaribljakost@gmail.com",
+  "genre": "Pop",
+  "accountType": "tavern",
+  "location": "Belgrade",
+  "createdAt": {
+    "$date": "2020-09-10T10:28:29.500Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a0140aee869602301dc9d"
+  },
+  "averageAge": [],
+  "title": "Potreban glavni gitarista",
+  "description": "Trazimo gitaristu sa vise od pet godina iskustva.",
+  "user": "ribljakostslike@gmail.com",
+  "accountType": "band",
+  "instrument": "Guitar",
+  "genre": "Pop",
+  "location": "Novi Sad",
+  "createdAt": {
+    "$date": "2020-09-10T10:34:40.650Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a0199aee869602301dc9e"
+  },
+  "averageAge": [],
+  "title": "Potreban glavni vokal",
+  "description": "Pozeljna je osoba koji voli da se bavi razlicitim zanrovima muzike, iako se nas bend primarno bavi pop muzikom.",
+  "user": "ribljakostslike@gmail.com",
+  "accountType": "band",
+  "instrument": "Voice",
+  "genre": "Pop",
+  "location": "Novi Sad",
+  "createdAt": {
+    "$date": "2020-09-10T10:36:09.141Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a0290aee869602301dc9f"
+  },
+  "averageAge": [],
+  "title": "Gitara",
+  "description": "Zeleo bih da nadjem neobavezan bend kome je potreban gitarista",
+  "user": "ribljakost5@hotmail.com",
+  "accountType": "musician",
+  "instrument": "Guitar",
+  "genre": "Pop",
+  "location": "Belgrade",
+  "createdAt": {
+    "$date": "2020-09-10T10:40:16.560Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a02b3aee869602301dca0"
+  },
+  "averageAge": [],
+  "title": "Bas gitara",
+  "description": "Trazim bend kome je potreban bas gitarista.",
+  "user": "ribljakost5@hotmail.com",
+  "accountType": "musician",
+  "instrument": "Bass Guitar",
+  "genre": "Rock",
+  "location": "Belgrade",
+  "createdAt": {
+    "$date": "2020-09-10T10:40:51.106Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a4b560b4f9e82045fc992"
+  },
+  "averageAge": [],
+  "title": "zelim da sviram bubnjeve",
+  "description": "opis",
+  "user": "davgavrilovic@gmail.com",
+  "accountType": "musician",
+  "instrument": "Drums",
+  "genre": "Rock",
+  "location": "Belgrade",
+  "createdAt": {
+    "$date": "2020-09-10T15:50:46.685Z"
+  },
+  "__v": 0
+}]

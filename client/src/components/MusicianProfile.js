@@ -125,14 +125,7 @@ class MusicianProfile extends Component {
                     
                 </div>
 
-                
-                
-
-                {this.state.listResult}
-                {console.log(this.state.average)}
-                
-
-                <div style={{marginLeft: "14%", paddingTop: "1%"}}>
+                <div style={{top: "40%", left: "15.5%", display: "inline-block", position: "relative"}}>
                 <StarRatingComponent 
                     name="rate1" 
                     starCount={5}
@@ -140,6 +133,13 @@ class MusicianProfile extends Component {
                     onStarClick={this.ratingChanged.bind(this)}
                 />
                 </div>
+
+                {this.state.listResult}
+                {console.log(this.state.average)}
+                
+
+                
+                
                 <Footer />
             </div>
         );

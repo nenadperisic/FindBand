@@ -96,15 +96,14 @@ class TavernProfile extends Component {
         return (
             <div className="profile" style={style}>
                 <Header />
-                <div>
+                
                 <div id="configureButtons">
                     <button type="button" id="configureBtn" onClick={this.handleConfigureProfile}> <span>Configure profile </span></button>
                     <br/>
                     <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
                 </div>
-                {this.state.listResult}
 
-                <div style={{marginLeft: "14%", paddingTop: "1%"}}>
+                <div style={{top: "40%", left: "15.5%", display: "inline-block", position: "relative"}}>
                 <StarRatingComponent 
                     name="rate1" 
                     starCount={5}
@@ -113,7 +112,9 @@ class TavernProfile extends Component {
                 />
                 </div>
 
-                </div>
+                {this.state.listResult}                
+
+                
                 <Footer />
             </div>
         );

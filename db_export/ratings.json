@@ -1,0 +1,169 @@
+[{
+  "_id": {
+    "$oid": "5f5a43b4d7d90c044cc166aa"
+  },
+  "ratedId": "ribljakost5@hotmail.com",
+  "raterId": "asd@gmail.com",
+  "rating": 4,
+  "createdAt": {
+    "$date": "2020-09-10T15:18:12.064Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:18:12.064Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a43e4d7d90c044cc166ab"
+  },
+  "ratedId": "ribljakost5@hotmail.com",
+  "raterId": "igormilosevic96@gmail.com",
+  "rating": 2,
+  "createdAt": {
+    "$date": "2020-09-10T15:19:00.256Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:19:00.256Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a4578d9be4537449daae3"
+  },
+  "ratedId": "musician@m.com",
+  "raterId": "igormilosevic96@gmail.com",
+  "rating": 5,
+  "createdAt": {
+    "$date": "2020-09-10T15:25:44.259Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:25:44.259Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a458ed9be4537449daae4"
+  },
+  "ratedId": "musician@m.com",
+  "raterId": "asd@gmail.com",
+  "rating": 1,
+  "createdAt": {
+    "$date": "2020-09-10T15:26:06.128Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:26:06.128Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a47c1d9be4537449daae5"
+  },
+  "ratedId": "band@b.com",
+  "raterId": "asd@gmail.com",
+  "rating": 3,
+  "createdAt": {
+    "$date": "2020-09-10T15:35:29.063Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:35:29.063Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a47e1d9be4537449daae6"
+  },
+  "ratedId": "band@b.com",
+  "raterId": "igormilosevic96@gmail.com",
+  "rating": 5,
+  "createdAt": {
+    "$date": "2020-09-10T15:36:01.330Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:36:01.330Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a482fd9be4537449daae7"
+  },
+  "ratedId": "tavern@t.com",
+  "raterId": "igormilosevic96@gmail.com",
+  "rating": 5,
+  "createdAt": {
+    "$date": "2020-09-10T15:37:19.661Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:37:19.661Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a48f1d9be4537449daae8"
+  },
+  "ratedId": "drugaribljakost@gmail.com",
+  "raterId": "igormilosevic96@gmail.com",
+  "rating": 5,
+  "createdAt": {
+    "$date": "2020-09-10T15:40:33.561Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:40:33.561Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a4911d9be4537449daae9"
+  },
+  "ratedId": "igormilosevic96@gmail.com",
+  "raterId": "igormilosevic96@gmail.com",
+  "rating": 5,
+  "createdAt": {
+    "$date": "2020-09-10T15:41:05.983Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:41:05.983Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a4bdb0b4f9e82045fc993"
+  },
+  "ratedId": "davgavrilovic@gmail.com",
+  "raterId": "band@b.com",
+  "rating": 3,
+  "createdAt": {
+    "$date": "2020-09-10T15:52:59.245Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:52:59.245Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a4c610b4f9e82045fc994"
+  },
+  "ratedId": "davgavrilovic@gmail.com",
+  "raterId": "tavern@t.com",
+  "rating": 5,
+  "createdAt": {
+    "$date": "2020-09-10T15:55:13.664Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T15:55:13.664Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f5a658a829a28196c34b924"
+  },
+  "ratedId": "tavern@t.com",
+  "raterId": "tavern@t.com",
+  "rating": 5,
+  "createdAt": {
+    "$date": "2020-09-10T17:42:34.429Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-10T17:42:34.429Z"
+  },
+  "__v": 0
+}]

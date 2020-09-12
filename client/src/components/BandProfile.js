@@ -105,9 +105,8 @@ class MusicianProfile extends Component {
                     <br/>
                     <button className="button" id="configureBtn"><a href="/MyAds"><span>Show my ads</span></a></button>
                 </div>
-                {this.state.listResult}
 
-                <div style={{marginLeft: "14%", paddingTop: "1%"}}>
+                <div style={{top: "40%", left: "15.5%", display: "inline-block", position: "relative"}}>
                 <StarRatingComponent 
                     name="rate1" 
                     starCount={5}
@@ -115,6 +114,8 @@ class MusicianProfile extends Component {
                     onStarClick={this.ratingChanged.bind(this)}
                 />
                 </div>
+
+                {this.state.listResult}
 
                 <Footer />
             </div>
